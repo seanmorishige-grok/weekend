@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1B5E4A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Weekend Ideas">
+<title>Archive — Weekend Ideas</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+:root{--green:#1B5E4A;--pumpkin:#E07A2F;--cream:#FBF6EE;--card:#FFF;--border:#E6D9C4;--ink:#2C2418;--muted:#6B5E4F;--rain:#E8F2F0;--rainb:#7BA89A;--treat:#FFF5E6}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--pumpkin)}
+.wrap{max-width:640px;margin:0 auto;padding:0 0 48px}
+.hd{background:var(--green);color:#fff;padding:20px 16px 18px;text-align:center;border-radius:0 0 12px 12px}
+.hd h1{font:700 22px/1.2 Georgia,"Times New Roman",serif;margin:0}
+.hd .sub{font-size:13px;color:#D5EDE4;margin:6px 0 0}
+.pill{display:inline-block;background:var(--pumpkin);color:#fff;font:700 10px/1 Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-top:10px}
+.bd{padding:12px 14px}
+.intro{margin:0 0 12px;font-size:14px;color:var(--ink)}
+.wx{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 14px}
+.wx .b{background:#FFF9F0;border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.wx .hi{font-weight:700;font-size:16px;color:var(--pumpkin)}
+.wx .sm{font-size:12px;color:var(--muted);margin-top:2px}
+.box,.cd,.sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:0 0 12px}
+.box h2,.sec h2,.eh{font:700 14px Georgia,serif;color:var(--green);margin:0 0 8px}
+.ix{display:block;padding:6px 0;border-bottom:1px solid #F0E6D6;color:inherit;text-decoration:none}
+.ix:last-child{border-bottom:0}
+.ix:hover{background:#FFF9F0;margin:0 -6px;padding-left:6px;padding-right:6px;border-radius:6px}
+.ix .n{color:var(--pumpkin);font-weight:700}
+.ix .m{color:var(--muted);font-size:13px}
+.cd{scroll-margin-top:12px}
+.cd .nm{font:700 17px/1.25 Georgia,serif}
+.cd .nm a{color:inherit;text-decoration:none;border-bottom:2px solid var(--pumpkin)}
+.cd .nm a:hover{color:var(--pumpkin)}
+.cd .tw{font-size:13px;color:var(--pumpkin);margin:2px 0 6px}
+.cd .hk{font:italic 14px Georgia,serif;color:var(--muted);margin:6px 0}
+.nb{display:inline-block;background:var(--pumpkin);color:#fff;border-radius:999px;padding:2px 8px;font:700 13px Arial,sans-serif;margin-right:6px}
+.tg{display:inline-block;background:#F3E8D4;color:var(--muted);font-size:11px;padding:2px 7px;border-radius:999px;margin:0 4px 4px 0}
+.ch{display:inline-block;background:#F5EDE0;border-radius:8px;padding:4px 8px;font-size:13px;color:var(--ink);margin:0 4px 4px 0}
+.wh{font-size:14px;margin-top:8px}
+.wh b{color:var(--green)}
+.rn{background:var(--rain);border-left:3px solid var(--rainb);padding:8px 10px;margin-top:8px;font-size:13px;border-radius:0 8px 8px 0}
+.eh{margin-top:12px}
+.fd{border:1px solid var(--border);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:13px;line-height:1.4;background:#FAFAF7}
+.fd.tr{background:var(--treat);border-color:#F0D9B0}
+.fd a.name{font-weight:700;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--pumpkin)}
+.fd a.name:hover{color:var(--pumpkin)}
+.fd .st{color:var(--pumpkin);font-weight:700;white-space:nowrap}
+.fd .u{color:var(--muted);font-size:12px}
+.fd .kid{display:block;margin-top:4px;font-style:italic;color:var(--muted)}
+.sec ul{margin:0;padding-left:18px}
+.sec li{margin:4px 0}
+.ft{text-align:center;padding:16px;font-size:12px;color:#D5EDE4;background:var(--green);border-radius:12px 12px 0 0;margin:24px 14px 0}
+.ft a{color:#fff}
+.nav{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:10px 14px;font-size:13px}
+.nav a{color:var(--green);font-weight:600}
+.arch li{margin:8px 0}
+@media (min-width:700px){
+  .hd{border-radius:0 0 16px 16px;margin:0 0 0}
+  body{padding-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hd">
+<h1>Archive</h1>
+<p class="sub">Past weekend digests</p>
+</header>
+<nav class="nav"><a href="./">This weekend</a><a href="archive.html">Archive</a></nav>
+<main class="bd">
+<section class="box arch">
+<h2>Weekends</h2>
+<ul><li><a href="weekends/2026-10-10.html"><b>2026-10-10</b> — Weekend Adventures — Oct 10–11</a></li></ul>
+</section>
+</main>
+<footer class="ft">Crest View family digests</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "Weekend Ideas",
+  "short_name": "Weekend",
+  "description": "Family weekend activity digests",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EE",
+  "theme_color": "#1B5E4A",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
