@@ -45,12 +45,6 @@ BLOCKS = [
     {"key": "afternoon", "label": "Afternoon", "window": "3–7 PM", "start": 15, "end": 19},
 ]
 
-# "Nicer" thresholds: rain first, then warmth, then wind, then sunnier sky.
-RAIN_DIFF = 15     # percentage points of max rain chance
-PRECIP_DIFF = 1.0  # mm total precip (when rain chances are similar)
-TEMP_DIFF = 3.0    # °F of block average temperature
-WIND_DIFF = 5.0    # mph of block max wind
-SKY_DIFF = 1.0     # cloud score (0 clear … 3 overcast), final tiebreak
 
 
 # ---------------------------------------------------------------- fetching
@@ -202,34 +196,8 @@ def summarize_block(hours: dict[str, dict], day: date, blk: dict) -> dict:
         "rain_pct": max_pop,
         "precip_in": round(precip_mm / 25.4, 2) if precip_mm is not None else None,
         "wind_max_mph": round(max(winds)) if winds else None,
-        "cloud_score": cloud_score(codes),
-        "nicer": False,
     }
 
-
-def pick_nicer(am: dict, pm: dict) -> tuple[str, str]:
-    """Return ("morning"|"afternoon"|"same", reason)."""
-    dp = am["rain_pct"] - pm["rain_pct"]
-    if abs(dp) >= RAIN_DIFF:
-        return ("afternoon" if dp > 0 else "morning"), "lower rain chance"
-    a_in, p_in = am.get("precip_in") or 0, pm.get("precip_in") or 0
-    if abs(a_in - p_in) * 25.4 >= PRECIP_DIFF:
-        return ("afternoon" if a_in > p_in else "morning"), "less rain expected"
-    dt = pm["temp_avg"] - am["temp_avg"]
-    dw = (pm.get("wind_max_mph") or 0) - (am.get("wind_max_mph") or 0)
-    if abs(dt) >= TEMP_DIFF:
-        warmer = "afternoon" if dt > 0 else "morning"
-        # a warmer block that's also much windier isn't clearly nicer
-        windier_by = dw if warmer == "afternoon" else -dw
-        if windier_by < WIND_DIFF:
-            return warmer, "warmer"
-    if abs(dw) >= WIND_DIFF:
-        return ("morning" if dw > 0 else "afternoon"), "less wind"
-    # last tiebreak: clearly sunnier sky
-    dc = am.get("cloud_score", 0) - pm.get("cloud_score", 0)
-    if abs(dc) >= SKY_DIFF:
-        return ("afternoon" if dc > 0 else "morning"), "sunnier"
-    return "same", "about the same"
 
 
 def coming_saturday(today: date) -> date:
@@ -255,15 +223,10 @@ def build(sat: date, source: str = "auto") -> dict:
     days = []
     for d in (sat, sun):
         blocks = [summarize_block(hours, d, b) for b in BLOCKS]
-        nicer, why = pick_nicer(blocks[0], blocks[1])
-        for b in blocks:
-            b["nicer"] = b["key"] == nicer
         days.append({
             "date": d.isoformat(),
             "day": d.strftime("%A"),
             "short": d.strftime("%a"),
-            "nicer": nicer,
-            "nicer_reason": why,
             "blocks": blocks,
         })
     return {
@@ -312,10 +275,7 @@ def main(argv=None) -> int:
     print(f"{wb['source']} · updated {wb['updated_label']}", file=sys.stderr)
     for d in wb["days"]:
         for b in d["blocks"]:
-            star = "  ← nicer" if b["nicer"] else ""
-            print(f"{d['short']} {b['label']:<9} {b['emoji']} {b['condition']:<13} {b['temp_range']:>9}  rain {b['rain_pct']:>3}%  wind {b['wind_max_mph']} mph{star}", file=sys.stderr)
-        if d["nicer"] == "same":
-            print(f"{d['short']}: about the same", file=sys.stderr)
+            print(f"{d['short']} {b['label']:<9} {b['emoji']} {b['condition']:<13} {b['temp_range']:>9}  rain {b['rain_pct']:>3}%  wind {b['wind_max_mph']} mph", file=sys.stderr)
     return 0
 
 

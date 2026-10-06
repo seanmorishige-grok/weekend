@@ -50,7 +50,6 @@ a:hover{color:var(--pumpkin)}
 .wd-h{font:700 15px Georgia,serif;color:var(--ink);margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:4px}
 .wd-h span{font:400 11px Arial,sans-serif;color:var(--muted)}
 .wr{display:flex;gap:8px;align-items:flex-start;background:var(--card);border:1px solid #F0E6D6;border-radius:8px;padding:7px 8px;margin-top:6px}
-.wr.ni{border-color:var(--pumpkin);box-shadow:inset 3px 0 0 var(--pumpkin)}
 .wr .we{font-size:24px;line-height:1.1;flex:0 0 auto}
 .wr .wi{min-width:0;flex:1}
 .wr .wl{font:700 10px/1.3 Arial,sans-serif;letter-spacing:.4px;text-transform:uppercase;color:var(--green)}
@@ -59,8 +58,6 @@ a:hover{color:var(--pumpkin)}
 .wr .wn{font-size:13px;color:var(--muted)}
 .wr .wn b{color:var(--pumpkin)}
 .wr .nw{white-space:nowrap;display:inline-block;margin-right:6px}
-.wbg{display:inline-block;background:var(--pumpkin);color:#fff;font:700 10px/1 Arial,sans-serif;letter-spacing:.3px;text-transform:uppercase;padding:3px 7px;border-radius:999px;margin-top:4px}
-.wsm{margin-top:6px;text-align:center;font-size:12px;color:var(--muted);background:#F3E8D4;border-radius:999px;padding:3px 8px}
 .wt-u{font-size:11px;color:var(--muted);margin:8px 0 0;text-align:right}
 @media (max-width:359px){.wt-g{grid-template-columns:1fr}}
 .box,.cd,.sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:0 0 12px}
@@ -285,7 +282,7 @@ def _short_window(w: str) -> str:
 
 
 def weather_tile(wb: dict) -> str:
-    """Sat/Sun cards with Morning (9–12) and Afternoon (3–7) rows + Nicer badge."""
+    """Sat/Sun cards with Morning (9–12) and Afternoon (3–7) rows."""
     days = (wb or {}).get("days") or []
     if not days:
         return ""
@@ -297,25 +294,22 @@ def weather_tile(wb: dict) -> str:
             dlabel = ""
         rows = []
         for b in d.get("blocks") or []:
-            ni = bool(b.get("nicer"))
-            badge = '<span class="wbg">★ Nicer</span>' if ni else ""
             rain = b.get("rain_pct")
             rain_txt = (
                 f' <span class="nw" title="max chance of rain">💧<b>{e(rain)}%</b> rain</span>'
                 if rain is not None else ""
             )
             rows.append(
-                f'<div class="wr{" ni" if ni else ""}">'
+                f'<div class="wr">'
                 f'<div class="we" aria-hidden="true">{e(b.get("emoji"))}</div>'
                 f'<div class="wi"><div class="wl">{e(b.get("label"))} <span>{e(_short_window(b.get("window") or ""))}</span></div>'
                 f'<div class="wc">{e(b.get("condition"))}</div>'
                 f'<div class="wn"><span class="nw">🌡️ {e(b.get("temp_range"))}</span>{rain_txt}</div>'
-                f'{badge}</div></div>'
+                f'</div></div>'
             )
-        same = '<div class="wsm">About the same</div>' if d.get("nicer") == "same" else ""
         cards.append(
             f'<div class="wd"><div class="wd-h">{e(d.get("day") or d.get("short"))} <span>{e(dlabel)}</span></div>'
-            f'{"".join(rows)}{same}</div>'
+            f'{"".join(rows)}</div>'
         )
     upd = wb.get("updated_label") or ""
     src = wb.get("source") or ""

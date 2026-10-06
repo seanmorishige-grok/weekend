@@ -3,7 +3,7 @@
     "title": "Weekend Adventures — Oct 10–11",
     "subtitle": "From Crest View · ages 4 & 2 · nap 1–3 PM",
     "greeting": "Hi —",
-    "intro": "Here are 10 family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. The weather tile below compares Morning (9 AM–12 PM) and Afternoon (3–7 PM) each day; ★ Nicer marks the better block. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.",
+    "intro": "Here are 10 family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. The weather tile below shows Morning (9 AM–12 PM) and Afternoon (3–7 PM) for each day. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.",
     "deep_pass_note": "This deep pass prioritizes unique verified this-weekend / mid-October seasonal finds over the usual Centennial / Tollgate / Remlinger / Falls bank. Three short kid hikes are in the top 10 (waterfall, old-growth, wildlife boardwalk). Remlinger and classic Ridge parks stay available as filler if needed.",
     "footer": "Weekly digests land Wednesday evenings.",
     "signoff": "More midweek / Wednesday digests land mid-week with fresher weather and any ticket sell-through updates. Reply if you want a nap-skip itinerary built around Halloween Train + Remlinger, or a pure indoor Saturday plan."
@@ -689,8 +689,8 @@
     "timezone": "America/Los_Angeles",
     "source": "Open-Meteo",
     "weekend": "2026-10-10",
-    "updated": "2026-10-06T14:08-07:00",
-    "updated_label": "Tue Oct 6, 2:08 PM PT",
+    "updated": "2026-10-06T15:04-07:00",
+    "updated_label": "Tue Oct 6, 3:04 PM PT",
     "windows": {
       "morning": "9 AM–12 PM",
       "afternoon": "3–7 PM"
@@ -700,8 +700,6 @@
         "date": "2026-10-10",
         "day": "Saturday",
         "short": "Sat",
-        "nicer": "afternoon",
-        "nicer_reason": "sunnier",
         "blocks": [
           {
             "key": "morning",
@@ -715,9 +713,7 @@
             "temp_avg": 50.2,
             "rain_pct": 17,
             "precip_in": 0.0,
-            "wind_max_mph": 3,
-            "cloud_score": 3.0,
-            "nicer": false
+            "wind_max_mph": 3
           },
           {
             "key": "afternoon",
@@ -731,9 +727,7 @@
             "temp_avg": 52.6,
             "rain_pct": 11,
             "precip_in": 0.0,
-            "wind_max_mph": 4,
-            "cloud_score": 0.75,
-            "nicer": true
+            "wind_max_mph": 4
           }
         ]
       },
@@ -741,8 +735,6 @@
         "date": "2026-10-11",
         "day": "Sunday",
         "short": "Sun",
-        "nicer": "afternoon",
-        "nicer_reason": "warmer",
         "blocks": [
           {
             "key": "morning",
@@ -756,9 +748,7 @@
             "temp_avg": 50.6,
             "rain_pct": 1,
             "precip_in": 0.0,
-            "wind_max_mph": 5,
-            "cloud_score": 0.0,
-            "nicer": false
+            "wind_max_mph": 5
           },
           {
             "key": "afternoon",
@@ -772,9 +762,7 @@
             "temp_avg": 55.1,
             "rain_pct": 1,
             "precip_in": 0.0,
-            "wind_max_mph": 5,
-            "cloud_score": 0.0,
-            "nicer": true
+            "wind_max_mph": 5
           }
         ]
       }
