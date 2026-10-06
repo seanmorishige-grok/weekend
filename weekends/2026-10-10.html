@@ -30,6 +30,28 @@ a:hover{color:var(--pumpkin)}
 .wx .b{background:#FFF9F0;border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
 .wx .hi{font-weight:700;font-size:16px;color:var(--pumpkin)}
 .wx .sm{font-size:12px;color:var(--muted);margin-top:2px}
+.wt{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 12px 10px;margin:0 0 12px}
+.wt-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 8px;margin:0 0 8px}
+.wt-h h2{font:700 14px Georgia,serif;color:var(--green);margin:0}
+.wt-h .wt-k{font-size:11px;color:var(--muted);white-space:nowrap}
+.wt-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wd{background:#FFF9F0;border:1px solid var(--border);border-radius:10px;padding:8px;min-width:0}
+.wd-h{font:700 15px Georgia,serif;color:var(--ink);margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.wd-h span{font:400 11px Arial,sans-serif;color:var(--muted)}
+.wr{display:flex;gap:8px;align-items:flex-start;background:var(--card);border:1px solid #F0E6D6;border-radius:8px;padding:7px 8px;margin-top:6px}
+.wr.ni{border-color:var(--pumpkin);box-shadow:inset 3px 0 0 var(--pumpkin)}
+.wr .we{font-size:24px;line-height:1.1;flex:0 0 auto}
+.wr .wi{min-width:0;flex:1}
+.wr .wl{font:700 10px/1.3 Arial,sans-serif;letter-spacing:.4px;text-transform:uppercase;color:var(--green)}
+.wr .wl span{font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none}
+.wr .wc{font-weight:700;font-size:14px;line-height:1.25}
+.wr .wn{font-size:13px;color:var(--muted)}
+.wr .wn b{color:var(--pumpkin)}
+.wr .nw{white-space:nowrap;display:inline-block;margin-right:6px}
+.wbg{display:inline-block;background:var(--pumpkin);color:#fff;font:700 10px/1 Arial,sans-serif;letter-spacing:.3px;text-transform:uppercase;padding:3px 7px;border-radius:999px;margin-top:4px}
+.wsm{margin-top:6px;text-align:center;font-size:12px;color:var(--muted);background:#F3E8D4;border-radius:999px;padding:3px 8px}
+.wt-u{font-size:11px;color:var(--muted);margin:8px 0 0;text-align:right}
+@media (max-width:359px){.wt-g{grid-template-columns:1fr}}
 .box,.cd,.sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:0 0 12px}
 .box h2,.sec h2,.eh{font:700 14px Georgia,serif;color:var(--green);margin:0 0 8px}
 .ix{display:block;padding:6px 0;border-bottom:1px solid #F0E6D6;color:inherit;text-decoration:none}
@@ -79,8 +101,8 @@ a:hover{color:var(--pumpkin)}
 </header>
 <nav class="nav"><a href="../">This weekend</a><a href="../archive.html">Archive</a></nav>
 <main class="bd">
-<p class="intro">Here are 10 family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. Weather outlook (Snoqualmie lowlands): Saturday looks cool and damp — highs near 57–58°F with a real chance of light rain (models show ~60–80% daytime precip chance); Sunday looks milder/clearer — highs near 58–59°F, foggy start possible, much lower rain chance. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.</p>
-<div class="wx"><div class="b">🌧️ <b>Saturday</b><div class="hi">57–58°F</div><div class="sm">Cool &amp; damp · ~60–80% rain chance</div></div><div class="b">⛅ <b>Sunday</b><div class="hi">58–59°F</div><div class="sm">Milder/clearer · foggy start possible</div></div></div>
+<p class="intro">Here are 10 family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. The weather tile below compares Morning (9 AM–12 PM) and Afternoon (3–7 PM) each day; ★ Nicer marks the better block. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.</p>
+<section class="wt" id="weather" aria-label="Weekend weather"><div class="wt-h"><h2>🌤️ Weekend weather</h2><span class="wt-k">Morning 9–12 · Afternoon 3–7</span></div><div class="wt-g"><div class="wd"><div class="wd-h">Saturday <span>Oct 10</span></div><div class="wr"><div class="we" aria-hidden="true">☁️</div><div class="wi"><div class="wl">Morning <span>9–12</span></div><div class="wc">Cloudy</div><div class="wn"><span class="nw">🌡️ 46–54°F</span> <span class="nw" title="max chance of rain">💧<b>17%</b> rain</span></div></div></div><div class="wr ni"><div class="we" aria-hidden="true">⛅</div><div class="wi"><div class="wl">Afternoon <span>3–7</span></div><div class="wc">Mostly sunny</div><div class="wn"><span class="nw">🌡️ 46–56°F</span> <span class="nw" title="max chance of rain">💧<b>11%</b> rain</span></div><span class="wbg">★ Nicer</span></div></div></div><div class="wd"><div class="wd-h">Sunday <span>Oct 11</span></div><div class="wr"><div class="we" aria-hidden="true">☀️</div><div class="wi"><div class="wl">Morning <span>9–12</span></div><div class="wc">Sunny</div><div class="wn"><span class="nw">🌡️ 44–56°F</span> <span class="nw" title="max chance of rain">💧<b>1%</b> rain</span></div></div></div><div class="wr ni"><div class="we" aria-hidden="true">☀️</div><div class="wi"><div class="wl">Afternoon <span>3–7</span></div><div class="wc">Sunny</div><div class="wn"><span class="nw">🌡️ 48–59°F</span> <span class="nw" title="max chance of rain">💧<b>1%</b> rain</span></div><span class="wbg">★ Nicer</span></div></div></div></div><p class="wt-u">Forecast updated Tue Oct 6, 2:08 PM PT · Open-Meteo</p></section>
 <section class="box">
 <h2>Quick glance — 10 ideas</h2>
 <a class="ix" href="#idea-1"><b class="n">1. </b><b>Bigfoot Kids’ Book Festival</b><span class="m"> — Free one-day festival with 50+ kids’ authors, read-alouds, draw-alongs,…</span></a><a class="ix" href="#idea-2"><b class="n">2. </b><b>Olallie State Park — Weeks Falls (Discover Pass FREE Sat)</b><span class="m"> — Short forest walk to a 30-ft waterfall + riverside picnic — and…</span></a><a class="ix" href="#idea-3"><b class="n">3. </b><b>Jubilee Farm Harvest Festival</b><span class="m"> — Free-admission valley harvest weekend with littles’ hay maze, free…</span></a><a class="ix" href="#idea-4"><b class="n">4. </b><b>Red Barn Farm Fall Festival</b><span class="m"> — Ticketed fall festival with petting zoo, barrel train, bubbles, crafts,…</span></a><a class="ix" href="#idea-5"><b class="n">5. </b><b>KidsQuest Children’s Museum</b><span class="m"> — Best indoor, age-perfect play for 2- and 4-year-olds within ~40 min —…</span></a><a class="ix" href="#idea-6"><b class="n">6. </b><b>Asahel Curtis Nature Trail</b><span class="m"> — 0.5-mile old-growth loop with a creek footbridge, ferns, and…</span></a><a class="ix" href="#idea-7"><b class="n">7. </b><b>Northwest Railway Museum Halloween Train (early departure)</b><span class="m"> — Costumes-encouraged valley train with cider pressing, crafts, Eric Ode…</span></a><a class="ix" href="#idea-8"><b class="n">8. </b><b>Fall City Farms Pumpkin Patch</b><span class="m"> — Closest verified October patch with mini doughnuts, cider, farm…</span></a><a class="ix" href="#idea-9"><b class="n">9. </b><b>LEGO Builders @ Snoqualmie Library (KCLS)</b><span class="m"> — Free all-ages brick open house 3 blocks from home energy — perfect…</span></a><a class="ix" href="#idea-10"><b class="n">10. </b><b>Juanita Bay Park boardwalk</b><span class="m"> — Flat wetland boardwalks and paved paths with ducks, herons, and lake…</span></a>

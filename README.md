@@ -7,6 +7,10 @@ Family weekend activity digests — mobile-first site for Crest View (ages 4 & 2
 ## Weekly publish
 
 ```bash
+# 0. Weather tile: fetch Sat/Sun Morning (9–12) + Afternoon (3–7) blocks into the JSON
+#    (Open-Meteo, NWS fallback; date comes from the filename)
+python3 weather_blocks.py --json path/to/weekend-digest-YYYY-MM-DD.json
+
 # 1. Update / write the weekend JSON (v7+ schema)
 # 2. Render into this repo (or /workspace/weekend-site)
 python3 render_site.py path/to/weekend-digest-YYYY-MM-DD.json \
@@ -33,5 +37,6 @@ GitHub Pages serves from the `main` branch root. After push, Pages rebuilds in ~
 - `data/YYYY-MM-DD.json` — source JSON
 - `manifest.webmanifest` + `assets/` — add-to-home-screen / icons
 - `render_site.py` — static site generator
+- `weather_blocks.py` — Sat/Sun AM/PM forecast → `weather_blocks` key (rendered as the weather tile)
 
 Every activity and restaurant/treat name links to Google Maps (`maps/search/?api=1&query=...`) in a new tab.

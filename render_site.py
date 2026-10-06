@@ -4,6 +4,10 @@
 Usage:
   python3 render_site.py [json] [--site-dir DIR] [--date YYYY-MM-DD] [--publish]
 
+Weather: run weather_blocks.py --json <json> first; it adds a "weather_blocks"
+key that renders as the Sat/Sun Morning/Afternoon tile (legacy "weather" strip
+is used only when weather_blocks is absent).
+
 --publish runs: git add -A && git commit && git push (from site dir).
 """
 from __future__ import annotations
@@ -37,6 +41,28 @@ a:hover{color:var(--pumpkin)}
 .wx .b{background:#FFF9F0;border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
 .wx .hi{font-weight:700;font-size:16px;color:var(--pumpkin)}
 .wx .sm{font-size:12px;color:var(--muted);margin-top:2px}
+.wt{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 12px 10px;margin:0 0 12px}
+.wt-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 8px;margin:0 0 8px}
+.wt-h h2{font:700 14px Georgia,serif;color:var(--green);margin:0}
+.wt-h .wt-k{font-size:11px;color:var(--muted);white-space:nowrap}
+.wt-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wd{background:#FFF9F0;border:1px solid var(--border);border-radius:10px;padding:8px;min-width:0}
+.wd-h{font:700 15px Georgia,serif;color:var(--ink);margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.wd-h span{font:400 11px Arial,sans-serif;color:var(--muted)}
+.wr{display:flex;gap:8px;align-items:flex-start;background:var(--card);border:1px solid #F0E6D6;border-radius:8px;padding:7px 8px;margin-top:6px}
+.wr.ni{border-color:var(--pumpkin);box-shadow:inset 3px 0 0 var(--pumpkin)}
+.wr .we{font-size:24px;line-height:1.1;flex:0 0 auto}
+.wr .wi{min-width:0;flex:1}
+.wr .wl{font:700 10px/1.3 Arial,sans-serif;letter-spacing:.4px;text-transform:uppercase;color:var(--green)}
+.wr .wl span{font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none}
+.wr .wc{font-weight:700;font-size:14px;line-height:1.25}
+.wr .wn{font-size:13px;color:var(--muted)}
+.wr .wn b{color:var(--pumpkin)}
+.wr .nw{white-space:nowrap;display:inline-block;margin-right:6px}
+.wbg{display:inline-block;background:var(--pumpkin);color:#fff;font:700 10px/1 Arial,sans-serif;letter-spacing:.3px;text-transform:uppercase;padding:3px 7px;border-radius:999px;margin-top:4px}
+.wsm{margin-top:6px;text-align:center;font-size:12px;color:var(--muted);background:#F3E8D4;border-radius:999px;padding:3px 8px}
+.wt-u{font-size:11px;color:var(--muted);margin:8px 0 0;text-align:right}
+@media (max-width:359px){.wt-g{grid-template-columns:1fr}}
 .box,.cd,.sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:0 0 12px}
 .box h2,.sec h2,.eh{font:700 14px Georgia,serif;color:var(--green);margin:0 0 8px}
 .ix{display:block;padding:6px 0;border-bottom:1px solid #F0E6D6;color:inherit;text-decoration:none}
@@ -253,6 +279,67 @@ def weather_strip(weather: list) -> str:
     return f'<div class="wx">{"".join(cells)}</div>'
 
 
+def _short_window(w: str) -> str:
+    """'9 AM–12 PM' -> '9–12', '3–7 PM' -> '3–7' (compact label for small cards)."""
+    return re.sub(r"\s*(AM|PM)", "", w or "").replace(" ", "")
+
+
+def weather_tile(wb: dict) -> str:
+    """Sat/Sun cards with Morning (9–12) and Afternoon (3–7) rows + Nicer badge."""
+    days = (wb or {}).get("days") or []
+    if not days:
+        return ""
+    cards = []
+    for d in days:
+        try:
+            dlabel = date.fromisoformat(d.get("date")).strftime("%b %-d")
+        except Exception:
+            dlabel = ""
+        rows = []
+        for b in d.get("blocks") or []:
+            ni = bool(b.get("nicer"))
+            badge = '<span class="wbg">★ Nicer</span>' if ni else ""
+            rain = b.get("rain_pct")
+            rain_txt = (
+                f' <span class="nw" title="max chance of rain">💧<b>{e(rain)}%</b> rain</span>'
+                if rain is not None else ""
+            )
+            rows.append(
+                f'<div class="wr{" ni" if ni else ""}">'
+                f'<div class="we" aria-hidden="true">{e(b.get("emoji"))}</div>'
+                f'<div class="wi"><div class="wl">{e(b.get("label"))} <span>{e(_short_window(b.get("window") or ""))}</span></div>'
+                f'<div class="wc">{e(b.get("condition"))}</div>'
+                f'<div class="wn"><span class="nw">🌡️ {e(b.get("temp_range"))}</span>{rain_txt}</div>'
+                f'{badge}</div></div>'
+            )
+        same = '<div class="wsm">About the same</div>' if d.get("nicer") == "same" else ""
+        cards.append(
+            f'<div class="wd"><div class="wd-h">{e(d.get("day") or d.get("short"))} <span>{e(dlabel)}</span></div>'
+            f'{"".join(rows)}{same}</div>'
+        )
+    upd = wb.get("updated_label") or ""
+    src = wb.get("source") or ""
+    upd_txt = f"Forecast updated {e(upd)}" if upd else "Forecast"
+    if upd and not upd.rstrip().endswith("PT"):
+        upd_txt += " PT"
+    src_txt = f" · {e(src)}" if src else ""
+    return (
+        '<section class="wt" id="weather" aria-label="Weekend weather">'
+        '<div class="wt-h"><h2>🌤️ Weekend weather</h2>'
+        '<span class="wt-k">Morning 9–12 · Afternoon 3–7</span></div>'
+        f'<div class="wt-g">{"".join(cards)}</div>'
+        f'<p class="wt-u">{upd_txt}{src_txt}</p>'
+        '</section>'
+    )
+
+
+def weather_section(data: dict) -> str:
+    """New AM/PM tile when 'weather_blocks' exists; else the legacy single-day strip."""
+    if (data.get("weather_blocks") or {}).get("days"):
+        return weather_tile(data["weather_blocks"])
+    return weather_strip(data.get("weather") or [])
+
+
 def list_block(title: str, items) -> str:
     if not items:
         return ""
@@ -308,7 +395,7 @@ def render_weekend_html(data: dict, *, archive: bool = False, weekend_date: str 
 {nav}
 <main class="bd">
 <p class="intro">{e(intro)}</p>
-{weather_strip(data.get("weather") or [])}
+{weather_section(data)}
 <section class="box">
 <h2>Quick glance — {len(ideas)} ideas</h2>
 {"".join(index_row(i) for i in ideas)}
@@ -478,6 +565,18 @@ def main(argv=None) -> int:
             if not present(r.get("name") or ""):
                 print(f"MISSING place {r['name']}", file=sys.stderr)
                 return 3
+
+    wb = data.get("weather_blocks") or {}
+    if wb.get("days"):
+        for needle in ('class="wt"', "Forecast updated", "Morning", "Afternoon"):
+            if needle not in index:
+                print(f"MISSING weather tile piece {needle}", file=sys.stderr)
+                return 4
+        wb_dates = [d.get("date") for d in wb["days"]]
+        if info["date"] not in wb_dates:
+            print(f"WARNING: weather_blocks covers {wb_dates}, not weekend {info['date']} — rerun weather_blocks.py", file=sys.stderr)
+    else:
+        print("note: no weather_blocks in JSON; showing legacy weather strip (run weather_blocks.py first)", file=sys.stderr)
 
     if args.publish:
         msg = args.message or f"Publish weekend digest {info['date']}"

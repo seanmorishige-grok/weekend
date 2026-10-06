@@ -3,7 +3,7 @@
     "title": "Weekend Adventures — Oct 10–11",
     "subtitle": "From Crest View · ages 4 & 2 · nap 1–3 PM",
     "greeting": "Hi —",
-    "intro": "Here are 10 family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. Weather outlook (Snoqualmie lowlands): Saturday looks cool and damp — highs near 57–58°F with a real chance of light rain (models show ~60–80% daytime precip chance); Sunday looks milder/clearer — highs near 58–59°F, foggy start possible, much lower rain chance. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.",
+    "intro": "Here are 10 family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. The weather tile below compares Morning (9 AM–12 PM) and Afternoon (3–7 PM) each day; ★ Nicer marks the better block. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.",
     "deep_pass_note": "This deep pass prioritizes unique verified this-weekend / mid-October seasonal finds over the usual Centennial / Tollgate / Remlinger / Falls bank. Three short kid hikes are in the top 10 (waterfall, old-growth, wildlife boardwalk). Remlinger and classic Ridge parks stay available as filler if needed.",
     "footer": "Weekly digests land Wednesday evenings.",
     "signoff": "More midweek / Wednesday digests land mid-week with fresher weather and any ticket sell-through updates. Reply if you want a nap-skip itinerary built around Halloween Train + Remlinger, or a pure indoor Saturday plan."
@@ -681,5 +681,103 @@
     "Small Frye at Frye Art Museum (10:15–11:15 AM, free, ages 2–5, registration required) — great age fit but Seattle drive + hard stop time is a stretch vs Eastside options.",
     "Turkfest (Seattle Center, noon–5 PM both days) and SLU Fall Harvest Celebration (11 AM–2 PM) — neat free city festivals; drive + timing fight the nap window from Crest View."
   ],
-  "filler_bank": "Centennial Fields inclusive playground (Snoqualmie), Tollgate Farm Park (North Bend), Remlinger morning wristband, Snoqualmie Falls upper viewpoints, Muddy Boots Pumpkins in Duvall (maze: under 5 free; ages 6–15 $12; 16+ $17), JB Family Growers pumpkin/puzzle patch in Woodinville ($5 ages 2–11), Issaquah Fall Farm Fresh Market Sat 9 AM–2 PM at Historic Shell Station, Lowe’s Issaquah free kids workshop Sat 10 AM (firefighting plane build)."
+  "filler_bank": "Centennial Fields inclusive playground (Snoqualmie), Tollgate Farm Park (North Bend), Remlinger morning wristband, Snoqualmie Falls upper viewpoints, Muddy Boots Pumpkins in Duvall (maze: under 5 free; ages 6–15 $12; 16+ $17), JB Family Growers pumpkin/puzzle patch in Woodinville ($5 ages 2–11), Issaquah Fall Farm Fresh Market Sat 9 AM–2 PM at Historic Shell Station, Lowe’s Issaquah free kids workshop Sat 10 AM (firefighting plane build).",
+  "weather_blocks": {
+    "location": "Snoqualmie, WA 98065",
+    "lat": 47.53,
+    "lon": -121.87,
+    "timezone": "America/Los_Angeles",
+    "source": "Open-Meteo",
+    "weekend": "2026-10-10",
+    "updated": "2026-10-06T14:08-07:00",
+    "updated_label": "Tue Oct 6, 2:08 PM PT",
+    "windows": {
+      "morning": "9 AM–12 PM",
+      "afternoon": "3–7 PM"
+    },
+    "days": [
+      {
+        "date": "2026-10-10",
+        "day": "Saturday",
+        "short": "Sat",
+        "nicer": "afternoon",
+        "nicer_reason": "sunnier",
+        "blocks": [
+          {
+            "key": "morning",
+            "label": "Morning",
+            "window": "9 AM–12 PM",
+            "emoji": "☁️",
+            "condition": "Cloudy",
+            "temp_low": 46,
+            "temp_high": 54,
+            "temp_range": "46–54°F",
+            "temp_avg": 50.2,
+            "rain_pct": 17,
+            "precip_in": 0.0,
+            "wind_max_mph": 3,
+            "cloud_score": 3.0,
+            "nicer": false
+          },
+          {
+            "key": "afternoon",
+            "label": "Afternoon",
+            "window": "3–7 PM",
+            "emoji": "⛅",
+            "condition": "Mostly sunny",
+            "temp_low": 46,
+            "temp_high": 56,
+            "temp_range": "46–56°F",
+            "temp_avg": 52.6,
+            "rain_pct": 11,
+            "precip_in": 0.0,
+            "wind_max_mph": 4,
+            "cloud_score": 0.75,
+            "nicer": true
+          }
+        ]
+      },
+      {
+        "date": "2026-10-11",
+        "day": "Sunday",
+        "short": "Sun",
+        "nicer": "afternoon",
+        "nicer_reason": "warmer",
+        "blocks": [
+          {
+            "key": "morning",
+            "label": "Morning",
+            "window": "9 AM–12 PM",
+            "emoji": "☀️",
+            "condition": "Sunny",
+            "temp_low": 44,
+            "temp_high": 56,
+            "temp_range": "44–56°F",
+            "temp_avg": 50.6,
+            "rain_pct": 1,
+            "precip_in": 0.0,
+            "wind_max_mph": 5,
+            "cloud_score": 0.0,
+            "nicer": false
+          },
+          {
+            "key": "afternoon",
+            "label": "Afternoon",
+            "window": "3–7 PM",
+            "emoji": "☀️",
+            "condition": "Sunny",
+            "temp_low": 48,
+            "temp_high": 59,
+            "temp_range": "48–59°F",
+            "temp_avg": 55.1,
+            "rain_pct": 1,
+            "precip_in": 0.0,
+            "wind_max_mph": 5,
+            "cloud_score": 0.0,
+            "nicer": true
+          }
+        ]
+      }
+    ]
+  }
 }
