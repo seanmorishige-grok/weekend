@@ -29,6 +29,13 @@ python3 render_site.py path/to.json --site-dir . --date YYYY-MM-DD --publish \
 
 GitHub Pages serves from the `main` branch root. After push, Pages rebuilds in ~30–60s.
 
+## Design
+
+`render_site.py` renders the calm **v2** design by default (index.html, weekends/<date>.html, archive.html).
+Fallback to the original autumn design with `--design v1`. Preview a single page without touching
+index/archive with `--out preview.html` (add `--publish` to push just that file).
+v2 also reads `/workspace/digests/sources.json` for the "Where these come from" section.
+
 ## Layout
 
 - `index.html` — latest weekend

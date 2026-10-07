@@ -9,6 +9,9 @@ key that renders as the Sat/Sun Morning/Afternoon tile (legacy "weather" strip
 is used only when weather_blocks is absent).
 
 --publish runs: git add -A && git commit && git push (from site dir).
+--design v2 (default) renders the calm design to index.html, weekends/<date>.html
+and archive.html; --design v1 renders the original autumn design.
+--out FILE renders only that one file (preview); index/archive/data untouched.
 """
 from __future__ import annotations
 
@@ -421,6 +424,7 @@ a{color:inherit;text-decoration:none}
 .kick{font:600 12px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin:0 0 10px}
 h1{font:700 28px/1.15 Georgia,"Times New Roman",serif;margin:0 0 6px;letter-spacing:-.01em}
 .sub{color:var(--muted);font-size:14px;margin:0}
+.tag{color:var(--soft);font-size:13px;margin:4px 0 0}
 .nav{margin:12px 0 0;font-size:14px;display:flex;gap:16px}
 .nav a{color:var(--acc);font-weight:600}
 .intro{color:var(--muted);font-size:15px;margin:0 0 24px}
@@ -436,19 +440,35 @@ h2{font:600 13px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spac
 .wx2 .c{font-size:14px;font-weight:600;line-height:1.3}
 .wx2 .n{font-size:13px;color:var(--muted)}
 .upd{font-size:12px;color:var(--soft);margin:8px 2px 0}
-/* quick glance */
-.gl a{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
-.gl a:first-child{border-top:0}
-.gl .i{color:var(--acc);font-weight:700;min-width:18px;font-variant-numeric:tabular-nums}
-.gl .t{font-weight:600;font-size:15px;line-height:1.3}
-.gl .m{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:2px}
+/* plans count + restore */
+.rs{margin:2px 2px 0;text-align:center}
+.rs .done{font-size:13px;color:var(--soft);margin:0 0 6px}
+.rs button{background:none;border:0;padding:4px 0;font-size:13px;color:var(--soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cd{position:relative}
+.no{font:400 15px Georgia,serif;color:var(--soft);margin-right:8px}
+.cd h3{padding-right:34px}
+.cx{position:absolute;top:12px;right:12px;z-index:1}
+.cx button{font:600 13px -apple-system,Arial,sans-serif;cursor:pointer;border-radius:999px}
+.cx-x{width:30px;height:30px;border:0;background:transparent;color:var(--soft);font-size:15px!important;line-height:30px;padding:0}
+.cx-x:active{background:var(--line)}
+.cx-q{display:inline-flex;gap:6px;background:var(--card);padding-left:6px;box-shadow:-14px 0 12px var(--card)}
+.cx-q[hidden]{display:none}
+.cx-yes{border:0;background:#D93A3A;color:#fff;padding:6px 12px}
+.cx-no{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:5px 12px}
+.gone{opacity:0;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;border-width:0!important}
+.anim{overflow:hidden;transition:height .28s ease,opacity .2s ease,margin .28s ease,padding .28s ease}
+.toast{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translateX(-50%);background:#23201C;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 24px rgba(0,0,0,.18);z-index:9;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none}
+.toast button{background:transparent;border:0;color:#9FD9C4;font:600 14px -apple-system,Arial,sans-serif;padding:6px 10px;cursor:pointer}
 /* idea cards */
-.cd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px 6px;margin:0 0 14px;scroll-margin-top:16px}
-.num{font:600 12px/1 -apple-system,Arial,sans-serif;color:var(--acc);letter-spacing:.06em;margin:0 0 8px}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 6px;margin:0 0 14px;scroll-margin-top:16px}
 .cd h3{font:700 20px/1.25 Georgia,serif;margin:0}
 .cd h3 a:active{color:var(--acc)}
 .town{font-size:13px;color:var(--soft);margin:3px 0 0}
 .hook{font-size:15px;margin:10px 0 0}
+.sugg{font-size:13px;font-style:italic;color:var(--soft);margin:6px 0 0}
+.why{font-size:14px;color:var(--muted);margin:12px 0 0}
+.why b{color:var(--ink);font-weight:600}
 .meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted);margin:12px 0 0}
 .meta span{overflow-wrap:anywhere}
 .rain{font-size:14px;color:var(--ink);background:var(--accbg);border-radius:10px;padding:10px 12px;margin:14px 0 0}
@@ -475,10 +495,85 @@ summary .q{font-weight:400;color:var(--soft);margin-left:auto;margin-right:12px;
 .lst{margin:0;padding:0;list-style:none}
 .lst li{padding:12px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
 .lst li:first-child{border-top:0}
-.ft{margin:40px 0 0;text-align:center;font-size:12px;color:var(--soft)}
+details.src{margin:32px 0 0;padding:0 2px;border-top:1px solid var(--line)}
+details.src summary{color:var(--muted);font-weight:500;font-size:13px}
+.sg{padding:8px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.7}
+.sg:first-child{border-top:0}
+.st2{font:600 11px/1.4 -apple-system,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.sg a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.nw2{display:inline-block;font:600 10px/1 -apple-system,Arial,sans-serif;color:var(--acc);background:var(--accbg);border-radius:999px;padding:2px 6px;vertical-align:1px}
+.ft{margin:24px 0 0;text-align:center;font-size:12px;color:var(--soft)}
 .ft a{color:var(--acc)}
 @media (max-width:359px){.wx2{grid-template-columns:1fr}.w{padding-left:14px;padding-right:14px}}
 """
+
+JS_V2 = r"""
+(function(){
+var KEY='weekend-cleared:'+(window.WEEKEND_DATE||location.pathname);
+var cleared=[];try{cleared=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(cleared))}catch(e){}}
+function els(n){return [document.getElementById('idea-'+n)].filter(Boolean)}
+function name(n){var c=document.getElementById('idea-'+n),a=c&&c.querySelector('h3 a');return a?a.textContent:''}
+function refresh(){
+  var cards=[].slice.call(document.querySelectorAll('article.cd')),n=cards.filter(function(c){return !c.hidden}).length;
+  var left=document.getElementById('left');if(left)left.textContent=n;
+  document.getElementById('alldone').hidden=n>0;
+  var b=document.getElementById('showc');document.getElementById('nc').textContent=cleared.length;b.hidden=!cleared.length;
+}
+function collapse(el){
+  el.style.height=el.offsetHeight+'px';el.classList.add('anim');el.offsetHeight;
+  el.classList.add('gone');el.style.height='0px';
+  var done=function(){el.hidden=true;el.classList.remove('anim','gone');el.style.height='';refresh()};
+  var t=setTimeout(done,400);
+}
+function expand(el){
+  el.hidden=false;el.classList.add('anim','gone');el.style.height='0px';el.offsetHeight;
+  el.classList.remove('gone');el.style.height=el.scrollHeight+'px';
+  setTimeout(function(){el.classList.remove('anim');el.style.height=''},400);
+}
+var toastT,lastN=null;
+function toast(n){
+  var t=document.getElementById('toast');lastN=n;
+  document.getElementById('tmsg').textContent='Cleared '+name(n);
+  t.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){t.hidden=true;lastN=null},5000);
+}
+function clear(n){
+  n=String(n);if(cleared.indexOf(n)>=0)return;
+  cleared.push(n);save();els(n).forEach(collapse);toast(n);
+}
+function restore(n){
+  n=String(n);var i=cleared.indexOf(n);if(i<0)return;
+  cleared.splice(i,1);save();els(n).forEach(expand);setTimeout(refresh,0);refresh();
+}
+// initial state (no animation)
+cleared.forEach(function(n){els(n).forEach(function(el){el.hidden=true})});refresh();
+document.getElementById('undo').addEventListener('click',function(){
+  if(lastN!==null)restore(lastN);document.getElementById('toast').hidden=true;lastN=null;
+});
+document.getElementById('showc').addEventListener('click',function(){cleared.slice().forEach(restore)});
+
+// ---- card ✕ : two-step
+var armed=null,armT;
+function disarm(){if(!armed)return;armed.querySelector('.cx-q').hidden=true;armed.querySelector('.cx-x').hidden=false;armed=null;clearTimeout(armT)}
+document.querySelectorAll('.cx').forEach(function(cx){
+  cx.querySelector('.cx-x').addEventListener('click',function(ev){
+    ev.stopPropagation();disarm();armed=cx;
+    cx.querySelector('.cx-x').hidden=true;cx.querySelector('.cx-q').hidden=false;cx.querySelector('.cx-no').focus({preventScroll:true});
+    armT=setTimeout(disarm,4000);
+  });
+  cx.querySelector('.cx-no').addEventListener('click',function(ev){ev.stopPropagation();disarm()});
+  cx.querySelector('.cx-yes').addEventListener('click',function(ev){ev.stopPropagation();var n=cx.dataset.n;disarm();clear(n)});
+});
+document.addEventListener('click',function(ev){if(armed&&!armed.contains(ev.target))disarm()},true);
+
+})();
+"""
+
+
+def _hours_short(idea: dict) -> str:
+    """Actual opening hours, short form. Prefers JSON 'hours_short'; falls back to clipped hours_detail.
+    (The suggested 'time_block' is intentionally not rendered in v2.)"""
+    return (idea.get("hours_short") or _clip_meta(idea.get("hours_detail")) or "").strip()
 
 
 def _clip_meta(s: str) -> str:
@@ -520,16 +615,13 @@ def card_v2(idea: dict) -> str:
     url = maps_url(name, town=idea.get("town"), address=idea.get("address"), food_area=idea.get("food_area"))
     meta = [
         ("🚗", _clip_meta(idea.get("drive"))),
-        ("🕙", _clip_meta(idea.get("time_block"))),
+        ("🕙", _hours_short(idea)),
         ("", _clip_meta(idea.get("cost"))),
-        ("⏱", _clip_meta(idea.get("outing_length"))),
     ]
     meta_html = "".join(f'<span>{(i + " ") if i else ""}{e(t)}</span>' for i, t in meta if t)
     # full details (nothing dropped)
     det = []
-    if idea.get("why"):
-        det.append(f'<p><b>Why it works for 4 &amp; 2.</b> {e(idea["why"])}</p>')
-    for label, key in (("Hours", "hours_detail"), ("Drive", "drive"), ("When", "time_block"), ("Cost", "cost"), ("Length", "outing_length")):
+    for label, key in (("Hours", "hours_detail"), ("Drive", "drive"), ("Cost", "cost"), ("Length", "outing_length")):
         if idea.get(key):
             det.append(f'<p><b>{label}.</b> {e(idea[key])}</p>')
     if idea.get("tags"):
@@ -547,15 +639,21 @@ def card_v2(idea: dict) -> str:
             f'<details><summary>Eat nearby<span class="q">{cnt}</span></summary><div class="dt">{fa}'
             f'{("<div class=tl>Meals</div>" + mh) if mh else ""}{("<div class=tl>Treats</div>" + th) if th else ""}</div></details>'
         )
+    sg = idea.get("suggested") or {}
+    sg_txt = " · ".join(x for x in (sg.get("part"), sg.get("duration") or _clip_meta(idea.get("outing_length"))) if x)
+    sugg_html = f'<p class="sugg">Good for: {e(sg_txt)}</p>' if sg_txt else ""
+    why_html = f'<p class="why"><b>Details:</b> {e(idea["why"])}</p>' if idea.get("why") else ""
     rain = f'<div class="rain"><b>☔ Rain plan</b> · {e(idea["rain_backup"])}</div>' if idea.get("rain_backup") else ""
-    return f"""<article class="cd" id="idea-{num}">
-<div class="num">IDEA {num}</div>
-<h3><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(name)}</a></h3>
+    return f"""<article class="cd" id="idea-{num}" data-n="{num}">
+<div class="cx" data-n="{num}"><button type="button" class="cx-x" aria-label="Clear {e(name)}">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear {e(name)}">Clear</button><button type="button" class="cx-no" aria-label="Keep {e(name)}">Keep</button></span></div>
+<h3><span class="no">{num}</span><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(name)}</a></h3>
 <div class="town">{e(idea.get("town") or "")}</div>
 <p class="hook">{e(idea.get("hook") or "")}</p>
 <div class="meta">{meta_html}</div>
+{sugg_html}
+{why_html}
 {rain}
-<details><summary>Why it works &amp; details</summary><div class="dt">{"".join(det)}</div></details>
+{('<details><summary>Hours &amp; more</summary><div class="dt">' + "".join(det) + '</div></details>') if det else ""}
 {food}
 </article>"""
 
@@ -589,17 +687,47 @@ def weather_v2(data: dict) -> str:
     )
 
 
+SOURCES_PATH = Path("/workspace/digests/sources.json")
+
+
+def sources_v2(path: Path = SOURCES_PATH) -> str:
+    """Quiet collapsible 'Where these come from' list, grouped by type; new ones tagged."""
+    try:
+        reg = json.loads(Path(path).read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    srcs = reg.get("sources") or []
+    if not srcs:
+        return ""
+    order = reg.get("types") or []
+    types = order + sorted({x.get("type") for x in srcs if x.get("type") not in order})
+    rows = []
+    for t in types:
+        items = sorted((x for x in srcs if x.get("type") == t), key=lambda x: (not x.get("new"), (x.get("name") or "").lower()))
+        if not items:
+            continue
+        links = " · ".join(
+            f'<a href="{e(x["url"])}" target="_blank" rel="noopener noreferrer">{e(x.get("name"))}</a>'
+            + (' <span class="nw2">New</span>' if x.get("new") else "")
+            for x in items
+        )
+        rows.append(f'<div class="sg"><div class="st2">{e(t[:1].upper() + t[1:])}</div><div>{links}</div></div>')
+    n_new = sum(1 for x in srcs if x.get("new"))
+    q = f"{len(srcs)} sources" + (f" · {n_new} new" if n_new else "")
+    return (
+        f'<details class="src"><summary>Where these come from<span class="q">{e(q)}</span></summary>'
+        f'<div class="dt">{"".join(rows)}</div></details>'
+    )
+
+
+TAGLINE_V2 = "Hand-picked each week: toddler-friendly, short drives, real food nearby."
+
+
 def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = "") -> str:
     meta = data.get("meta") or {}
     title = meta.get("title") or "Weekend Adventures"
     subtitle = meta.get("subtitle") or ""
     ideas = data.get("ideas") or []
-    glance = "".join(
-        f'<a href="#idea-{int(i.get("num") or 0)}"><span class="i">{int(i.get("num") or 0)}</span>'
-        f'<span class="t">{e(i.get("name") or "")}<span class="m">{e(_clip_meta(i.get("time_block")))}'
-        f'{(" · " + e(_clip_meta(i.get("cost")))) if i.get("cost") else ""}</span></span></a>'
-        for i in ideas
-    )
     nap = data.get("nap_conflicts")
     nap_html = ""
     if nap:
@@ -611,7 +739,9 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
         body = e(fb) if isinstance(fb, str) else "<ul class=lst>" + "".join(f"<li>{e(x)}</li>" for x in fb) + "</ul>"
         fb_html = f'<h2>Filler bank</h2><section class="panel"><div class="dt" style="padding:12px 0">{body}</div></section>'
     m = re.search(r"—\s*(.+)$", title)
-    kick = f"Family weekend · {m.group(1)}" if m else "Family weekend"
+    kick = "Family weekend"
+    dates = m.group(1).strip() if m else (weekend_date or "")
+    sub_v2 = " · ".join(x for x in (dates, "near Snoqualmie") if x)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -620,7 +750,7 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 <meta name="theme-color" content="#FAF8F4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Weekend Ideas">
+<meta name="apple-mobile-web-app-title" content="Weekend">
 <meta name="description" content="{e(subtitle or title)}">
 <title>{e(title)}</title>
 <link rel="manifest" href="{prefix}manifest.webmanifest">
@@ -633,19 +763,21 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 <header class="top">
 <p class="kick">{e(kick)}</p>
 <h1>{e(title)}</h1>
-<p class="sub">{e(subtitle)}</p>
+<p class="sub">{e(sub_v2)}</p>
+<p class="tag">{TAGLINE_V2}</p>
 <nav class="nav"><a href="{prefix}./">This weekend</a><a href="{prefix}archive.html">Archive</a></nav>
 </header>
-<p class="intro">{e(meta.get("intro") or "")}</p>
 {weather_v2(data)}
-<h2>At a glance · {len(ideas)} ideas</h2>
-<nav class="panel gl">{glance}</nav>
-<h2>The ideas</h2>
+<h2 id="plans">Plans · <span id="left">{len(ideas)}</span></h2>
 {"".join(card_v2(i) for i in ideas)}
+<div class="rs"><p class="done" id="alldone" hidden>All cleared.</p><button type="button" id="showc" hidden>Show cleared (<span id="nc">0</span>)</button></div>
 {nap_html}
 {fb_html}
+{sources_v2()}
 <footer class="ft">Crest View family digests · <a href="{prefix}archive.html">Archive</a>{(" · " + e(weekend_date)) if weekend_date else ""}</footer>
 </div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="tmsg">Cleared</span><button type="button" id="undo" aria-label="Undo clear">Undo</button></div>
+<script>window.WEEKEND_DATE={json.dumps(weekend_date)};{JS_V2}</script>
 </body>
 </html>"""
 
@@ -688,15 +820,52 @@ def render_archive_html(entries: list[dict]) -> str:
 </html>"""
 
 
-def write_manifest(site_dir: Path) -> None:
+def render_archive_html_v2(entries: list[dict]) -> str:
+    """v2 (calm) archive list page."""
+    items = "".join(
+        f'<li><a href="{e(x["href"])}"><b style="color:var(--ink)">{e(x["date"])}</b> · {e(x["title"])}</a></li>'
+        for x in entries
+    )
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAF8F4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Weekend">
+<title>Archive · Weekend</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<style>{CSS_V2}</style>
+</head>
+<body>
+<div class="w">
+<header class="top">
+<p class="kick">Family weekend</p>
+<h1>Archive</h1>
+<p class="sub">Past weekends</p>
+<nav class="nav"><a href="./">This weekend</a><a href="archive.html">Archive</a></nav>
+</header>
+<section class="panel"><ul class="lst">{items or "<li>No weekends yet.</li>"}</ul></section>
+<footer class="ft">Crest View family digests</footer>
+</div>
+</body>
+</html>"""
+
+
+def write_manifest(site_dir: Path, design: str = "v2") -> None:
+    v2 = design == "v2"
     manifest = {
-        "name": "Weekend Ideas",
+        "name": "Weekend Plans" if v2 else "Weekend Ideas",
         "short_name": "Weekend",
         "description": "Family weekend activity digests",
         "start_url": "./",
         "display": "standalone",
-        "background_color": "#FBF6EE",
-        "theme_color": "#1B5E4A",
+        "background_color": "#FAF8F4" if v2 else "#FBF6EE",
+        "theme_color": "#FAF8F4" if v2 else "#1B5E4A",
         "icons": [
             {"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
             {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png"},
@@ -714,7 +883,7 @@ def infer_date(data: dict, json_path: Path) -> str:
     return date.today().isoformat()
 
 
-def build_site(json_path: Path, site_dir: Path, weekend_date: str | None = None) -> dict:
+def build_site(json_path: Path, site_dir: Path, weekend_date: str | None = None, design: str = "v2") -> dict:
     data = json.loads(json_path.read_text(encoding="utf-8"))
     wd = weekend_date or infer_date(data, json_path)
     site_dir.mkdir(parents=True, exist_ok=True)
@@ -726,8 +895,12 @@ def build_site(json_path: Path, site_dir: Path, weekend_date: str | None = None)
     dest_json = site_dir / "data" / f"{wd}.json"
     dest_json.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    index_html = render_weekend_html(data, archive=False, weekend_date=wd)
-    archive_page = render_weekend_html(data, archive=True, weekend_date=wd)
+    if design == "v2":
+        index_html = render_weekend_html_v2(data, prefix="", weekend_date=wd)
+        archive_page = render_weekend_html_v2(data, prefix="../", weekend_date=wd)
+    else:
+        index_html = render_weekend_html(data, archive=False, weekend_date=wd)
+        archive_page = render_weekend_html(data, archive=True, weekend_date=wd)
     (site_dir / "index.html").write_text(index_html, encoding="utf-8")
     (site_dir / "weekends" / f"{wd}.html").write_text(archive_page, encoding="utf-8")
 
@@ -743,8 +916,9 @@ def build_site(json_path: Path, site_dir: Path, weekend_date: str | None = None)
         except Exception:
             pass
         entries.append({"date": d, "title": title, "href": f"weekends/{d}.html"})
-    (site_dir / "archive.html").write_text(render_archive_html(entries), encoding="utf-8")
-    write_manifest(site_dir)
+    arch = render_archive_html_v2(entries) if design == "v2" else render_archive_html(entries)
+    (site_dir / "archive.html").write_text(arch, encoding="utf-8")
+    write_manifest(site_dir, design)
 
     # ensure icons exist (no-op if already present)
     return {
@@ -752,6 +926,7 @@ def build_site(json_path: Path, site_dir: Path, weekend_date: str | None = None)
         "index_bytes": len(index_html.encode("utf-8")),
         "ideas": len(data.get("ideas") or []),
         "site_dir": str(site_dir),
+        "design": design,
     }
 
 
@@ -774,7 +949,7 @@ def main(argv=None) -> int:
     p.add_argument("--date", default=None, help="Weekend date YYYY-MM-DD")
     p.add_argument("--publish", action="store_true", help="git commit + push after render")
     p.add_argument("--message", default=None, help="Commit message for --publish")
-    p.add_argument("--design", choices=["v1", "v2"], default="v1", help="v1 = current site (default); v2 = calm redesign")
+    p.add_argument("--design", choices=["v1", "v2"], default="v2", help="v2 = calm design (default); v1 = original autumn design (fallback)")
     p.add_argument("--out", default=None, help="Preview mode: write ONLY this file (relative to --site-dir), e.g. preview.html; index/archive/data untouched")
     args = p.parse_args(argv)
 
@@ -806,8 +981,8 @@ def main(argv=None) -> int:
 
     json_path = Path(args.input)
     site_dir = Path(args.site_dir)
-    info = build_site(json_path, site_dir, weekend_date=args.date)
-    print(f"Built {info['site_dir']} for {info['date']}: {info['ideas']} ideas, index {info['index_bytes']} bytes")
+    info = build_site(json_path, site_dir, weekend_date=args.date, design=args.design)
+    print(f"Built {info['site_dir']} for {info['date']} ({info['design']}): {info['ideas']} ideas, index {info['index_bytes']} bytes")
 
     # sanity checks
     index = (site_dir / "index.html").read_text(encoding="utf-8")
@@ -833,7 +1008,8 @@ def main(argv=None) -> int:
 
     wb = data.get("weather_blocks") or {}
     if wb.get("days"):
-        for needle in ('class="wt"', "Forecast updated", "Morning", "Afternoon"):
+        tile = 'class="panel wx2"' if args.design == "v2" else 'class="wt"'
+        for needle in (tile, "Forecast updated", "Morning", "Afternoon"):
             if needle not in index:
                 print(f"MISSING weather tile piece {needle}", file=sys.stderr)
                 return 4
@@ -842,6 +1018,12 @@ def main(argv=None) -> int:
             print(f"WARNING: weather_blocks covers {wb_dates}, not weekend {info['date']} — rerun weather_blocks.py", file=sys.stderr)
     else:
         print("note: no weather_blocks in JSON; showing legacy weather strip (run weather_blocks.py first)", file=sys.stderr)
+
+    if args.design == "v2":
+        for bad in ("Nicer", "About the same", "Why it works"):
+            if bad in index:
+                print(f"UNEXPECTED {bad}", file=sys.stderr)
+                return 5
 
     if args.publish:
         msg = args.message or f"Publish weekend digest {info['date']}"
