@@ -440,6 +440,7 @@ a{color:inherit;text-decoration:none}
 .chip{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:999px;padding:7px 12px;font:500 14px -apple-system,Arial,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .chip[aria-pressed="true"]{background:var(--accbg);border-color:#BFD6CC;color:var(--acc)}
 .chip[aria-pressed="true"]:before{content:"✓ ";font-weight:600}
+.gl2 a{color:var(--acc);font-weight:600}
 .hs-src{color:var(--acc);font-size:14px;font-weight:600}
 .hnote{font-size:13px;color:var(--soft);margin:12px 0 0;border-top:1px solid var(--line);padding-top:12px}
 @media (min-width:700px){.sheet{align-items:center}.sheet-card{border-radius:20px}}
@@ -654,6 +655,45 @@ def _food_row_v2(r: dict, idea: dict) -> str:
     )
 
 
+_GTK_SKIP = re.compile(r"\b(stroller|restroom|bathroom|toilet|changing table)s?\b", re.I)
+
+
+def _gtk_clean(txt) -> str:
+    """Keep only sentences that aren't stroller/restroom info (not wanted in Good to know)."""
+    t = (txt or "").strip()
+    if not t:
+        return ""
+    parts = re.split(r"(?<=[.!?;])\s+", t)
+    return " ".join(p for p in parts if not _GTK_SKIP.search(p)).strip()
+
+
+def good_to_know_v2(idea: dict) -> str:
+    """'Good to know' dropdown: parking & passes, what to bring, hours notes, official link.
+    Reads optional JSON idea.good_to_know = {parking, bring, hours_note, link, link_label}.
+    Omitted entirely when there is nothing useful."""
+    g = idea.get("good_to_know") or {}
+    if not isinstance(g, dict):
+        return ""
+    rows = []
+    for label, key in (("Parking &amp; passes", "parking"), ("What to bring", "bring"), ("Hours note", "hours_note")):
+        val = g.get(key)
+        if isinstance(val, list):
+            val = "; ".join(str(x) for x in val if x)
+        val = _gtk_clean(val)
+        if val:
+            rows.append(f'<p><b>{label}.</b> {e(val)}</p>')
+    link = g.get("link")
+    if isinstance(link, dict):
+        url, lbl = link.get("url"), link.get("label")
+    else:
+        url, lbl = link, g.get("link_label")
+    if url and str(url).startswith(("http://", "https://")):
+        rows.append(f'<p class="gl2"><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(lbl or "Official website")} ↗</a></p>')
+    if not rows:
+        return ""
+    return f'<details class="gtk"><summary>Good to know</summary><div class="dt">{"".join(rows)}</div></details>'
+
+
 def card_v2(idea: dict) -> str:
     num = int(idea.get("num") or 0)
     name = idea.get("name") or ""
@@ -664,13 +704,7 @@ def card_v2(idea: dict) -> str:
         ("", _clip_meta(idea.get("cost"))),
     ]
     meta_html = "".join(f'<span>{(i + " ") if i else ""}{e(t)}</span>' for i, t in meta if t)
-    # full details (nothing dropped)
-    det = []
-    for label, key in (("Hours", "hours_detail"), ("Drive", "drive"), ("Cost", "cost"), ("Length", "outing_length")):
-        if idea.get(key):
-            det.append(f'<p><b>{label}.</b> {e(idea[key])}</p>')
-    if idea.get("tags"):
-        det.append(f'<p><b>Tags.</b> {e(" · ".join(idea["tags"]))}</p>')
+    gtk_html = good_to_know_v2(idea)
     rests = idea.get("restaurants") or []
     meals = [r for r in rests if not r.get("is_treat")]
     treats = [r for r in rests if r.get("is_treat")]
@@ -698,7 +732,7 @@ def card_v2(idea: dict) -> str:
 {sugg_html}
 {why_html}
 {rain}
-{('<details><summary>Hours &amp; more</summary><div class="dt">' + "".join(det) + '</div></details>') if det else ""}
+{gtk_html}
 {food}
 </article>"""
 
