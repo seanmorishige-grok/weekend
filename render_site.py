@@ -124,7 +124,7 @@ CITY_HINTS = (
 
 
 def e(s) -> str:
-    return html.escape(str(s or ""), quote=True)
+    return html.escape("" if s is None or s is False else str(s), quote=True)
 
 
 def core_name(name: str) -> str:
@@ -664,7 +664,7 @@ def _food_row_v2(r: dict, idea: dict) -> str:
         rv = f" · {_short_reviews(r['reviews'])}" if r.get("reviews") else ""
         rating = f'<span class="r">★ {e(r["rating"])}{rv}</span>'
     else:
-        rating = '<span class="r">no rating</span>'
+        rating = ''
     known = " — ".join(x for x in (r.get("known_for"), r.get("praise")) if x)
     kid = f'<div class="x">{e(r["kid_note"])}</div>' if r.get("kid_note") else ""
     return (
@@ -879,7 +879,7 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
     fb_html = ""
     if fb:
         body = e(fb) if isinstance(fb, str) else "<ul class=lst>" + "".join(f"<li>{e(x)}</li>" for x in fb) + "</ul>"
-        fb_html = f'<h2>Filler bank</h2><section class="panel"><div class="dt" style="padding:12px 0">{body}</div></section>'
+        fb_html = f'<h2>Also worth a look</h2><section class="panel"><div class="dt" style="padding:12px 0">{body}</div></section>'
     m = re.search(r"—\s*(.+)$", title)
     kick = BRAND_V2
     dates = m.group(1).strip() if m else (weekend_date or "")
