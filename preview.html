@@ -38,15 +38,9 @@ h2{font:600 13px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spac
 .wx2 .c{font-size:14px;font-weight:600;line-height:1.3}
 .wx2 .n{font-size:13px;color:var(--muted)}
 .upd{font-size:12px;color:var(--soft);margin:8px 2px 0}
-/* quick glance */
-.gl{padding:0;overflow:hidden}
-.sw{position:relative;overflow:hidden;border-top:1px solid var(--line)}
-.sw.first{border-top:0}
-.sw-act{position:absolute;top:0;right:0;bottom:0;width:88px;border:0;background:#D93A3A;color:#fff;font:600 15px -apple-system,Arial,sans-serif;cursor:pointer;visibility:hidden}
-.sw.open .sw-act,.sw.drag .sw-act{visibility:visible}
-.sw-row{position:relative;display:flex;gap:12px;padding:12px 16px;background:var(--card);touch-action:pan-y;transition:transform .2s ease;will-change:transform;-webkit-tap-highlight-color:transparent}
-.sw.drag .sw-row{transition:none}
-.rs{margin:8px 2px 0;text-align:right;min-height:0}
+/* plans count + restore */
+.rs{margin:2px 2px 0;text-align:center}
+.rs .done{font-size:13px;color:var(--soft);margin:0 0 6px}
 .rs button{background:none;border:0;padding:4px 0;font-size:13px;color:var(--soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .cd{position:relative}
 .no{font:400 15px Georgia,serif;color:var(--soft);margin-right:8px}
@@ -64,9 +58,6 @@ h2{font:600 13px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spac
 .toast{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translateX(-50%);background:#23201C;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 24px rgba(0,0,0,.18);z-index:9;max-width:calc(100% - 32px)}
 .toast[hidden]{display:none}
 .toast button{background:transparent;border:0;color:#9FD9C4;font:600 14px -apple-system,Arial,sans-serif;padding:6px 10px;cursor:pointer}
-.gl .i{color:var(--acc);font-weight:700;min-width:18px;font-variant-numeric:tabular-nums}
-.gl .t{font-weight:600;font-size:15px;line-height:1.3}
-.gl .m{display:block;font-size:13px;color:var(--muted);font-weight:400;margin-top:2px}
 /* idea cards */
 .cd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 6px;margin:0 0 14px;scroll-margin-top:16px}
 .cd h3{font:700 20px/1.25 Georgia,serif;margin:0}
@@ -117,10 +108,7 @@ summary .q{font-weight:400;color:var(--soft);margin-left:auto;margin-right:12px;
 </header>
 <p class="intro">Here are 10 family-friendly plans for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. The weather tile below shows Morning (9 AM–12 PM) and Afternoon (3–7 PM) for each day. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.</p>
 <h2 id="weather">Weather</h2><section class="panel wx2" aria-label="Weekend weather"><div><div class="d">Saturday<span>Oct 10</span></div><div class="s"><div class="e" aria-hidden="true">☁️</div><div><div class="l">Morning 9–12</div><div class="c">Cloudy</div><div class="n">46–54°F · 17% rain</div></div></div><div class="s"><div class="e" aria-hidden="true">⛅</div><div><div class="l">Afternoon 3–7</div><div class="c">Mostly sunny</div><div class="n">46–56°F · 11% rain</div></div></div></div><div><div class="d">Sunday<span>Oct 11</span></div><div class="s"><div class="e" aria-hidden="true">☀️</div><div><div class="l">Morning 9–12</div><div class="c">Sunny</div><div class="n">44–56°F · 1% rain</div></div></div><div class="s"><div class="e" aria-hidden="true">☀️</div><div><div class="l">Afternoon 3–7</div><div class="c">Sunny</div><div class="n">48–59°F · 1% rain</div></div></div></div></section><p class="upd">Forecast updated Tue Oct 6, 3:04 PM PT · Open-Meteo</p>
-<h2>At a glance · <span id="left">10</span></h2>
-<nav class="panel gl" aria-label="At a glance (swipe left to clear)"><div class="sw" data-n="1"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Bigfoot Kids’ Book Festival">Clear</button><a class="sw-row" href="#idea-1"><span class="i">1</span><span class="t">Bigfoot Kids’ Book Festival<span class="m">Sat only 10–4 · Free</span></span></a></div><div class="sw" data-n="2"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Olallie State Park — Weeks Falls (Discover Pass FREE Sat)">Clear</button><a class="sw-row" href="#idea-2"><span class="i">2</span><span class="t">Olallie State Park — Weeks Falls (Discover Pass FREE Sat)<span class="m">Open 6:30–dusk · Sat free day-use</span></span></a></div><div class="sw" data-n="3"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Jubilee Farm Harvest Festival">Clear</button><a class="sw-row" href="#idea-3"><span class="i">3</span><span class="t">Jubilee Farm Harvest Festival<span class="m">Sat–Sun 10–5 · Free admission</span></span></a></div><div class="sw" data-n="4"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Red Barn Farm Fall Festival">Clear</button><a class="sw-row" href="#idea-4"><span class="i">4</span><span class="t">Red Barn Farm Fall Festival<span class="m">Sat–Sun 10–4 · Adults $12</span></span></a></div><div class="sw" data-n="5"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear KidsQuest Children’s Museum">Clear</button><a class="sw-row" href="#idea-5"><span class="i">5</span><span class="t">KidsQuest Children’s Museum<span class="m">Sat–Sun 9:30–5 · ~$16.75 ages 1+</span></span></a></div><div class="sw" data-n="6"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Asahel Curtis Nature Trail">Clear</button><a class="sw-row" href="#idea-6"><span class="i">6</span><span class="t">Asahel Curtis Nature Trail<span class="m">Day-use · Northwest Forest Pass or America the Beautiful required at trailhead</span></span></a></div><div class="sw" data-n="7"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Northwest Railway Museum Halloween Train (early departure)">Clear</button><a class="sw-row" href="#idea-7"><span class="i">7</span><span class="t">Northwest Railway Museum Halloween Train (early departure)<span class="m">Trains every 2 hrs from 10:30 · Adults $32</span></span></a></div><div class="sw" data-n="8"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Fall City Farms Pumpkin Patch">Clear</button><a class="sw-row" href="#idea-8"><span class="i">8</span><span class="t">Fall City Farms Pumpkin Patch<span class="m">Sat 10–6 · Sun 10–5 · Pumpkins/food priced on-site</span></span></a></div><div class="sw" data-n="9"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear LEGO Builders @ Snoqualmie Library (KCLS)">Clear</button><a class="sw-row" href="#idea-9"><span class="i">9</span><span class="t">LEGO Builders @ Snoqualmie Library (KCLS)<span class="m">Sat 3–4:30 · Free</span></span></a></div><div class="sw" data-n="10"><button type="button" class="sw-act" tabindex="-1" aria-label="Clear Juanita Bay Park boardwalk">Clear</button><a class="sw-row" href="#idea-10"><span class="i">10</span><span class="t">Juanita Bay Park boardwalk<span class="m">Dawn–dusk · Free parking</span></span></a></div></nav>
-<p class="rs"><button type="button" id="showc" hidden>Show cleared (<span id="nc">0</span>)</button></p>
-<h2>Plans</h2>
+<h2 id="plans">Plans · <span id="left">10</span></h2>
 <article class="cd" id="idea-1" data-n="1">
 <div class="cx" data-n="1"><button type="button" class="cx-x" aria-label="Clear Bigfoot Kids’ Book Festival">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Bigfoot Kids’ Book Festival">Clear</button><button type="button" class="cx-no" aria-label="Keep Bigfoot Kids’ Book Festival">Keep</button></span></div>
 <h3><span class="no">1</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Bigfoot%20Kids%E2%80%99%20Book%20Festival%2C%20Redmond%2C%20WA" target="_blank" rel="noopener noreferrer">Bigfoot Kids’ Book Festival</a></h3>
@@ -232,6 +220,7 @@ summary .q{font-weight:400;color:var(--soft);margin-left:auto;margin-right:12px;
 <details><summary>Hours &amp; more</summary><div class="dt"><p><b>Hours.</b> Dawn–dusk city park; WTA notes ~2 mi of trails at 0 ft gain</p><p><b>Drive.</b> ~35–45 min via I-90 / I-405</p><p><b>Cost.</b> Free parking</p><p><b>Length.</b> ~1–1.5 hr (0.5–1.0 mi toddler out-and-back)</p><p><b>Tags.</b> hike · free</p></div></details>
 <details><summary>Eat nearby<span class="q">3 meals · 2 treats</span></summary><div class="dt"><div class="fa">Kirkland / Juanita area — not Bellevue or Snoqualmie as primary</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mia%20Cafe%20and%20Wine%20Bar%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Mia Cafe and Wine Bar</a><span class="r">★ 4.6 · 132</span></div><div class="k">Brunch plates, crepes, and sandwiches on Juanita Dr with lake-adjacent vibes. — French toast, portions, and friendly staff.</div><div class="x">Breakfast/lunch menu fits a post-boardwalk rewind.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Plaza%20Garcia%20Family%20Mexican%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Plaza Garcia Family Mexican</a><span class="r">★ 4.6 · 861</span></div><div class="k">Generous Mexican plates and a full bar on Juanita Dr. — Carne asada, portions, and a kids-friendly vibe.</div><div class="x">Big plates to share; parking can be tight.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Seoul%20Bowl%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Seoul Bowl (Juanita)</a><span class="r">★ 4.7 · 425</span></div><div class="k">Customizable Korean bowls and friendly counter service. — Bulgogi bowls and kid-friendly chicken tenders.</div><div class="x">Build-your-own bowls keep picky eaters happy.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sirena%20Gelato%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Sirena Gelato (downtown Kirkland / Marina Park orbit)</a><span class="r">★ 4.6 · 765</span></div><div class="k">Family-run artisanal gelato &amp; sorbet (pistachio, hazelnut, ube, pandan) on Park Ln near the waterfront. — Light creamy scoops, generous portions, and warm staff.</div><div class="x">Short hop south of Juanita Bay; opens noon — scoop treat after the boardwalk.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Coffee%20%26%20Cone%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Coffee &amp; Cone (Lakeshore Plaza / Marina Park)</a><span class="r">★ 4.6 · 123</span></div><div class="k">Local ice cream scoops, waffle cones, and coffee right on the Kirkland waterfront. — Flavor variety (huckleberry, salted caramel), friendly service, and lake-walk energy.</div><div class="x">Sat/Sun open 11 AM — scoop + stroller stroll combo if Marina Park fits the return.</div></div></div></details>
 </article>
+<div class="rs"><p class="done" id="alldone" hidden>All cleared.</p><button type="button" id="showc" hidden>Show cleared (<span id="nc">0</span>)</button></div>
 <h2>Nap conflicts</h2><section class="panel"><ul class="lst"><li>Halloween Train 1:00 PM Snoqualmie / corresponding NB afternoon departures — full 2-hr ride overlaps 1–3 PM nap; only worth it if you’re deliberately skipping nap for costumes + cider + Eric Ode.</li><li>Remlinger Farms Fall Harvest full day (Fri–Sun 10 AM–6 PM; GA ~$33.95 ages 2–65 online, under 2 free) — peak-color weekend with 70+ attractions; a morning wristband slice can still fit nap, but the “do everything” day does not.</li><li>Red Barn Farm last-entry 3 PM afternoon block — fine if nap is skipped or shifted; morning is cleaner.</li><li>Seattle Japanese Garden Family Saturday origami (11 AM–2 PM; youth 12 &amp; under free 10 AM–2 PM) — cool unique find, but ~45–60 min drive each way makes the return collide with nap unless you skip it.</li><li>Small Frye at Frye Art Museum (10:15–11:15 AM, free, ages 2–5, registration required) — great age fit but Seattle drive + hard stop time is a stretch vs Eastside options.</li><li>Turkfest (Seattle Center, noon–5 PM both days) and SLU Fall Harvest Celebration (11 AM–2 PM) — neat free city festivals; drive + timing fight the nap window from Crest View.</li></ul></section>
 <h2>Filler bank</h2><section class="panel"><div class="dt" style="padding:12px 0">Centennial Fields inclusive playground (Snoqualmie), Tollgate Farm Park (North Bend), Remlinger morning wristband, Snoqualmie Falls upper viewpoints, Muddy Boots Pumpkins in Duvall (maze: under 5 free; ages 6–15 $12; 16+ $17), JB Family Growers pumpkin/puzzle patch in Woodinville ($5 ages 2–11), Issaquah Fall Farm Fresh Market Sat 9 AM–2 PM at Historic Shell Station, Lowe’s Issaquah free kids workshop Sat 10 AM (firefighting plane build).</div></section>
 <footer class="ft">Crest View family digests · <a href="archive.html">Archive</a> · 2026-10-10</footer>
@@ -242,12 +231,12 @@ summary .q{font-weight:400;color:var(--soft);margin-left:auto;margin-right:12px;
 var KEY='weekend-cleared:'+(window.WEEKEND_DATE||location.pathname);
 var cleared=[];try{cleared=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(cleared))}catch(e){}}
-function els(n){return [document.getElementById('idea-'+n),document.querySelector('.sw[data-n="'+n+'"]')].filter(Boolean)}
+function els(n){return [document.getElementById('idea-'+n)].filter(Boolean)}
 function name(n){var c=document.getElementById('idea-'+n),a=c&&c.querySelector('h3 a');return a?a.textContent:''}
 function refresh(){
-  var rows=[].slice.call(document.querySelectorAll('.sw')),f=true;
-  rows.forEach(function(r){r.classList.remove('first');if(!r.hidden&&f){r.classList.add('first');f=false}});
-  var left=document.getElementById('left');if(left)left.textContent=rows.filter(function(r){return !r.hidden}).length;
+  var cards=[].slice.call(document.querySelectorAll('article.cd')),n=cards.filter(function(c){return !c.hidden}).length;
+  var left=document.getElementById('left');if(left)left.textContent=n;
+  document.getElementById('alldone').hidden=n>0;
   var b=document.getElementById('showc');document.getElementById('nc').textContent=cleared.length;b.hidden=!cleared.length;
 }
 function collapse(el){
@@ -273,7 +262,7 @@ function clear(n){
 }
 function restore(n){
   n=String(n);var i=cleared.indexOf(n);if(i<0)return;
-  cleared.splice(i,1);save();els(n).forEach(function(el){resetRow(el);expand(el)});setTimeout(refresh,0);refresh();
+  cleared.splice(i,1);save();els(n).forEach(expand);setTimeout(refresh,0);refresh();
 }
 // initial state (no animation)
 cleared.forEach(function(n){els(n).forEach(function(el){el.hidden=true})});refresh();
@@ -296,37 +285,6 @@ document.querySelectorAll('.cx').forEach(function(cx){
 });
 document.addEventListener('click',function(ev){if(armed&&!armed.contains(ev.target))disarm()},true);
 
-// ---- quick-glance swipe-left to reveal Clear
-var W=88,openRow=null;
-function setX(sw,x){sw.querySelector('.sw-row').style.transform=x?'translateX('+x+'px)':''}
-function resetRow(el){if(el.classList&&el.classList.contains('sw')){setX(el,0);el.classList.remove('open');el.querySelector('.sw-act').tabIndex=-1;if(openRow===el)openRow=null}}
-function openIt(sw){if(openRow&&openRow!==sw)resetRow(openRow);setX(sw,-W);sw.classList.add('open');sw.querySelector('.sw-act').tabIndex=0;openRow=sw}
-document.querySelectorAll('.sw').forEach(function(sw){
-  var row=sw.querySelector('.sw-row'),sx=0,sy=0,dx=0,mode=null,base=0,moved=false;
-  row.addEventListener('touchstart',function(ev){
-    if(ev.touches.length!==1)return;var t=ev.touches[0];sx=t.clientX;sy=t.clientY;dx=0;mode=null;moved=false;
-    base=sw.classList.contains('open')?-W:0;
-  },{passive:true});
-  row.addEventListener('touchmove',function(ev){
-    var t=ev.touches[0],x=t.clientX-sx,y=t.clientY-sy;
-    if(mode===null){if(Math.abs(x)<8&&Math.abs(y)<8)return;mode=Math.abs(x)>Math.abs(y)*1.5?'h':'v';if(mode==='h'){sw.classList.add('drag');if(openRow&&openRow!==sw)resetRow(openRow)}}
-    if(mode!=='h')return;
-    ev.preventDefault();moved=true;dx=x;setX(sw,Math.max(-W-24,Math.min(0,base+x)));
-  },{passive:false});
-  function end(){
-    if(mode==='h'){sw.classList.remove('drag');var x=base+dx;if(x<-W/2)openIt(sw);else resetRow(sw)}
-    mode=null;
-  }
-  row.addEventListener('touchend',end);row.addEventListener('touchcancel',end);
-  row.addEventListener('click',function(ev){
-    if(moved){ev.preventDefault();moved=false;return}
-    if(sw.classList.contains('open')){ev.preventDefault();resetRow(sw)}
-  });
-  sw.querySelector('.sw-act').addEventListener('click',function(ev){ev.stopPropagation();if(sw.classList.contains('open'))clear(sw.dataset.n)});
-  sw.querySelector('.sw-act').addEventListener('focus',function(){openIt(sw)});
-});
-document.addEventListener('touchstart',function(ev){if(openRow&&!openRow.contains(ev.target))resetRow(openRow)},{passive:true});
-document.addEventListener('click',function(ev){if(openRow&&!openRow.contains(ev.target))resetRow(openRow)});
 })();
 </script>
 </body>
