@@ -420,7 +420,29 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .w{max-width:600px;margin:0 auto;padding:max(28px,env(safe-area-inset-top)) 20px 56px}
-.top{margin:0 0 22px}
+.top{margin:0 0 22px;position:relative}
+.gear{position:absolute;top:-12px;right:-12px;width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;color:var(--soft);display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.gear svg{display:block}
+.gear:active{color:var(--muted)}
+.gear:focus-visible{outline:2px solid var(--line);outline-offset:-6px;border-radius:8px}
+.top .kick{padding-right:44px}
+.sheet{position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sheet[hidden]{display:none}
+.sheet-bg{position:absolute;inset:0;background:rgba(35,32,28,.35)}
+.sheet-card{position:relative;background:var(--bg);width:100%;max-width:600px;max-height:88vh;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:20px 20px 0 0;padding:20px 20px max(24px,env(safe-area-inset-bottom));box-shadow:0 -8px 30px rgba(0,0,0,.12);animation:up .22s ease}
+@keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
+.sheet-top{display:flex;justify-content:space-between;align-items:center;margin:0 0 4px}
+.sheet-top h2{margin:0;font:700 22px/1.2 Georgia,serif;letter-spacing:0;text-transform:none;color:var(--ink)}
+.sheet-x{width:34px;height:34px;border:0;background:var(--line);border-radius:999px;color:var(--muted);font-size:14px;cursor:pointer}
+.hg{padding:12px 0;border-top:1px solid var(--line)}
+.hg .st2{margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:999px;padding:7px 12px;font:500 14px -apple-system,Arial,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.chip[aria-pressed="true"]{background:var(--accbg);border-color:#BFD6CC;color:var(--acc)}
+.chip[aria-pressed="true"]:before{content:"✓ ";font-weight:600}
+.hs-src{color:var(--acc);font-size:14px;font-weight:600}
+.hnote{font-size:13px;color:var(--soft);margin:12px 0 0;border-top:1px solid var(--line);padding-top:12px}
+@media (min-width:700px){.sheet{align-items:center}.sheet-card{border-radius:20px}}
 .kick{font:600 12px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin:0 0 10px}
 h1{font:700 28px/1.15 Georgia,"Times New Roman",serif;margin:0 0 6px;letter-spacing:-.01em}
 .sub{color:var(--muted);font-size:14px;margin:0}
@@ -565,6 +587,29 @@ document.querySelectorAll('.cx').forEach(function(cx){
   cx.querySelector('.cx-yes').addEventListener('click',function(ev){ev.stopPropagation();var n=cx.dataset.n;disarm();clear(n)});
 });
 document.addEventListener('click',function(ev){if(armed&&!armed.contains(ev.target))disarm()},true);
+
+// ---- How we pick sheet (gear) + pillar chips saved on this phone
+var how=document.getElementById('how'),gear=document.getElementById('gear'),PK='mgd-pillars';
+if(how&&gear){
+  var off={};try{off=JSON.parse(localStorage.getItem(PK)||'{}')}catch(e){}
+  how.querySelectorAll('.chip').forEach(function(c){
+    c.setAttribute('aria-pressed',off[c.dataset.k]?'false':'true');
+    c.addEventListener('click',function(){
+      var on=c.getAttribute('aria-pressed')!=='true';c.setAttribute('aria-pressed',on?'true':'false');
+      if(on)delete off[c.dataset.k];else off[c.dataset.k]=1;try{localStorage.setItem(PK,JSON.stringify(off))}catch(e){}
+    });
+  });
+  var openHow=function(){how.hidden=false;document.body.style.overflow='hidden';how.querySelector('.sheet-x').focus({preventScroll:true})};
+  var closeHow=function(){how.hidden=true;document.body.style.overflow='';if(location.hash==='#how')history.replaceState(null,'',location.pathname+location.search);gear.focus({preventScroll:true})};
+  gear.addEventListener('click',openHow);
+  how.querySelectorAll('[data-close]').forEach(function(x){x.addEventListener('click',closeHow)});
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!how.hidden)closeHow()});
+  document.getElementById('how-src').addEventListener('click',function(ev){
+    ev.preventDefault();closeHow();var d=document.getElementById('sources');
+    if(d){d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+  if(location.hash==='#how')openHow();
+}
 
 })();
 """
@@ -715,8 +760,63 @@ def sources_v2(path: Path = SOURCES_PATH) -> str:
     n_new = sum(1 for x in srcs if x.get("new"))
     q = f"{len(srcs)} sources" + (f" · {n_new} new" if n_new else "")
     return (
-        f'<details class="src"><summary>Where these come from<span class="q">{e(q)}</span></summary>'
+        f'<details class="src" id="sources"><summary>Where these come from<span class="q">{e(q)}</span></summary>'
         f'<div class="dt">{"".join(rows)}</div></details>'
+    )
+
+
+BRAND_V2 = "More Good Days"
+BRAND_SHORT_V2 = "Good Days"  # home-screen label (iOS truncates ~12 chars)
+
+# "How we pick" curation pillars (chips saved per phone in localStorage)
+PILLARS_V2 = [
+    ("Kids & timing", [
+        ("kids-ages", "Ages 4 & 2"),
+        ("morning", "Morning 9–12"),
+        ("afternoon", "Afternoon 3–7"),
+        ("nap", "Around the 1–3 nap"),
+        ("short-visits", "Short visits"),
+    ]),
+    ("Places", [
+        ("playgrounds", "Playgrounds"),
+        ("views", "Nice views"),
+        ("farms", "Farms & pumpkin patches"),
+        ("festivals", "Kid festivals"),
+        ("hikes", "Short hikes"),
+        ("indoor", "Museums & rainy-day indoor"),
+    ]),
+    ("Food", [
+        ("real-meal", "Real lunch or dinner nearby"),
+        ("treat", "Local treat stop"),
+        ("no-chains", "No chains"),
+    ]),
+    ("Distance", [
+        ("short-drives", "Short drives from Snoqualmie"),
+    ]),
+]
+
+
+def how_sheet_v2() -> str:
+    groups = "".join(
+        f'<div class="hg"><div class="st2">{e(g)}</div><div class="chips">'
+        + "".join(
+            f'<button type="button" class="chip" data-k="{e(k)}" aria-pressed="true">{e(lbl)}</button>'
+            for k, lbl in items
+        )
+        + "</div></div>"
+        for g, items in PILLARS_V2
+    )
+    return (
+        '<div id="how" class="sheet" role="dialog" aria-modal="true" aria-labelledby="how-h" hidden>'
+        '<div class="sheet-bg" data-close="1"></div>'
+        '<div class="sheet-card"><div class="sheet-top"><h2 id="how-h">How we pick</h2>'
+        '<button type="button" class="sheet-x" data-close="1" aria-label="Close How we pick">✕</button></div>'
+        f'<p class="tag" style="margin:0 0 6px">{TAGLINE_V2}</p>'
+        f'{groups}'
+        '<div class="hg"><div class="st2">Sources</div>'
+        '<a href="#sources" class="hs-src" id="how-src">Where these come from →</a></div>'
+        '<p class="hnote">Changes here are saved on this phone. Tell us in chat to change what gets picked.</p>'
+        '</div></div>'
     )
 
 
@@ -739,8 +839,9 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
         body = e(fb) if isinstance(fb, str) else "<ul class=lst>" + "".join(f"<li>{e(x)}</li>" for x in fb) + "</ul>"
         fb_html = f'<h2>Filler bank</h2><section class="panel"><div class="dt" style="padding:12px 0">{body}</div></section>'
     m = re.search(r"—\s*(.+)$", title)
-    kick = "Family weekend"
+    kick = BRAND_V2
     dates = m.group(1).strip() if m else (weekend_date or "")
+    page_title = f"{BRAND_V2} · {dates}" if dates else BRAND_V2
     sub_v2 = " · ".join(x for x in (dates, "near Snoqualmie") if x)
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -750,9 +851,10 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 <meta name="theme-color" content="#FAF8F4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Weekend">
-<meta name="description" content="{e(subtitle or title)}">
-<title>{e(title)}</title>
+<meta name="apple-mobile-web-app-title" content="{BRAND_SHORT_V2}">
+<meta name="application-name" content="{BRAND_V2}">
+<meta name="description" content="{e(BRAND_V2 + " · " + sub_v2 + ". " + TAGLINE_V2)}">
+<title>{e(page_title)}</title>
 <link rel="manifest" href="{prefix}manifest.webmanifest">
 <link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="{prefix}assets/icon-192.png">
@@ -761,6 +863,7 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 <body>
 <div class="w">
 <header class="top">
+<button type="button" class="gear" id="gear" aria-label="How we pick" aria-haspopup="dialog" aria-controls="how"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
 <p class="kick">{e(kick)}</p>
 <h1>{e(title)}</h1>
 <p class="sub">{e(sub_v2)}</p>
@@ -774,8 +877,9 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 {nap_html}
 {fb_html}
 {sources_v2()}
-<footer class="ft">Crest View family digests · <a href="{prefix}archive.html">Archive</a>{(" · " + e(weekend_date)) if weekend_date else ""}</footer>
+<footer class="ft">{BRAND_V2} · <a href="{prefix}archive.html">Archive</a>{(" · " + e(weekend_date)) if weekend_date else ""}</footer>
 </div>
+{how_sheet_v2()}
 <div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="tmsg">Cleared</span><button type="button" id="undo" aria-label="Undo clear">Undo</button></div>
 <script>window.WEEKEND_DATE={json.dumps(weekend_date)};{JS_V2}</script>
 </body>
@@ -834,8 +938,9 @@ def render_archive_html_v2(entries: list[dict]) -> str:
 <meta name="theme-color" content="#FAF8F4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Weekend">
-<title>Archive · Weekend</title>
+<meta name="apple-mobile-web-app-title" content="{BRAND_SHORT_V2}">
+<meta name="application-name" content="{BRAND_V2}">
+<title>Archive · {BRAND_V2}</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
@@ -844,13 +949,14 @@ def render_archive_html_v2(entries: list[dict]) -> str:
 <body>
 <div class="w">
 <header class="top">
-<p class="kick">Family weekend</p>
+<p class="kick">{BRAND_V2}</p>
 <h1>Archive</h1>
 <p class="sub">Past weekends</p>
+<p class="tag">{TAGLINE_V2}</p>
 <nav class="nav"><a href="./">This weekend</a><a href="archive.html">Archive</a></nav>
 </header>
 <section class="panel"><ul class="lst">{items or "<li>No weekends yet.</li>"}</ul></section>
-<footer class="ft">Crest View family digests</footer>
+<footer class="ft">{BRAND_V2}</footer>
 </div>
 </body>
 </html>"""
@@ -859,9 +965,9 @@ def render_archive_html_v2(entries: list[dict]) -> str:
 def write_manifest(site_dir: Path, design: str = "v2") -> None:
     v2 = design == "v2"
     manifest = {
-        "name": "Weekend Plans" if v2 else "Weekend Ideas",
-        "short_name": "Weekend",
-        "description": "Family weekend activity digests",
+        "name": BRAND_V2 if v2 else "Weekend Ideas",
+        "short_name": BRAND_SHORT_V2 if v2 else "Weekend",
+        "description": (BRAND_V2 + " · " + TAGLINE_V2) if v2 else "Family weekend activity digests",
         "start_url": "./",
         "display": "standalone",
         "background_color": "#FAF8F4" if v2 else "#FBF6EE",
@@ -871,7 +977,7 @@ def write_manifest(site_dir: Path, design: str = "v2") -> None:
             {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png"},
         ],
     }
-    (site_dir / "manifest.webmanifest").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    (site_dir / "manifest.webmanifest").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def infer_date(data: dict, json_path: Path) -> str:
