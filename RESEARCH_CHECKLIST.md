@@ -13,6 +13,21 @@ Family: kids 4 & 2, naps 1–3 PM, home base Snoqualmie, WA.
 - [ ] `restaurants` / treats nearby (the "Eat nearby" dropdown)
 - [ ] Note which sources you used in `sources.json` (`cited_in`, `last_verified`)
 
+## Eat nearby (`restaurants`)
+For each pick, aim for about 3 real meals and 2 treats within a few minutes' drive. Local places, no chains.
+- [ ] Family-friendly restaurants that are open when you'd actually eat (lunch before the 1–3 nap, or an early dinner).
+- [ ] **Family-friendly breweries with food trucks and open space or play areas** (lawn, yard, sandbox, toys, room to run).
+      Check on the brewery's official site or social page that **kids/minors are allowed** and the hours, and which **food truck** is
+      scheduled that weekend (or that there's a kitchen). Note the play space. Skip 21+ taprooms and places with no food.
+- [ ] Treat stops: bakery, ice cream, cider, donuts.
+- [ ] Each entry: name, town, short note (what to order / why it works for kids), hours if they're limited.
+
+## Family settings (from the How we pick sheet)
+The gear sheet's Save button opens a text to the Linq line (+1 628-290-9234) like:
+`Good Days settings: Drive=Close, Vibe=Mix, Lean=Outdoor, Also: more train stuff`.
+Use the latest one when picking: **Drive** (Close ≈ ≤25 min, Medium ≈ ≤45 min, Farther ≈ up to ~75 min from Snoqualmie),
+**Vibe** (Calm / Mix / Adventurous), **Lean** (Indoor / Mix / Outdoor). Treat **Also** as a request to work in when possible.
+
 ## Good to know (optional `good_to_know` object)
 Check each pick's **official page** (venue, park agency, library, or ticket page) for that weekend:
 

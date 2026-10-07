@@ -434,15 +434,20 @@ a{color:inherit;text-decoration:none}
 .sheet-top{display:flex;justify-content:space-between;align-items:center;margin:0 0 4px}
 .sheet-top h2{margin:0;font:700 22px/1.2 Georgia,serif;letter-spacing:0;text-transform:none;color:var(--ink)}
 .sheet-x{width:34px;height:34px;border:0;background:var(--line);border-radius:999px;color:var(--muted);font-size:14px;cursor:pointer}
-.hg{padding:12px 0;border-top:1px solid var(--line)}
-.hg .st2{margin:0 0 8px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:999px;padding:7px 12px;font:500 14px -apple-system,Arial,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.chip[aria-pressed="true"]{background:var(--accbg);border-color:#BFD6CC;color:var(--acc)}
-.chip[aria-pressed="true"]:before{content:"✓ ";font-weight:600}
+.hx{font-size:15px;line-height:1.5;color:var(--muted);margin:6px 0 4px}
+.hk{padding:14px 0 0}
+.hk label,.hk .kl{display:block;font:600 13px -apple-system,Arial,sans-serif;color:var(--soft);margin:0 0 7px;letter-spacing:.02em}
+.seg{display:flex;background:var(--line);border-radius:12px;padding:3px;gap:3px}
+.seg button{flex:1;min-height:42px;border:0;background:none;border-radius:9px;font:600 15px -apple-system,Arial,sans-serif;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.seg button[aria-checked="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg button:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+.hk input{width:100%;box-sizing:border-box;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:10px 12px;font:16px -apple-system,Arial,sans-serif;color:var(--ink)}
+.hk input:focus{outline:2px solid var(--acc);outline-offset:-1px;border-color:transparent}
+.save{display:block;width:100%;min-height:48px;margin:18px 0 0;border:0;border-radius:12px;background:var(--acc);color:#fff;font:600 16px -apple-system,Arial,sans-serif;cursor:pointer}
+.save:active{opacity:.85}
+.hsaved{font-size:14px;color:var(--acc);margin:10px 0 0;min-height:20px;text-align:center}
 .gl2 a{color:var(--acc);font-weight:600}
 .hs-src{color:var(--acc);font-size:14px;font-weight:600}
-.hnote{font-size:13px;color:var(--soft);margin:12px 0 0;border-top:1px solid var(--line);padding-top:12px}
 @media (min-width:700px){.sheet{align-items:center}.sheet-card{border-radius:20px}}
 .kick{font:600 12px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin:0 0 10px}
 h1{font:700 28px/1.15 Georgia,"Times New Roman",serif;margin:0 0 6px;letter-spacing:-.01em}
@@ -589,18 +594,31 @@ document.querySelectorAll('.cx').forEach(function(cx){
 });
 document.addEventListener('click',function(ev){if(armed&&!armed.contains(ev.target))disarm()},true);
 
-// ---- How we pick sheet (gear) + pillar chips saved on this phone
-var how=document.getElementById('how'),gear=document.getElementById('gear'),PK='mgd-pillars';
+// ---- How we pick sheet (gear): 3 knobs + free text, saved on this phone, Save opens a prefilled text
+var how=document.getElementById('how'),gear=document.getElementById('gear'),PK='mgd-prefs';
 if(how&&gear){
-  var off={};try{off=JSON.parse(localStorage.getItem(PK)||'{}')}catch(e){}
-  how.querySelectorAll('.chip').forEach(function(c){
-    c.setAttribute('aria-pressed',off[c.dataset.k]?'false':'true');
-    c.addEventListener('click',function(){
-      var on=c.getAttribute('aria-pressed')!=='true';c.setAttribute('aria-pressed',on?'true':'false');
-      if(on)delete off[c.dataset.k];else off[c.dataset.k]=1;try{localStorage.setItem(PK,JSON.stringify(off))}catch(e){}
+  var prefs={};try{prefs=JSON.parse(localStorage.getItem(PK)||'{}')||{}}catch(e){}
+  var segs=how.querySelectorAll('.seg'),also=document.getElementById('how-also'),msg=document.getElementById('how-saved');
+  var pick=function(seg,btn){seg.querySelectorAll('button').forEach(function(b){var on=b===btn;b.setAttribute('aria-checked',on?'true':'false');b.tabIndex=on?0:-1})};
+  segs.forEach(function(seg){
+    var bs=[].slice.call(seg.querySelectorAll('button')),cur=bs.filter(function(b){return b.dataset.v===prefs[seg.dataset.k]})[0]||bs.filter(function(b){return b.getAttribute('aria-checked')==='true'})[0]||bs[0];
+    pick(seg,cur);
+    bs.forEach(function(b,i){
+      b.addEventListener('click',function(){pick(seg,b)});
+      b.addEventListener('keydown',function(ev){var d=ev.key==='ArrowRight'||ev.key==='ArrowDown'?1:ev.key==='ArrowLeft'||ev.key==='ArrowUp'?-1:0;if(!d)return;ev.preventDefault();var n=bs[(i+d+bs.length)%bs.length];pick(seg,n);n.focus()});
     });
   });
-  var openHow=function(){how.hidden=false;document.body.style.overflow='hidden';how.querySelector('.sheet-x').focus({preventScroll:true})};
+  if(prefs.also)also.value=prefs.also;
+  var val=function(k){var b=how.querySelector('.seg[data-k="'+k+'"] [aria-checked="true"]');return b?b.dataset.v:''};
+  document.getElementById('how-save').addEventListener('click',function(){
+    var p={drive:val('drive'),vibe:val('vibe'),lean:val('lean'),also:also.value.trim().slice(0,140),saved:new Date().toISOString()};
+    try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){}
+    var t='Good Days settings: Drive='+p.drive+', Vibe='+p.vibe+', Lean='+p.lean+(p.also?', Also: '+p.also:'');
+    var url='sms:'+how.dataset.sms+'?&body='+encodeURIComponent(t);
+    msg.textContent='Saved ✓ Opening Messages to send it to us.';
+    (window.mgdOpenSms||function(u){location.href=u})(url);
+  });
+  var openHow=function(){msg.textContent='';how.hidden=false;document.body.style.overflow='hidden';how.querySelector('.sheet-x').focus({preventScroll:true})};
   var closeHow=function(){how.hidden=true;document.body.style.overflow='';if(location.hash==='#how')history.replaceState(null,'',location.pathname+location.search);gear.focus({preventScroll:true})};
   gear.addEventListener('click',openHow);
   how.querySelectorAll('[data-close]').forEach(function(x){x.addEventListener('click',closeHow)});
@@ -802,54 +820,44 @@ def sources_v2(path: Path = SOURCES_PATH) -> str:
 BRAND_V2 = "More Good Days"
 BRAND_SHORT_V2 = "Good Days"  # home-screen label (iOS truncates ~12 chars)
 
-# "How we pick" curation pillars (chips saved per phone in localStorage)
-PILLARS_V2 = [
-    ("Kids & timing", [
-        ("kids-ages", "Ages 4 & 2"),
-        ("morning", "Morning 9–12"),
-        ("afternoon", "Afternoon 3–7"),
-        ("nap", "Around the 1–3 nap"),
-        ("short-visits", "Short visits"),
-    ]),
-    ("Places", [
-        ("playgrounds", "Playgrounds"),
-        ("views", "Nice views"),
-        ("farms", "Farms & pumpkin patches"),
-        ("festivals", "Kid festivals"),
-        ("hikes", "Short hikes"),
-        ("indoor", "Museums & rainy-day indoor"),
-    ]),
-    ("Food", [
-        ("real-meal", "Real lunch or dinner nearby"),
-        ("treat", "Local treat stop"),
-        ("no-chains", "No chains"),
-    ]),
-    ("Distance", [
-        ("short-drives", "Short drives from Snoqualmie"),
-    ]),
+# "How we pick" sheet: a few big knobs (saved per phone; Save opens a prefilled text to the Linq line)
+HOW_SMS_V2 = "+16282909234"
+KNOBS_V2 = [  # (key, label, options, default)
+    ("drive", "Drive", ["Close", "Medium", "Farther"], "Close"),
+    ("vibe", "Vibe", ["Calm", "Mix", "Adventurous"], "Mix"),
+    ("lean", "Indoor / outdoor", ["Indoor", "Mix", "Outdoor"], "Mix"),
 ]
+HOW_EXPLAINER_V2 = (
+    "Every pick works for a 4- and a 2-year-old and is timed around the 1–3 PM nap. "
+    "Real food is always close by, from family restaurants to breweries with food trucks and room to play. "
+    "Verified local events come first, then tried-and-true favorites."
+)
 
 
 def how_sheet_v2() -> str:
-    groups = "".join(
-        f'<div class="hg"><div class="st2">{e(g)}</div><div class="chips">'
+    knobs = "".join(
+        f'<div class="hk"><div class="kl" id="k-{k}">{e(lbl)}</div>'
+        f'<div class="seg" role="radiogroup" aria-labelledby="k-{k}" data-k="{k}">'
         + "".join(
-            f'<button type="button" class="chip" data-k="{e(k)}" aria-pressed="true">{e(lbl)}</button>'
-            for k, lbl in items
+            f'<button type="button" role="radio" data-v="{e(o)}" aria-checked="{"true" if o == d else "false"}"'
+            f' tabindex="{0 if o == d else -1}">{e(o)}</button>'
+            for o in opts
         )
         + "</div></div>"
-        for g, items in PILLARS_V2
+        for k, lbl, opts, d in KNOBS_V2
     )
     return (
-        '<div id="how" class="sheet" role="dialog" aria-modal="true" aria-labelledby="how-h" hidden>'
+        f'<div id="how" class="sheet" role="dialog" aria-modal="true" aria-labelledby="how-h" data-sms="{HOW_SMS_V2}" hidden>'
         '<div class="sheet-bg" data-close="1"></div>'
         '<div class="sheet-card"><div class="sheet-top"><h2 id="how-h">How we pick</h2>'
         '<button type="button" class="sheet-x" data-close="1" aria-label="Close How we pick">✕</button></div>'
-        f'<p class="tag" style="margin:0 0 6px">{TAGLINE_V2}</p>'
-        f'{groups}'
-        '<div class="hg"><div class="st2">Sources</div>'
-        '<a href="#sources" class="hs-src" id="how-src">Where these come from →</a></div>'
-        '<p class="hnote">Changes here are saved on this phone. Tell us in chat to change what gets picked.</p>'
+        f'<p class="hx">{e(HOW_EXPLAINER_V2)}</p>'
+        '<a href="#sources" class="hs-src" id="how-src">Where these come from →</a>'
+        f'{knobs}'
+        '<div class="hk"><label for="how-also">Anything else?</label>'
+        '<input id="how-also" type="text" maxlength="140" placeholder="e.g. more train stuff" autocomplete="off" enterkeyhint="done"></div>'
+        '<button type="button" class="save" id="how-save">Save</button>'
+        '<p class="hsaved" id="how-saved" role="status" aria-live="polite"></p>'
         '</div></div>'
     )
 
