@@ -1,11 +1,11 @@
 {
-  "name": "Weekend Ideas",
-  "short_name": "Weekend",
-  "description": "Family weekend activity digests",
+  "name": "More Good Days",
+  "short_name": "Good Days",
+  "description": "More Good Days · Hand-picked each week: toddler-friendly, short drives, real food nearby.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#FBF6EE",
-  "theme_color": "#1B5E4A",
+  "background_color": "#FAF8F4",
+  "theme_color": "#FAF8F4",
   "icons": [
     {
       "src": "assets/icon-192.png",

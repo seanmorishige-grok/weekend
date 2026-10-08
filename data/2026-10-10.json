@@ -1,32 +1,252 @@
 {
   "meta": {
     "title": "Weekend Adventures — Oct 10–11",
-    "subtitle": "From Crest View · ages 4 & 2 · nap 1–3 PM",
+    "subtitle": "From Crest View · ages 4 & 2",
     "greeting": "Hi —",
-    "intro": "Here are 10 family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie (from Crest View), built around a 4-year-old and 2-year-old with a 1–3 PM nap. The weather tile below shows Morning (9 AM–12 PM) and Afternoon (3–7 PM) for each day. Layers, rain jackets, and mud-friendly shoes help. Drive times are honest estimates from 6715 Crest View Ave SE.",
-    "deep_pass_note": "This deep pass prioritizes unique verified this-weekend / mid-October seasonal finds over the usual Centennial / Tollgate / Remlinger / Falls bank. Three short kid hikes are in the top 10 (waterfall, old-growth, wildlife boardwalk). Remlinger and classic Ridge parks stay available as filler if needed.",
+    "intro": "Ten family-friendly ideas for Sat–Sun October 10–11, 2026 near Snoqualmie, picked for a 4-year-old and a 2-year-old. Drive times are from 6715 Crest View Ave SE.",
+    "deep_pass_note": "Researched Wed Oct 7: verified this-weekend events first (Halloween Train, Remlinger's pumpkin festival, Issaquah salmon season, Bigfoot book festival, Shaun the Sheep at North Bend Theatre, 21 Acres Harvest Fest), then local favorites. Evening check added Issaquah's Saturday farm market and the Raging River trail opening at Snoqualmie Point to the extras.",
     "footer": "Weekly digests land Wednesday evenings.",
-    "signoff": "More midweek / Wednesday digests land mid-week with fresher weather and any ticket sell-through updates. Reply if you want a nap-skip itinerary built around Halloween Train + Remlinger, or a pure indoor Saturday plan."
+    "signoff": "Reply if you want a pure indoor Saturday plan or a Sunday outdoor loop."
   },
   "weather": [
     {
       "day": "Saturday",
       "short": "Sat",
-      "emoji": "🌧️",
-      "high": "57–58°F",
-      "summary": "Cool & damp · ~60–80% rain chance"
+      "emoji": "🌦️",
+      "high": "52–55°F",
+      "summary": "Light showers in the morning (~13% chance), partly cloudy afternoon"
     },
     {
       "day": "Sunday",
       "short": "Sun",
-      "emoji": "⛅",
-      "high": "58–59°F",
-      "summary": "Milder/clearer · foggy start possible"
+      "emoji": "☀️",
+      "high": "56–59°F",
+      "summary": "Sunny all day"
     }
   ],
   "ideas": [
     {
       "num": 1,
+      "name": "Northwest Railway Museum Halloween Train",
+      "town": "Snoqualmie / North Bend",
+      "hook": "Costumes-encouraged valley train with cider pressing, crafts, Eric Ode music, and a Train Shed stop — the hometown October classic.",
+      "tags": [
+        "seasonal"
+      ],
+      "drive": "~8–12 min to Snoqualmie Depot; ~15–20 min to North Bend Depot",
+      "time_block": "Sat or Sun, 10:30 AM from North Bend or 11:00 AM from Snoqualmie",
+      "cost": "Adults $32; Seniors $28; Ages 2–12 $16; under 2 free; buy ahead",
+      "outing_length": "~2 hr round-trip incl. ~30 min Shed stop",
+      "hours_detail": "Oct 10–11 (and later Oct weekends); trains every 2 hrs from 10:30 AM NB / 11:00 AM SQ; often sells out at shop.trainmuseum.org",
+      "why": "Slightly spooky décor only, and the enclosed coaches run rain or shine. Ages 2 and 4 love the ride itself, plus cider pressing, apple coring, crafts and live music from Eric Ode at the Train Shed. Arrive about 30 minutes early.",
+      "rain_backup": "Coaches are enclosed; apple activities under Shed eaves; cider/crafts/music indoors — still go.",
+      "food_area": "Match boarding depot — downtown Snoqualmie for SQ / North Bend for NB",
+      "restaurants": [
+        {
+          "name": "Snoqualmie Ice Cream (Historic Downtown SQ, near SQ Depot)",
+          "rating": "4.6",
+          "reviews": "344",
+          "known_for": "Local scoop-shop flavors (German Chocolate Cake, Mukilteo Mudd, honey lavender) at 8102 Railroad Ave SE — rebuilt/reopened after the 2024 fire.",
+          "praise": "Rich creamy scoops, friendly service, and shaded outdoor tables.",
+          "kid_note": "Opens around noon on weekends; a costume-friendly treat after the Snoqualmie return.",
+          "is_treat": true
+        },
+        {
+          "name": "Copperstone Family Spaghetti (downtown Snoqualmie, near SQ Depot)",
+          "rating": "4.4",
+          "reviews": "595",
+          "known_for": "Casual family Italian pasta/pizza.",
+          "praise": "Portions, kids’ options, and cozy booths.",
+          "kid_note": "Short walk from the Snoqualmie Depot; booths and kids' options.",
+          "is_treat": false
+        },
+        {
+          "name": "Snoqualmie Falls Brewery",
+          "known_for": "Small independent brewery since 1997 in historic downtown Snoqualmie, with a full kitchen and a kids' menu.",
+          "praise": "",
+          "kid_note": "Kids' menu (grilled cheese, Uncrustables, mac & cheese bites). Sit-down only, no play area. Sat noon–9, Sun noon–8.",
+          "is_treat": false,
+          "address": "8032 Falls Ave SE, Snoqualmie, WA 98065"
+        },
+        {
+          "name": "South Fork (if boarding in North Bend)",
+          "known_for": "Café and bar off I-90 Exit 32 with a big heated beer garden, PNW beers and wines, espresso, and a kids' menu.",
+          "praise": "",
+          "kid_note": "Kids' play space in the beer garden plus open field out back. Sat–Sun brunch 8–1, then lunch and dinner to 9; closed Tuesdays.",
+          "is_treat": false,
+          "address": "14303 436th Ave SE, North Bend, WA 98045"
+        },
+        {
+          "name": "Twede’s Cafe (if boarding in North Bend)",
+          "rating": "4.4",
+          "reviews": "3,085",
+          "known_for": "Pie and diner classics near NB Depot orbit.",
+          "praise": "Huge portions pre/post ride.",
+          "kid_note": "Big breakfasts before a 10:30 North Bend boarding; pie doubles as dessert.",
+          "is_treat": false
+        },
+        {
+          "name": "Friends & Co Ice Cream (North Bend)",
+          "rating": "4.7",
+          "reviews": "100",
+          "known_for": "Creamy scoops after Depot time.",
+          "praise": "Flavors and friendly staff.",
+          "kid_note": "Costume-friendly scoop if you board in North Bend.",
+          "is_treat": true
+        }
+      ],
+      "hours_short": "Trains every 2 hrs from 10:30",
+      "suggested": {
+        "part": "Sat or Sun morning",
+        "duration": "~2 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "Costumes encouraged. No food or drink on the train.",
+        "hours_note": "Often sells out, so buy ahead. Tickets are for a set date and time, no refunds. Everyone 2+ needs a ticket. Runs rain or shine. Boards at North Bend Depot (205 E McClellan St) or Snoqualmie Depot (38625 SE King St); check your ticket.",
+        "link": "https://trainmuseum.org/upcoming-events/halloween/",
+        "link_label": "Halloween Train info & tickets"
+      }
+    },
+    {
+      "num": 2,
+      "name": "Remlinger Farms Fall Harvest Pumpkin Festival",
+      "town": "Carnation",
+      "hook": "The valley's big pumpkin festival: 70+ rides and attractions on one wristband, a steam train, hay ride to Pumpkin Village, corn maze and U-pick patch.",
+      "tags": [
+        "seasonal"
+      ],
+      "drive": "~25 min via Fall City / SR 203",
+      "time_block": "Fri–Sun 10 AM–6 PM",
+      "cost": "$33.95 ages 2–65 online (+$1 at the gate); under 2 free",
+      "outing_length": "~2–3 hrs",
+      "hours_detail": "Fri–Sun through Nov 1, 10 AM–6 PM; last admission 5 PM",
+      "hours_short": "Fri–Sun 10–6",
+      "why": "Lots of the rides take under-36-inch riders with a grown-up, including the steam train, Tiny Tots Train and hay ride, so both kids get plenty to do. The first train leaves at 10:30. Sunday's sunny forecast makes it the better day.",
+      "rain_backup": "Saturday showers look light; if it's wet, go Sunday or swap to KidsQuest (#10).",
+      "food_area": "On the farm + Carnation town (Tolt Ave)",
+      "suggested": {
+        "part": "Sun morning",
+        "duration": "~2–3 hrs"
+      },
+      "restaurants": [
+        {
+          "name": "Remlinger Brewery (on the farm)",
+          "known_for": "Beer brewed on the farm, cocktails and a full café menu.",
+          "praise": "",
+          "kid_note": "All ages welcome; free parking. Sat noon–9, Sun noon–7. On the farm itself.",
+          "is_treat": false,
+          "address": "32610 NE 32nd St, Carnation, WA 98014"
+        },
+        {
+          "name": "Remlinger festival treats",
+          "known_for": "Pumpkin-pie-spice donuts and caramel apples at the festival food stands.",
+          "praise": "",
+          "kid_note": "At the festival food stands.",
+          "is_treat": true
+        },
+        {
+          "name": "Blake’s Pizzeria & Ice Cream",
+          "rating": "4.5",
+          "reviews": "283",
+          "known_for": "Giant slices, grinders, and ice cream scoops/shakes since the ’80s on Eugene St.",
+          "praise": "Fast counter service, big kid-friendly slices, and classic scoops.",
+          "kid_note": "Easiest town treat stop after the farm; one giant slice + a scoop often feeds a preschooler.",
+          "is_treat": true
+        },
+        {
+          "name": "Ixtapa",
+          "rating": "4.4",
+          "reviews": "559",
+          "known_for": "Family Mexican plates and margaritas on Tolt Ave.",
+          "praise": "Friendly service, tortilla soup, and generous portions.",
+          "kid_note": "Warm indoor booths if the farm got muddy.",
+          "is_treat": false
+        },
+        {
+          "name": "Red Pepper Pizzeria and Pasta (Carnation Station)",
+          "rating": "4.4",
+          "reviews": "309",
+          "known_for": "Pizza, pasta, and breadsticks.",
+          "praise": "Crust, service, and a casual local vibe.",
+          "kid_note": "Sit-down pasta when Blake's counter feels too rushed.",
+          "is_treat": false
+        }
+      ],
+      "good_to_know": {
+        "parking": "Free on-site parking. On Saturdays, arrive before 11 for a short walk.",
+        "bring": "Boots (it's working farmland), layers, and socks for the hay jump.",
+        "hours_note": "Last admission 5 PM. Mid-October Saturdays sell out, so buy online. Pony rides ($7) are added to your tickets online; last pony check-in 3:30.",
+        "link": "https://remlingerfarms.com/fall-harvest-festival/",
+        "link_label": "Fall Harvest Festival tickets & info"
+      }
+    },
+    {
+      "num": 3,
+      "name": "Salmon season at the Issaquah Salmon Hatchery",
+      "town": "Issaquah",
+      "hook": "Peak salmon run: watch Chinook and coho in Issaquah Creek and nose-to-nose through the fish ladder windows, then feed the trout.",
+      "tags": [
+        "seasonal",
+        "free"
+      ],
+      "drive": "~20 min via I-90 W (Exit 17, Front St)",
+      "time_block": "Daily dawn–dusk",
+      "cost": "Free",
+      "outing_length": "45–90 min",
+      "hours_detail": "Grounds open daily dawn–dusk; aquarium room and film room 8:30 AM–4 PM",
+      "hours_short": "Dawn–dusk",
+      "why": "Chinook spawn through mid-October and coho arrive late September through November, so there should be fish in the creek. The viewing bridge, glassed-in fish ladder and aquarium room (eggs to baby salmon) are all short walks apart. Self-guided visits take 45–90 minutes.",
+      "rain_backup": "The aquarium room and 8-minute film room are indoors (8:30–4); the rest is outside.",
+      "food_area": "Downtown Issaquah (Front St) — walkable from the hatchery",
+      "suggested": {
+        "part": "Sat or Sun afternoon",
+        "duration": "45–90 min"
+      },
+      "restaurants": [
+        {
+          "name": "Formula Brewing",
+          "known_for": "Issaquah brewery with a taproom, beer garden and kitchen (pizza, wings, salads, pretzels).",
+          "praise": "",
+          "kid_note": "Kids welcome inside and out (supervised); ample parking. Open 11:30 daily, Sat to 10, Sun to 9.",
+          "is_treat": false,
+          "address": "1875 NW Poplar Way, Issaquah, WA 98027"
+        },
+        {
+          "name": "Levitate Gastropub",
+          "known_for": "Scratch-made modern American pub on Front St, open to all ages, with a kids' menu.",
+          "praise": "",
+          "kid_note": "Weekend brunch 10–2 with Nutella or PB&J crêpes for kids. About a 3-minute walk from the hatchery.",
+          "is_treat": false,
+          "address": "185 Front St N, Issaquah, WA 98027"
+        },
+        {
+          "name": "Flying Pie Pizzeria",
+          "known_for": "Locally owned pizzeria on Front St in downtown Issaquah.",
+          "praise": "",
+          "kid_note": "Easy shared pies after the creek.",
+          "is_treat": false,
+          "address": "30 Front St S, Issaquah, WA 98027"
+        },
+        {
+          "name": "Boehm’s Candies",
+          "known_for": "Issaquah chocolate and candy maker since 1942: hand-dipped chocolates, caramels and seasonal Halloween treats.",
+          "praise": "",
+          "kid_note": "Sat 9–6, Sun 10–6. A short drive up Gilman Blvd.",
+          "is_treat": true,
+          "address": "255 NE Gilman Blvd, Issaquah, WA 98027"
+        }
+      ],
+      "good_to_know": {
+        "parking": "Main lot: the second entrance heading west on Sunset Way. Overflow: the first entrance. Or use the garage next to the library across the street.",
+        "bring": "A dollar or two to feed the trout (it's a $1 donation).",
+        "hours_note": "Grounds are open dawn to dusk, but the indoor aquarium and film room close at 4.",
+        "link": "https://www.issaquahfish.org/plan-your-visit/",
+        "link_label": "Plan your visit (FISH)"
+      }
+    },
+    {
+      "num": 4,
       "name": "Bigfoot Kids’ Book Festival",
       "town": "Redmond Senior & Community Center",
       "hook": "Free one-day festival with 50+ kids’ authors, read-alouds, draw-alongs, and character photo ops.",
@@ -36,14 +256,22 @@
         "free"
       ],
       "drive": "~30–40 min via Fall City Rd / Eastside",
-      "time_block": "Sat 10:00 AM–12:00 PM (arrive early; leave by noon for nap)",
+      "time_block": "Sat 10 AM–4 PM",
       "cost": "Free",
       "outing_length": "~1.5–2 hr morning slice",
       "hours_detail": "Sat Oct 10 only, 10 AM–4 PM",
-      "why": "Listed for ages ~1–12. Unstructured drop-in energy: browse tables, catch a short read-aloud, snap a Gruffalo / Narwhal photo, leave when littles fade. Best unique Eastside find of the weekend that isn’t a farm.",
+      "why": "Listed for ages about 1–12. Drop in: browse author tables, catch a short read-aloud, snap a character photo, and leave whenever you like.",
       "rain_backup": "Fully indoor community center — this is already the rain plan.",
       "food_area": "Redmond — downtown / Town Center / near Senior & Community Center",
       "restaurants": [
+        {
+          "name": "Postdoc Brewing (Redmond)",
+          "known_for": "Redmond brewery and beer garden next to Marymoor Park's east entrance, with a food truck every day.",
+          "praise": "",
+          "kid_note": "Family friendly: kids welcome, family games and non-alcoholic drinks. Food trucks from noon: Silver Spork on Sat, Sea Dawgs on Sun. Sat 11–10, Sun 11–8.",
+          "is_treat": false,
+          "address": "17625 NE 65th St, Suite 100, Redmond, WA 98052"
+        },
         {
           "name": "Molly Moon’s Homemade Ice Cream (downtown Redmond)",
           "rating": "4.5",
@@ -59,7 +287,7 @@
           "reviews": "1,197",
           "known_for": "English bakery counters, pasties, fish & chips, and afternoon tea in a cozy shop near downtown Redmond.",
           "praise": "Pastries, speedy cheerful service, and a calm vibe.",
-          "kid_note": "Bakery treat / browse works better than a long sit-down if littles are fading.",
+          "kid_note": "Bakery treat stop; easier than a long sit-down.",
           "is_treat": true
         },
         {
@@ -77,7 +305,7 @@
           "reviews": "1,913",
           "known_for": "Southern-leaning American comfort food in a roomy, family-friendly café.",
           "praise": "Kids’ meals, hash browns, brunch plates, and attentive staff.",
-          "kid_note": "High-chair energy and spaced tables — strong sit-down before the drive home.",
+          "kid_note": "High chairs and roomy tables for a proper sit-down lunch.",
           "is_treat": false
         },
         {
@@ -89,44 +317,50 @@
           "kid_note": "Mild pad Thai / rice plates split easily for 2/4.",
           "is_treat": false
         }
-      ]
+      ],
+      "hours_short": "Sat only 10–4",
+      "suggested": {
+        "part": "Sat morning",
+        "duration": "~1.5–2 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "Your own books to get signed (or pre-order books for signing).",
+        "hours_note": "Sat Oct 10 only. Free, no tickets or registration.",
+        "link": "https://www.bigfootkidsbookfestival.com/faq",
+        "link_label": "Festival FAQ"
+      }
     },
     {
-      "num": 2,
-      "name": "Olallie State Park — Weeks Falls (Discover Pass FREE Sat)",
-      "town": "North Bend / Exit 38",
-      "hook": "Short forest walk to a 30-ft waterfall + riverside picnic — and Saturday is a statewide free Discover Pass day.",
+      "num": 5,
+      "name": "Shaun the Sheep: The Beast of Mossy Bottom at North Bend Theatre",
+      "town": "North Bend",
+      "hook": "Halloween-eve Shaun the Sheep on the big screen at North Bend's historic downtown theatre.",
       "tags": [
-        "hike",
-        "free",
+        "indoor",
         "seasonal"
       ],
-      "drive": "~20–25 min via I-90 E exit 38",
-      "time_block": "Sat 9:30–11:45 AM (or Sun 10:00–12:00 if Saturday is pouring)",
-      "cost": "Sat free day-use; else Discover Pass $10 day / $45 annual",
-      "outing_length": "~1–1.5 hr (turn around anytime)",
-      "hours_detail": "Park 6:30 AM–dusk; Sat Oct 10 = no Discover Pass needed (World Mental Health Day free parking day)",
-      "why": "WTA lists ~1–2 mi RT with modest gain to the falls base from Homestead Valley / South Fork picnic area — keep it toddler-pace and turn around when legs quit. Concrete payoff: waterfall spray, river pebbles, picnic tables. Not Rattlesnake; no scramble required for the short falls walk. Watch cold river water with littles.",
-      "rain_backup": "Keep to a 20–30 min splash-and-look if drizzle; if pouring, swap to KidsQuest (#5) or LEGO Builders (#9).",
-      "food_area": "North Bend / Exit 38 corridor",
+      "drive": "~15 min via I-90 E",
+      "time_block": "Sat & Sun 3 PM (also 6 PM)",
+      "cost": "$10 adults; $8 ages 3–11",
+      "outing_length": "~2 hrs (1 hr 31 min film)",
+      "hours_detail": "Sat Oct 10 and Sun Oct 11 at 3 PM and 6 PM; doors open 30 min before",
+      "hours_short": "Sat & Sun 3 PM, 6 PM",
+      "why": "Shaun the Sheep movies are mostly wordless slapstick, so a 4-year-old can follow along easily. The farmer ruins the pumpkin patch and a 'beast' turns up in the woods. Rated PG and 1 hr 31 min, which is long for a 2-year-old, so grab aisle seats.",
+      "rain_backup": "Already indoors.",
+      "food_area": "Downtown North Bend + South Fork at Exit 32",
+      "suggested": {
+        "part": "Sat afternoon",
+        "duration": "~2 hrs"
+      },
       "restaurants": [
         {
-          "name": "Scott’s Dairy Freeze",
-          "rating": "4.3",
-          "reviews": "1,416",
-          "known_for": "Classic soft-serve cones, shakes/malts, burgers, and fries on E North Bend Way.",
-          "praise": "Thick shakes, onion rings, and old-school soft-serve after I-90 adventures.",
-          "kid_note": "Soft-serve is the bribe that gets muddy boots back in the car.",
-          "is_treat": true
-        },
-        {
-          "name": "Friends & Co Ice Cream",
-          "rating": "4.7",
-          "reviews": "100",
-          "known_for": "Creamy local scoops, seasonal flavors (lavender honey, mountain huckleberry), and a bright downtown shop.",
-          "praise": "Unique flavors, friendly staff, and indoor seating.",
-          "kid_note": "Indoor scoops if Scott’s window line is long or it’s raining; Sat opens noon.",
-          "is_treat": true
+          "name": "South Fork (North Bend)",
+          "known_for": "Café and bar off I-90 Exit 32 with a big heated beer garden, PNW beers and wines, espresso, and a kids' menu.",
+          "praise": "",
+          "kid_note": "Kids' play space in the beer garden plus open field out back. Sat–Sun brunch 8–1, then lunch and dinner to 9; closed Tuesdays.",
+          "is_treat": false,
+          "address": "14303 436th Ave SE, North Bend, WA 98045"
         },
         {
           "name": "Twede’s Cafe",
@@ -147,18 +381,106 @@
           "is_treat": false
         },
         {
-          "name": "Rio Bravo",
-          "rating": "4.6",
-          "reviews": "1,564",
-          "known_for": "Casual Mexican tacos/enchiladas with patio seating.",
-          "praise": "Salsa, portions, and family vibe after I-90 adventures.",
-          "kid_note": "Marked good-for-kids; patio helps shake off wet boots.",
-          "is_treat": false
+          "name": "Scott’s Dairy Freeze",
+          "rating": "4.3",
+          "reviews": "1,416",
+          "known_for": "Classic soft-serve cones, shakes/malts, burgers, and fries on E North Bend Way.",
+          "praise": "Thick shakes, onion rings, and old-school soft-serve after I-90 adventures.",
+          "kid_note": "Soft-serve is the bribe that gets muddy boots back in the car.",
+          "is_treat": true
+        },
+        {
+          "name": "Friends & Co Ice Cream",
+          "rating": "4.7",
+          "reviews": "100",
+          "known_for": "Creamy local scoops, seasonal flavors (lavender honey, mountain huckleberry), and a bright downtown shop.",
+          "praise": "Unique flavors, friendly staff, and indoor seating.",
+          "kid_note": "Indoor scoops if Scott's line is long or it's raining; Sat opens noon.",
+          "is_treat": true
         }
-      ]
+      ],
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Open seating, first come, first served. Doors open 30 min before showtime. Refunds need 48 business hours' notice.",
+        "link": "https://tix.northbendtheatre.com/",
+        "link_label": "North Bend Theatre tickets"
+      }
     },
     {
-      "num": 3,
+      "num": 6,
+      "name": "Sammamish Valley Harvest Fest at 21 Acres",
+      "town": "Woodinville",
+      "hook": "Free farm harvest party with giant pumpkins to guess the weight of, apple pressing, live music and local vendors.",
+      "tags": [
+        "seasonal",
+        "free"
+      ],
+      "drive": "~45 min via Redmond",
+      "time_block": "Sat 10 AM–3 PM",
+      "cost": "Free",
+      "outing_length": "~1–1.5 hrs",
+      "hours_detail": "Sat Oct 10 only, 10 AM–3 PM, on the 21 Acres Farm Market patio",
+      "hours_short": "Sat only 10–3",
+      "why": "Small and low-key: watch apples get pressed, size up the giant pumpkins, and listen to some music on the farm. Co-hosted by 21 Acres and the Sammamish Valley Grange, with a tour of the nearby Grange Heritage Garden. The farthest drive on the list, so pair it with lunch in Woodinville.",
+      "rain_backup": "Mostly outdoors on a patio; light showers are likely Saturday morning, so bring rain jackets.",
+      "food_area": "Woodinville — Hollywood district and downtown (Woodin Creek Village)",
+      "suggested": {
+        "part": "Sat morning",
+        "duration": "~1–1.5 hrs"
+      },
+      "restaurants": [
+        {
+          "name": "Novelty Hill-Januik Winery",
+          "known_for": "Woodinville winery with oven-fired pizzas and seasonal plates Fri–Sun, plus charcuterie daily.",
+          "praise": "",
+          "kid_note": "Children welcome with adult supervision; count them in the reservation. Open 11–5 (last seating 4). Reservations strongly recommended on weekends; no outside food.",
+          "is_treat": false,
+          "address": "14710 Woodinville-Redmond Rd NE, Woodinville, WA 98072"
+        },
+        {
+          "name": "The Hollywood Tavern",
+          "known_for": "Historic 1947 roadside tavern with scratch-made tavern fare and a fire pit.",
+          "praise": "",
+          "kid_note": "Kids welcome in the dining room and on the outdoor patio. Sat 11–10, Sun 11–9.",
+          "is_treat": false,
+          "address": "14508 Woodinville-Redmond Rd NE, Woodinville, WA 98072"
+        },
+        {
+          "name": "Woodin Creek Kitchen & Tap",
+          "known_for": "Roomy family restaurant with weekend brunch and a kids' menu (mini cheeseburgers, mac & cheese, pizza).",
+          "praise": "",
+          "kid_note": "Kids' breakfast Sat–Sun 10–2. Opens 10 on weekends.",
+          "is_treat": false,
+          "address": "13550 NE Village Square Dr #1010, Woodinville, WA 98072"
+        },
+        {
+          "name": "Ballard Pizza Co. (Woodinville)",
+          "known_for": "Pizza by the slice or pie, with a dining room and patio overlooking the Woodinville sports fields.",
+          "praise": "",
+          "kid_note": "Sat–Sun 11–9.",
+          "is_treat": false,
+          "address": "17401 133rd Ave NE, Woodinville, WA 98072"
+        },
+        {
+          "name": "Swanky Scoop (Woodinville)",
+          "known_for": "20+ ice cream flavors, including vegan and allergy-aware options.",
+          "praise": "",
+          "kid_note": "Sat noon–10, Sun noon–8:30. In Woodin Creek Village.",
+          "is_treat": true,
+          "address": "13550 NE Village Square Dr #1030, Woodinville, WA 98072"
+        }
+      ],
+      "good_to_know": {
+        "parking": "Parking at 21 Acres is limited. The hosts suggest carpooling, or parking in the neighborhood and walking.",
+        "bring": "",
+        "hours_note": "Sat Oct 10 only.",
+        "link": "https://21acres.org/events/",
+        "link_label": "21 Acres events"
+      }
+    },
+    {
+      "num": 7,
       "name": "Jubilee Farm Harvest Festival",
       "town": "Carnation",
       "hook": "Free-admission valley harvest weekend with littles’ hay maze, free tractor rides, animals, cider, and U-pick pumpkins (ponies extra).",
@@ -167,11 +489,11 @@
         "free"
       ],
       "drive": "~20–25 min via Fall City / Carnation",
-      "time_block": "Sun 10:00 AM–12:15 PM (morning slice; leave for nap)",
+      "time_block": "Sat–Sun 10 AM–5 PM",
       "cost": "Free admission; pumpkins/food/pony rides ($9) à la carte",
       "outing_length": "~2 hr",
       "hours_detail": "Sat–Sun in October, 10 AM–5 PM (ParentMap lists Oct 11)",
-      "why": "Ages 2/4 sweet spot: hay maze sized for littles, animal visits, tractor or weather-dependent horse-drawn wagon to the patch, pumpkin wash station. Quieter, more “working farm” feel than Remlinger’s wristband park — the unique Carnation pick this weekend.",
+      "why": "A hay maze sized for littles, farm animals, free tractor rides out to the patch, and a pumpkin-washing station. A quieter, working-farm feel compared with Remlinger's ride park.",
       "rain_backup": "Barn/cider area + animals; shorten field time if muddy; Blake’s in town if everyone is soaked.",
       "food_area": "Carnation town + on-site",
       "restaurants": [
@@ -181,7 +503,7 @@
           "reviews": null,
           "known_for": "Cider-pressing vibes and fall snacks (farm stand).",
           "praise": "ParentMap/farm copy highlight cider, animals, and porch music.",
-          "kid_note": "Fuel on-site first so you can leave for nap without a town detour.",
+          "kid_note": "Easy snack right on the farm.",
           "is_treat": true
         },
         {
@@ -220,343 +542,35 @@
           "kid_note": "Sit-down pasta when Blake’s counter feels too rushed.",
           "is_treat": false
         }
-      ]
-    },
-    {
-      "num": 4,
-      "name": "Red Barn Farm Fall Festival",
-      "town": "Redmond",
-      "hook": "Ticketed fall festival with petting zoo, barrel train, bubbles, crafts, and pumpkin-patch photo ops (every October weekend).",
-      "tags": [
-        "seasonal"
       ],
-      "drive": "~25–35 min toward Redmond",
-      "time_block": "Sat or Sun 10:00 AM–12:30 PM (last entry 3 PM; activities end 4 PM)",
-      "cost": "Adults $12; Kids ages 1–17 $20 (includes 1 animal feed bag); under 1 free",
-      "outing_length": "~2–2.5 hr",
-      "hours_detail": "Sat–Sun October weekends, 10 AM–4 PM (last entry 3 PM)",
-      "why": "Built for preschool energy: petting zoo + feed bag, barrel train, giant bubbles, rubber duck races, fall crafts, mini games. U-pick pumpkins/flowers and gem mining are add-ons. A clearer “festival package” than a bare patch — and not the Remlinger circuit.",
-      "rain_backup": "Barn crafts + covered activity zones; shorten outdoor games; KidsQuest if fields are a mud pit.",
-      "food_area": "Redmond / Union Hill–Novelty Hill Eastside near the farm — not Ridge",
-      "restaurants": [
-        {
-          "name": "Molly Moon’s Homemade Ice Cream (downtown Redmond)",
-          "rating": "4.5",
-          "reviews": "2,575",
-          "known_for": "Scratch-made scoops and fresh waffle cones a few miles west through downtown Redmond on the way home.",
-          "praise": "Creamy seasonal flavors and friendly scoop staff.",
-          "kid_note": "Opens noon — scoop stop after the farm if you’re already looping through Town Center.",
-          "is_treat": true
-        },
-        {
-          "name": "Pomegranate Bistro",
-          "rating": "4.3",
-          "reviews": "1,913",
-          "known_for": "Southern-leaning American comfort food in a roomy café off NE 68th (short hop west of the farm corridor).",
-          "praise": "Kids’ meals, brunch plates, and friendly service.",
-          "kid_note": "Best full sit-down near the farm before nap.",
-          "is_treat": false
-        },
-        {
-          "name": "Rocky’s Empanadas",
-          "rating": "4.7",
-          "reviews": "515",
-          "known_for": "Baked Argentinean empanadas and housemade chimichurri on Redmond Way.",
-          "praise": "Classic beef/chicken fillings and fresh-baked pastry.",
-          "kid_note": "Takeout-only — grab a box and eat in the car or at a picnic pull-off.",
-          "is_treat": false
-        },
-        {
-          "name": "Ixtapa Redmond Ridge",
-          "rating": "4.3",
-          "reviews": "587",
-          "known_for": "Family Mexican plates, fajitas, and margaritas at Redmond Ridge Marketplace (closest sit-down to the Novelty Hill / farm corridor).",
-          "praise": "Large portions, friendly service, and a massive kids’ meal.",
-          "kid_note": "High-chair energy and booths — best full plate near the farm before nap.",
-          "is_treat": false
-        },
-        {
-          "name": "The British Pantry (downtown Redmond)",
-          "rating": "4.6",
-          "reviews": "1,197",
-          "known_for": "English bakery goods, pasties, and fish & chips a few miles west toward Town Center.",
-          "praise": "Pastries and a cozy shop vibe.",
-          "kid_note": "Bakery counter treats if you’re already heading through Redmond.",
-          "is_treat": true
-        }
-      ]
-    },
-    {
-      "num": 5,
-      "name": "KidsQuest Children’s Museum",
-      "town": "Bellevue",
-      "hook": "Best indoor, age-perfect play for 2- and 4-year-olds within ~40 min — the Saturday rain ace.",
-      "tags": [
-        "indoor"
-      ],
-      "drive": "~35–40 min via I-90",
-      "time_block": "Sat 9:45 AM–12:00 PM (reserve a morning start) or Sun same window if Sat clears for outdoors",
-      "cost": "~$16.75 ages 1+ (dynamic pricing; under 1 free; members free)",
-      "outing_length": "~2–2.5 hr",
-      "hours_detail": "Sat–Sun Oct 10–11 open 9:30 AM–5 PM; reservations encouraged (book ahead)",
-      "why": "Hands-on galleries built for preschoolers; timed entry. Morning window fits nap cleanly. Stroller parking under the covered ramp.",
-      "rain_backup": "This is the rain plan — fully indoor.",
-      "food_area": "Bellevue — near museum / Lincoln Square / downtown",
-      "restaurants": [
-        {
-          "name": "Molly Moon’s Homemade Ice Cream (downtown Bellevue)",
-          "rating": "4.4",
-          "reviews": "640",
-          "known_for": "Scratch-made scoops, seasonal flavors, and a pastry kitchen near Downtown Park / Inspiration Playground (steps from the museum orbit).",
-          "praise": "Chunky flavors, fresh cones, and friendly scoop staff.",
-          "kid_note": "Opens noon — ideal post-museum treat before the I-90 drive home.",
-          "is_treat": true
-        },
-        {
-          "name": "Yezi Coconut Dessert (Bellevue Square)",
-          "rating": "4.3",
-          "reviews": "94",
-          "known_for": "Asian coconut desserts, jar puddings, and not-too-sweet tropical treats inside Bellevue Square.",
-          "praise": "Refreshing coconut flavors, cute presentation, and lighter sweets kids share.",
-          "kid_note": "Walkable from Lincoln Square; good non-scoop dessert if littles want something different.",
-          "is_treat": true
-        },
-        {
-          "name": "Din Tai Fung (Lincoln Square)",
-          "rating": "4.4",
-          "reviews": "4,673",
-          "known_for": "Xiao long bao and Taiwanese-Chinese dumplings/noodles.",
-          "praise": "Consistent dumplings and efficient service.",
-          "kid_note": "Share noodles/buns; reserve or expect a wait — still worth it for a museum morning.",
-          "is_treat": false
-        },
-        {
-          "name": "Facing East Time (Downtown Bellevue)",
-          "rating": "4.7",
-          "reviews": "150",
-          "known_for": "Taiwanese beef noodle soup, bentos, popcorn chicken, and quick-serve comfort near the museum/Lincoln Square orbit (independent; related to the long-running Facing East).",
-          "praise": "Rich broth, crispy popcorn chicken, and fast turns.",
-          "kid_note": "Small room — share a bento/noodles and go; great warm option without a mall counter.",
-          "is_treat": false
-        },
-        {
-          "name": "Cielo Cocina Mexicana",
-          "rating": "4.4",
-          "reviews": "894",
-          "known_for": "Made-in-house Mexican plates, chips/salsa, and a lively patio near downtown Bellevue.",
-          "praise": "Carne asada, generous portions, and staff who are warm with kids.",
-          "kid_note": "Family sit-down with shareable plates; early lunch before it gets loud.",
-          "is_treat": false
-        }
-      ]
-    },
-    {
-      "num": 6,
-      "name": "Asahel Curtis Nature Trail",
-      "town": "Snoqualmie Pass (Exit 47)",
-      "hook": "0.5-mile old-growth loop with a creek footbridge, ferns, and interpretive plant posts — big-tree payoff without a scramble.",
-      "tags": [
-        "hike"
-      ],
-      "drive": "~25–30 min via I-90 E exit 47",
-      "time_block": "Sun 10:00–11:45 AM (clearer/drier outlook than Sat)",
-      "cost": "Northwest Forest Pass or America the Beautiful required at trailhead",
-      "outing_length": "~45–75 min toddler pace",
-      "hours_detail": "Day-use",
-      "why": "WTA: 0.5 mi RT, ~180 ft gain, marked “good for kids.” Concrete payoff: old-growth canopy, burbling creek, numbered flora posts (grab the guide at the start). Turn around anytime. Not Rattlesnake; roots/mud possible after Sat rain — boots help. Skip if ice/snow shows up early at Pass elevation.",
-      "rain_backup": "Do only the bridge + first posts if dripping; otherwise KidsQuest or a downtown Snoqualmie indoor lunch + short Depot boardwalk.",
-      "food_area": "Prefer North Bend on the I-90 return; Pass options are thin",
-      "restaurants": [
-        {
-          "name": "Friends & Co Ice Cream (North Bend)",
-          "rating": "4.7",
-          "reviews": "100",
-          "known_for": "Creamy local scoops and seasonal valley flavors downtown on the I-90 return.",
-          "praise": "Unique flavors, friendly staff, and indoor seating.",
-          "kid_note": "Sat/Sun open from noon — scoop reward after the old-growth loop.",
-          "is_treat": true
-        },
-        {
-          "name": "Scott’s Dairy Freeze (North Bend)",
-          "rating": "4.3",
-          "reviews": "1,416",
-          "known_for": "Soft-serve cones, shakes, and classic drive-in burgers on E North Bend Way.",
-          "praise": "Thick shakes and old-school soft-serve.",
-          "kid_note": "Soft-serve cone before the final stretch home if Friends & Co is closed or crowded.",
-          "is_treat": true
-        },
-        {
-          "name": "Twede’s Cafe",
-          "rating": "4.4",
-          "reviews": "3,085",
-          "known_for": "Twin Peaks diner energy, cherry pie, and huge plates.",
-          "praise": "Portions and friendly service after hikes.",
-          "kid_note": "Booths + pie reward for finishing the old-growth loop.",
-          "is_treat": false
-        },
-        {
-          "name": "Cascadia Pizza Co.",
-          "rating": "4.9",
-          "reviews": "460",
-          "known_for": "Handmade thin-crust pies downtown.",
-          "praise": "Blistered crust and fast cook times.",
-          "kid_note": "Pickup before the final stretch home.",
-          "is_treat": false
-        },
-        {
-          "name": "North Bend Bar & Grill",
-          "rating": "4.4",
-          "reviews": "2,353",
-          "known_for": "Lodge-y American comfort food.",
-          "praise": "Fries (incl. sweet-potato waffle fries), Reubens, and spacious seating.",
-          "kid_note": "Roomy enough for muddy boots after Exit 47.",
-          "is_treat": false
-        }
-      ]
-    },
-    {
-      "num": 7,
-      "name": "Northwest Railway Museum Halloween Train (early departure)",
-      "town": "Snoqualmie / North Bend",
-      "hook": "Costumes-encouraged valley train with cider pressing, crafts, Eric Ode music, and a Train Shed stop — the hometown October classic.",
-      "tags": [
-        "seasonal"
-      ],
-      "drive": "~8–12 min to Snoqualmie Depot; ~15–20 min to North Bend Depot",
-      "time_block": "Sat North Bend 10:30 AM departure (aim home ~12:30–12:45) — Snoqualmie 11:00 AM return lands right at nap start",
-      "cost": "Adults $32; Seniors $28; Ages 2–12 $16; under 2 free; buy ahead",
-      "outing_length": "~2 hr round-trip incl. ~30 min Shed stop",
-      "hours_detail": "Oct 10–11 (and later Oct weekends); trains every 2 hrs from 10:30 AM NB / 11:00 AM SQ; often sells out at shop.trainmuseum.org",
-      "why": "Slightly spooky décor only; strollers OK (fold if possible); rain-or-shine coaches. Ages 2/4 love trains + cider + short crafts. Arrive 30 min early. No restrooms on the train — use depot bathrooms first.",
-      "rain_backup": "Coaches are enclosed; apple activities under Shed eaves; cider/crafts/music indoors — still go.",
-      "food_area": "Match boarding depot — downtown Snoqualmie for SQ / North Bend for NB",
-      "restaurants": [
-        {
-          "name": "Snoqualmie Ice Cream (Historic Downtown SQ, near SQ Depot)",
-          "rating": "4.6",
-          "reviews": "344",
-          "known_for": "Local scoop-shop flavors (German Chocolate Cake, Mukilteo Mudd, honey lavender) at 8102 Railroad Ave SE — rebuilt/reopened after the 2024 fire.",
-          "praise": "Rich creamy scoops, friendly service, and shaded outdoor tables.",
-          "kid_note": "Opens around noon weekends — costume-friendly treat after the SQ return; cookie shop sibling (Falls Avenue Cookie Co.) in the same building some days.",
-          "is_treat": true
-        },
-        {
-          "name": "Friends & Co Ice Cream (North Bend)",
-          "rating": "4.7",
-          "reviews": "100",
-          "known_for": "Creamy scoops after Depot time.",
-          "praise": "Flavors and friendly staff.",
-          "kid_note": "Costume-friendly treat if boarding NB and the ride ends before the nap wall.",
-          "is_treat": true
-        },
-        {
-          "name": "Copperstone Family Spaghetti (downtown Snoqualmie, near SQ Depot)",
-          "rating": "4.4",
-          "reviews": "595",
-          "known_for": "Casual family Italian pasta/pizza.",
-          "praise": "Portions, kids’ options, and cozy booths.",
-          "kid_note": "Walkable-ish Depot-adjacent sit-down after the SQ return.",
-          "is_treat": false
-        },
-        {
-          "name": "Twede’s Cafe (if boarding North Bend)",
-          "rating": "4.4",
-          "reviews": "3,085",
-          "known_for": "Pie and diner classics near NB Depot orbit.",
-          "praise": "Huge portions pre/post ride.",
-          "kid_note": "Best pre-10:30 AM NB boarding fuel; pie doubles as dessert.",
-          "is_treat": false
-        },
-        {
-          "name": "Cascadia Pizza Co. (North Bend)",
-          "rating": "4.9",
-          "reviews": "460",
-          "known_for": "Thin-crust pickup near downtown NB.",
-          "praise": "Fresh pies and quick turns.",
-          "kid_note": "Grab after the NB train if timing still beats nap.",
-          "is_treat": false
-        }
-      ]
+      "hours_short": "Sat–Sun 10–5",
+      "suggested": {
+        "part": "Sun morning",
+        "duration": "~2 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Horse-drawn carriage is weather-dependent and often stops around 3 PM. Pony rides $9, weather permitting.",
+        "link": "https://www.jubileefarm.org/",
+        "link_label": "Jubilee Farm"
+      }
     },
     {
       "num": 8,
-      "name": "Fall City Farms Pumpkin Patch",
-      "town": "Fall City",
-      "hook": "Closest verified October patch with mini doughnuts, cider, farm animals, and a quick pumpkin grab.",
-      "tags": [
-        "seasonal"
-      ],
-      "drive": "~15–20 min from Crest View",
-      "time_block": "Sat or Sun 10:00 AM–12:00 PM",
-      "cost": "Pumpkins/food priced on-site (no public gate ticket listed — verify day-of)",
-      "outing_length": "~1.5–2 hr",
-      "hours_detail": "Fri–Sat 10 AM–6 PM, Sun 10 AM–5 PM through Oct 31",
-      "why": "Compact outing: small pumpkin, animals, doughnuts/cider, home for nap. Pets asked to stay home. The “near and short” patch when Jubilee/Red Barn feel like too much production.",
-      "rain_backup": "Doughnuts + animals + quick pick; Roadhouse after 2 PM weekends if you need a warm sit-down post-nap instead.",
-      "food_area": "Fall City town + on-site",
-      "restaurants": [
-        {
-          "name": "On-site mini doughnuts & hot cider",
-          "rating": null,
-          "reviews": null,
-          "known_for": "Fresh mini doughnuts with the animals/pumpkins (farm stand).",
-          "praise": "Farm visitors consistently call out doughnuts + cider as the reason to come.",
-          "kid_note": "Often the whole point — eat here first.",
-          "is_treat": true
-        },
-        {
-          "name": "MOOO! Ice Cream Shop",
-          "rating": "4.8",
-          "reviews": "102",
-          "known_for": "House flavors, handmade waffle cones, and a bright kid-friendly shop on Preston–Fall City Rd.",
-          "praise": "Taste, friendly staff, and indoor/outdoor seating.",
-          "kid_note": "Sat opens noon — perfect after the patch; Sun opens noon / closes 5 PM.",
-          "is_treat": true
-        },
-        {
-          "name": "El Caporal",
-          "rating": "4.4",
-          "reviews": "425",
-          "known_for": "Casual Mexican plates on Redmond–Fall City Rd.",
-          "praise": "Salsa, portions, and friendly service.",
-          "kid_note": "Open from 11 AM — realistic sit-down before nap, unlike the Roadhouse’s weekend 2 PM open.",
-          "is_treat": false
-        },
-        {
-          "name": "Mercury’s Coffee Co.",
-          "rating": "4.6",
-          "reviews": "371",
-          "known_for": "Organic coffee, cocoa, and drive-through speed.",
-          "praise": "Drinks and friendly baristas.",
-          "kid_note": "Parent caffeine + kid cocoa on the way home.",
-          "is_treat": false
-        },
-        {
-          "name": "Aroma Coffee Co.",
-          "rating": "4.8",
-          "reviews": "436",
-          "known_for": "Specialty lattes, pastries, and a treehouse play spot in a historic house.",
-          "praise": "Kid-friendly outdoor space and warm staff.",
-          "kid_note": "Closed Sundays — use Sat; treehouse is the toddler magnet.",
-          "is_treat": false
-        }
-      ]
-    },
-    {
-      "num": 9,
-      "name": "LEGO Builders @ Snoqualmie Library (KCLS)",
+      "name": "LEGO Builders at Snoqualmie Library",
       "town": "Snoqualmie Ridge",
-      "hook": "Free all-ages brick open house 3 blocks from home energy — perfect post-nap Saturday.",
+      "hook": "Free all-ages brick open house about 5 minutes from home.",
       "tags": [
         "indoor",
         "free"
       ],
       "drive": "~5–10 min (7824 Center Blvd SE)",
-      "time_block": "Sat 3:00–4:30 PM (right after nap)",
+      "time_block": "Sat 3:00–4:30 PM",
       "cost": "Free; no registration",
       "outing_length": "Pop in for 20–90 min",
       "hours_detail": "Sat Oct 10, 3:00–4:30 PM; library open 11 AM–6 PM that day",
-      "why": "Unstructured build table sponsored by Friends of the Snoqualmie Library. 4-year-old builds; 2-year-old stacks/knocks; caregivers sit. Lowest-friction unique local program of the weekend.",
+      "why": "An unstructured open house where the library supplies the bricks and other building toys. The 4-year-old builds, the 2-year-old stacks and knocks down. Stay the whole time or pop in for a few minutes.",
       "rain_backup": "Already indoor.",
       "food_area": "Snoqualmie Ridge — activity is local; Ridge food OK; downtown SQ scoop is a short hop",
       "restaurants": [
@@ -605,83 +619,195 @@
           "kid_note": "Closed Sunday; Sat takeout after LEGO is easy.",
           "is_treat": false
         }
-      ]
+      ],
+      "hours_short": "Sat 3–4:30",
+      "suggested": {
+        "part": "Sat afternoon",
+        "duration": "20–90 min"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Drop-in, no registration.",
+        "link": "https://kcls.bibliocommons.com/v2/events/6aa0a3736562d02296858c16",
+        "link_label": "KCLS event page"
+      }
+    },
+    {
+      "num": 9,
+      "name": "Olallie State Park — Weeks Falls",
+      "town": "North Bend / Exit 38",
+      "hook": "Short forest walk to a 30-ft waterfall + riverside picnic — and Saturday is a statewide free Discover Pass day.",
+      "tags": [
+        "hike",
+        "free",
+        "seasonal"
+      ],
+      "drive": "~20–25 min via I-90 E exit 38",
+      "time_block": "Open 6:30 AM–dusk",
+      "cost": "Sat free day-use; else Discover Pass $10 day / $45 annual",
+      "outing_length": "~1–1.5 hr (turn around anytime)",
+      "hours_detail": "Park 6:30 AM–dusk; Sat Oct 10 = no Discover Pass needed (World Mental Health Day free parking day)",
+      "why": "WTA lists the falls walk at about 1–2 miles round trip with modest gain from the South Fork picnic area; go at toddler pace and turn around whenever legs quit. Payoff: waterfall spray, river pebbles and picnic tables. Watch the cold river water with littles.",
+      "rain_backup": "Saturday's showers look light; Sunday is sunny but needs a Discover Pass. If it's pouring, swap to KidsQuest (#10) or LEGO Builders (#8).",
+      "food_area": "North Bend / Exit 38 corridor",
+      "restaurants": [
+        {
+          "name": "South Fork (North Bend)",
+          "known_for": "Café and bar off I-90 Exit 32 with a big heated beer garden, PNW beers and wines, espresso, and a kids' menu.",
+          "praise": "",
+          "kid_note": "On the way home at Exit 32. Kids' play space in the beer garden plus open field out back. Sat–Sun brunch 8–1, then lunch and dinner to 9.",
+          "is_treat": false,
+          "address": "14303 436th Ave SE, North Bend, WA 98045"
+        },
+        {
+          "name": "Twede’s Cafe",
+          "rating": "4.4",
+          "reviews": "3,085",
+          "known_for": "The Twin Peaks “Double R” diner for cherry pie, coffee, and huge breakfasts.",
+          "praise": "Massive portions, friendly staff, and the pie/coffee combo.",
+          "kid_note": "Booths + all-day breakfast make a messy post-falls rewind easy; pie doubles as the dessert backup.",
+          "is_treat": false
+        },
+        {
+          "name": "Cascadia Pizza Co.",
+          "rating": "4.9",
+          "reviews": "460",
+          "known_for": "Handmade thin-crust pies from a downtown trailer.",
+          "praise": "Blistered crust, fresh toppings, and ~8-minute cook times.",
+          "kid_note": "Pickup + eat in the car or at a nearby table — fastest hot food after Exit 38.",
+          "is_treat": false
+        },
+        {
+          "name": "Rio Bravo",
+          "rating": "4.6",
+          "reviews": "1,564",
+          "known_for": "Casual Mexican tacos/enchiladas with patio seating.",
+          "praise": "Salsa, portions, and family vibe after I-90 adventures.",
+          "kid_note": "Marked good-for-kids; patio helps shake off wet boots.",
+          "is_treat": false
+        },
+        {
+          "name": "Scott’s Dairy Freeze",
+          "rating": "4.3",
+          "reviews": "1,416",
+          "known_for": "Classic soft-serve cones, shakes/malts, burgers, and fries on E North Bend Way.",
+          "praise": "Thick shakes, onion rings, and old-school soft-serve after I-90 adventures.",
+          "kid_note": "Soft-serve is the bribe that gets muddy boots back in the car.",
+          "is_treat": true
+        },
+        {
+          "name": "Friends & Co Ice Cream",
+          "rating": "4.7",
+          "reviews": "100",
+          "known_for": "Creamy local scoops, seasonal flavors (lavender honey, mountain huckleberry), and a bright downtown shop.",
+          "praise": "Unique flavors, friendly staff, and indoor seating.",
+          "kid_note": "Indoor scoops if Scott's line is long or it's raining; Sat opens noon.",
+          "is_treat": true
+        }
+      ],
+      "hours_short": "Open 6:30–dusk",
+      "suggested": {
+        "part": "Sat or Sun morning",
+        "duration": "~1–1.5 hrs"
+      },
+      "good_to_know": {
+        "parking": "Sat Oct 10 is a Discover Pass free day (World Mental Health Day). Sunday needs a Discover Pass ($10/day; there's a pay station).",
+        "bring": "",
+        "hours_note": "",
+        "link": "https://parks.wa.gov/find-parks/state-parks/olallie-state-park",
+        "link_label": "Olallie State Park"
+      }
     },
     {
       "num": 10,
-      "name": "Juanita Bay Park boardwalk",
-      "town": "Kirkland",
-      "hook": "Flat wetland boardwalks and paved paths with ducks, herons, and lake views — wildlife payoff, zero scramble.",
+      "name": "KidsQuest Children’s Museum",
+      "town": "Bellevue",
+      "hook": "Best indoor, age-perfect play for 2- and 4-year-olds within ~40 min — the Saturday rain ace.",
       "tags": [
-        "hike",
-        "free"
+        "indoor"
       ],
-      "drive": "~35–45 min via I-90 / I-405",
-      "time_block": "Sun 10:00 AM–12:00 PM (drier day; turn around anytime)",
-      "cost": "Free parking",
-      "outing_length": "~1–1.5 hr (0.5–1.0 mi toddler out-and-back)",
-      "hours_detail": "Dawn–dusk city park; WTA notes ~2 mi of trails at 0 ft gain",
-      "why": "Stroller-friendly boardwalks with railings over marsh/open water. Concrete payoff: birds, frogs, lake breeze, big sky. Keep littles from climbing rails; leash dogs. Best third hike when you want flat + wildlife instead of elevation.",
-      "rain_backup": "Boardwalk is still walkable in light rain with jackets; if pouring, KidsQuest instead.",
-      "food_area": "Kirkland / Juanita area — not Bellevue or Snoqualmie as primary",
+      "drive": "~35–40 min via I-90",
+      "time_block": "Sat–Sun 9:30 AM–5 PM",
+      "cost": "~$16.75 ages 1+ (dynamic pricing; under 1 free; members free)",
+      "outing_length": "~2–2.5 hr",
+      "hours_detail": "Sat–Sun Oct 10–11 open 9:30 AM–5 PM; reservations encouraged (book ahead)",
+      "why": "Hands-on galleries built for preschoolers. Reserve a check-in time ahead. A dependable indoor pick if Saturday's showers stick around.",
+      "rain_backup": "This is the rain plan — fully indoor.",
+      "food_area": "Bellevue — near museum / Lincoln Square / downtown",
       "restaurants": [
         {
-          "name": "Sirena Gelato (downtown Kirkland / Marina Park orbit)",
-          "rating": "4.6",
-          "reviews": "765",
-          "known_for": "Family-run artisanal gelato & sorbet (pistachio, hazelnut, ube, pandan) on Park Ln near the waterfront.",
-          "praise": "Light creamy scoops, generous portions, and warm staff.",
-          "kid_note": "Short hop south of Juanita Bay; opens noon — scoop treat after the boardwalk.",
-          "is_treat": true
+          "name": "Bellevue Brewing (Spring District)",
+          "known_for": "Spring District brewpub with upscale pub fare and a 2,500 sq ft outdoor beer garden.",
+          "praise": "",
+          "kid_note": "Kid friendly: under-21s allowed in the restaurant and patio (not the bar). Opens 11:30; Sat to 10, Sun to 9. 4 hrs free garage parking.",
+          "is_treat": false,
+          "address": "12190 NE District Way, Bellevue, WA 98005"
         },
         {
-          "name": "Coffee & Cone (Lakeshore Plaza / Marina Park)",
-          "rating": "4.6",
-          "reviews": "123",
-          "known_for": "Local ice cream scoops, waffle cones, and coffee right on the Kirkland waterfront.",
-          "praise": "Flavor variety (huckleberry, salted caramel), friendly service, and lake-walk energy.",
-          "kid_note": "Sat/Sun open 11 AM — scoop + stroller stroll combo if Marina Park fits the return.",
-          "is_treat": true
-        },
-        {
-          "name": "Mia Cafe and Wine Bar",
-          "rating": "4.6",
-          "reviews": "132",
-          "known_for": "Brunch plates, crepes, and sandwiches on Juanita Dr with lake-adjacent vibes.",
-          "praise": "French toast, portions, and friendly staff.",
-          "kid_note": "Breakfast/lunch menu fits a post-boardwalk rewind.",
-          "is_treat": false
-        },
-        {
-          "name": "Plaza Garcia Family Mexican",
-          "rating": "4.6",
-          "reviews": "861",
-          "known_for": "Generous Mexican plates and a full bar on Juanita Dr.",
-          "praise": "Carne asada, portions, and a kids-friendly vibe.",
-          "kid_note": "Big plates to share; parking can be tight.",
-          "is_treat": false
-        },
-        {
-          "name": "Seoul Bowl (Juanita)",
+          "name": "Facing East Time (Downtown Bellevue)",
           "rating": "4.7",
-          "reviews": "425",
-          "known_for": "Customizable Korean bowls and friendly counter service.",
-          "praise": "Bulgogi bowls and kid-friendly chicken tenders.",
-          "kid_note": "Build-your-own bowls keep picky eaters happy.",
+          "reviews": "150",
+          "known_for": "Taiwanese beef noodle soup, bentos, popcorn chicken, and quick-serve comfort near the museum/Lincoln Square orbit (independent; related to the long-running Facing East).",
+          "praise": "Rich broth, crispy popcorn chicken, and fast turns.",
+          "kid_note": "Small room — share a bento/noodles and go; great warm option without a mall counter.",
           "is_treat": false
+        },
+        {
+          "name": "Cielo Cocina Mexicana",
+          "rating": "4.4",
+          "reviews": "894",
+          "known_for": "Made-in-house Mexican plates, chips/salsa, and a lively patio near downtown Bellevue.",
+          "praise": "Carne asada, generous portions, and staff who are warm with kids.",
+          "kid_note": "Family sit-down with shareable plates.",
+          "is_treat": false
+        },
+        {
+          "name": "Molly Moon’s Homemade Ice Cream (downtown Bellevue)",
+          "rating": "4.4",
+          "reviews": "640",
+          "known_for": "Scratch-made scoops, seasonal flavors, and a pastry kitchen near Downtown Park / Inspiration Playground (steps from the museum orbit).",
+          "praise": "Chunky flavors, fresh cones, and friendly scoop staff.",
+          "kid_note": "Opens noon; a treat walk near Downtown Park.",
+          "is_treat": true
+        },
+        {
+          "name": "Yezi Coconut Dessert (Bellevue Square)",
+          "rating": "4.3",
+          "reviews": "94",
+          "known_for": "Asian coconut desserts, jar puddings, and not-too-sweet tropical treats inside Bellevue Square.",
+          "praise": "Refreshing coconut flavors, cute presentation, and lighter sweets kids share.",
+          "kid_note": "Walkable from Lincoln Square; good non-scoop dessert if littles want something different.",
+          "is_treat": true
         }
-      ]
+      ],
+      "hours_short": "Sat–Sun 9:30–5",
+      "suggested": {
+        "part": "Sat morning",
+        "duration": "~2–2.5 hrs"
+      },
+      "good_to_know": {
+        "parking": "KidsQuest lot $5 + tax/day. 929 Garage: $5 for 3 hrs with validation. Ashton & 1020 garages: 2 free hrs via the Public Park app.",
+        "bring": "",
+        "hours_note": "Reserve a check-in time (up to 4 weeks ahead). Non-refundable; reschedule at least 48 hrs ahead.",
+        "link": "https://www.kidsquestmuseum.org/plan-your-visit/",
+        "link_label": "Plan your visit"
+      }
     }
   ],
-  "nap_conflicts": [
-    "Halloween Train 1:00 PM Snoqualmie / corresponding NB afternoon departures — full 2-hr ride overlaps 1–3 PM nap; only worth it if you’re deliberately skipping nap for costumes + cider + Eric Ode.",
-    "Remlinger Farms Fall Harvest full day (Fri–Sun 10 AM–6 PM; GA ~$33.95 ages 2–65 online, under 2 free) — peak-color weekend with 70+ attractions; a morning wristband slice can still fit nap, but the “do everything” day does not.",
-    "Red Barn Farm last-entry 3 PM afternoon block — fine if nap is skipped or shifted; morning is cleaner.",
-    "Seattle Japanese Garden Family Saturday origami (11 AM–2 PM; youth 12 & under free 10 AM–2 PM) — cool unique find, but ~45–60 min drive each way makes the return collide with nap unless you skip it.",
-    "Small Frye at Frye Art Museum (10:15–11:15 AM, free, ages 2–5, registration required) — great age fit but Seattle drive + hard stop time is a stretch vs Eastside options.",
-    "Turkfest (Seattle Center, noon–5 PM both days) and SLU Fall Harvest Celebration (11 AM–2 PM) — neat free city festivals; drive + timing fight the nap window from Crest View."
+  "nap_conflicts": [],
+  "filler_bank": [
+    "Fall City Farms pumpkin patch (Fall City, ~15–20 min; Sat 10–6, Sun 10–5)",
+    "Red Barn Farm Fall Festival (Redmond; book online, last entry 3 PM)",
+    "Asahel Curtis Nature Trail (Snoqualmie Pass, Exit 47; Northwest Forest Pass)",
+    "Juanita Bay Park boardwalk (Kirkland, ~40 min)",
+    "Centennial Fields inclusive playground (Snoqualmie)",
+    "Tollgate Farm Park (North Bend)",
+    "Snoqualmie Falls upper viewpoints",
+    "Issaquah Fall Farm Fresh Market (downtown Issaquah, Sat 9–2, live music 11–1) plus the self-led Story Stroll: Apple Pie Picnic from the library; pairs well with the hatchery",
+    "Raging River trails grand opening at Snoqualmie Point Trailhead (Sat, free, 12–5; parking-lot party with music and food at noon, then guided mountain-bike rides)",
+    "Coming up: Oxbow's Oxtober festival in Carnation starts Oct 17–18"
   ],
-  "filler_bank": "Centennial Fields inclusive playground (Snoqualmie), Tollgate Farm Park (North Bend), Remlinger morning wristband, Snoqualmie Falls upper viewpoints, Muddy Boots Pumpkins in Duvall (maze: under 5 free; ages 6–15 $12; 16+ $17), JB Family Growers pumpkin/puzzle patch in Woodinville ($5 ages 2–11), Issaquah Fall Farm Fresh Market Sat 9 AM–2 PM at Historic Shell Station, Lowe’s Issaquah free kids workshop Sat 10 AM (firefighting plane build).",
   "weather_blocks": {
     "location": "Snoqualmie, WA 98065",
     "lat": 47.53,
@@ -689,8 +815,8 @@
     "timezone": "America/Los_Angeles",
     "source": "Open-Meteo",
     "weekend": "2026-10-10",
-    "updated": "2026-10-06T15:04-07:00",
-    "updated_label": "Tue Oct 6, 3:04 PM PT",
+    "updated": "2026-10-07T19:52-07:00",
+    "updated_label": "Wed Oct 7, 7:52 PM PT",
     "windows": {
       "morning": "9 AM–12 PM",
       "afternoon": "3–7 PM"
@@ -705,29 +831,29 @@
             "key": "morning",
             "label": "Morning",
             "window": "9 AM–12 PM",
-            "emoji": "☁️",
-            "condition": "Cloudy",
-            "temp_low": 46,
-            "temp_high": 54,
-            "temp_range": "46–54°F",
-            "temp_avg": 50.2,
-            "rain_pct": 17,
-            "precip_in": 0.0,
+            "emoji": "🌦️",
+            "condition": "Showers",
+            "temp_low": 47,
+            "temp_high": 52,
+            "temp_range": "47–52°F",
+            "temp_avg": 49.6,
+            "rain_pct": 13,
+            "precip_in": 0.02,
             "wind_max_mph": 3
           },
           {
             "key": "afternoon",
             "label": "Afternoon",
             "window": "3–7 PM",
-            "emoji": "⛅",
-            "condition": "Mostly sunny",
-            "temp_low": 46,
-            "temp_high": 56,
-            "temp_range": "46–56°F",
-            "temp_avg": 52.6,
-            "rain_pct": 11,
+            "emoji": "☁️",
+            "condition": "Cloudy",
+            "temp_low": 50,
+            "temp_high": 57,
+            "temp_range": "50–57°F",
+            "temp_avg": 53.8,
+            "rain_pct": 13,
             "precip_in": 0.0,
-            "wind_max_mph": 4
+            "wind_max_mph": 5
           }
         ]
       },
@@ -742,13 +868,13 @@
             "window": "9 AM–12 PM",
             "emoji": "☀️",
             "condition": "Sunny",
-            "temp_low": 44,
+            "temp_low": 47,
             "temp_high": 56,
-            "temp_range": "44–56°F",
-            "temp_avg": 50.6,
-            "rain_pct": 1,
+            "temp_range": "47–56°F",
+            "temp_avg": 51.8,
+            "rain_pct": 0,
             "precip_in": 0.0,
-            "wind_max_mph": 5
+            "wind_max_mph": 4
           },
           {
             "key": "afternoon",
@@ -756,11 +882,11 @@
             "window": "3–7 PM",
             "emoji": "☀️",
             "condition": "Sunny",
-            "temp_low": 48,
-            "temp_high": 59,
-            "temp_range": "48–59°F",
-            "temp_avg": 55.1,
-            "rain_pct": 1,
+            "temp_low": 46,
+            "temp_high": 60,
+            "temp_range": "46–60°F",
+            "temp_avg": 54.8,
+            "rain_pct": 0,
             "precip_in": 0.0,
             "wind_max_mph": 5
           }
