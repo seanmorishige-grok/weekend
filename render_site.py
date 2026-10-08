@@ -414,7 +414,7 @@ def render_weekend_html(data: dict, *, archive: bool = False, weekend_date: str 
 # v2 design ("calm"): opt-in via --design v2. v1 above stays the default.
 # =====================================================================
 CSS_V2 = """
-:root{--bg:#FAF8F4;--card:#FFF;--line:#ECE6DC;--ink:#23201C;--muted:#6E675E;--soft:#9A9288;--acc:#1B5E4A;--accbg:#EEF4F1}
+:root{--bg:#FAF8F4;--card:#FFF;--line:#ECE6DC;--ink:#23201C;--muted:#6E675E;--soft:#9A9288;--acc:#1B5E4A;--accbg:#EEF4F1;--heart:#D9776B}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
@@ -474,12 +474,20 @@ h2{font:600 13px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spac
 .rs button{background:none;border:0;padding:4px 0;font-size:13px;color:var(--soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .cd{position:relative}
 .no{font:400 15px Georgia,serif;color:var(--soft);margin-right:8px}
-.cd h3{padding-right:34px}
-.cx{position:absolute;top:12px;right:12px;z-index:1}
+.cd h3{padding-right:76px}
+.ca{position:absolute;top:5px;right:5px;z-index:1;display:flex;align-items:center}
 .cx button{font:600 13px -apple-system,Arial,sans-serif;cursor:pointer;border-radius:999px}
-.cx-x{width:30px;height:30px;border:0;background:transparent;color:var(--soft);font-size:15px!important;line-height:30px;padding:0}
-.cx-x:active{background:var(--line)}
-.cx-q{display:inline-flex;gap:6px;background:var(--card);padding-left:6px;box-shadow:-14px 0 12px var(--card)}
+.cx-x{width:44px;height:44px;border:0;background:transparent;color:var(--soft);font-size:15px!important;line-height:44px;padding:0;-webkit-tap-highlight-color:transparent}
+.cx-x:active{color:var(--muted)}
+.hrt{width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;color:var(--soft);display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.hrt svg{display:block;transition:transform .15s ease}
+.hrt:active svg{transform:scale(.88)}
+.hrt[aria-pressed="true"]{color:var(--heart)}
+.hrt[aria-pressed="true"] path{fill:var(--heart);fill-opacity:.85}
+.hrt:focus-visible,.cx-x:focus-visible{outline:2px solid var(--line);outline-offset:-6px;border-radius:10px}
+.ca.arm .hrt,.cd.fav .cx{display:none}
+#favh{margin-top:28px}
+.cx-q{display:inline-flex;gap:6px;background:var(--card);padding-left:6px;margin:0 7px 0 0;box-shadow:-14px 0 12px var(--card)}
 .cx-q[hidden]{display:none}
 .cx-yes{border:0;background:#D93A3A;color:#fff;padding:6px 12px}
 .cx-no{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:5px 12px}
@@ -537,60 +545,96 @@ details.src summary{color:var(--muted);font-weight:500;font-size:13px}
 
 JS_V2 = r"""
 (function(){
-var KEY='weekend-cleared:'+(window.WEEKEND_DATE||location.pathname);
-var cleared=[];try{cleared=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(cleared))}catch(e){}}
-function els(n){return [document.getElementById('idea-'+n)].filter(Boolean)}
-function name(n){var c=document.getElementById('idea-'+n),a=c&&c.querySelector('h3 a');return a?a.textContent:''}
+var WD=(window.WEEKEND_DATE||location.pathname),KEY='weekend-cleared:'+WD,HKEY='weekend-hearts:'+WD;
+function load(k){try{var v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v.map(String):[]}catch(e){return []}}
+function put(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var cards=[].slice.call(document.querySelectorAll('article.cd'));
+cards.forEach(function(c,i){c.dataset.o=i});
+function card(k){for(var i=0;i<cards.length;i++)if(cards[i].dataset.k===k)return cards[i];return null}
+function name(k){var c=card(k),a=c&&c.querySelector('h3 a');return a?a.textContent:''}
+// clear-state: stable slug ids (migrate old card-number entries)
+var cleared=load(KEY).map(function(x){if(card(x))return x;if(/^\d+$/.test(x)){var c=document.getElementById('idea-'+x);return c?c.dataset.k:null}return null}).filter(Boolean);
+var hearts=load(HKEY).filter(function(k){return card(k)});
+cleared=cleared.filter(function(k,i){return cleared.indexOf(k)===i&&hearts.indexOf(k)<0});  // a favorite is never cleared
+function save(){put(KEY,cleared)}function saveH(){put(HKEY,hearts)}
+save();
+var favs=document.getElementById('favs'),plist=document.getElementById('plist');
 function refresh(){
-  var cards=[].slice.call(document.querySelectorAll('article.cd')),n=cards.filter(function(c){return !c.hidden}).length;
-  var left=document.getElementById('left');if(left)left.textContent=n;
-  document.getElementById('alldone').hidden=n>0;
+  var vis=function(c){return !c.hidden};
+  var rest=[].slice.call(plist.children).filter(vis).length,nf=favs.children.length;
+  var left=document.getElementById('left');if(left)left.textContent=rest;
+  document.getElementById('favh').hidden=!nf;
+  document.getElementById('plans').hidden=nf>0&&rest===0&&!cleared.length;
+  document.getElementById('alldone').hidden=(rest+nf)>0;
   var b=document.getElementById('showc');document.getElementById('nc').textContent=cleared.length;b.hidden=!cleared.length;
 }
 function collapse(el){
   el.style.height=el.offsetHeight+'px';el.classList.add('anim');el.offsetHeight;
   el.classList.add('gone');el.style.height='0px';
-  var done=function(){el.hidden=true;el.classList.remove('anim','gone');el.style.height='';refresh()};
-  var t=setTimeout(done,400);
+  setTimeout(function(){el.hidden=true;el.classList.remove('anim','gone');el.style.height='';refresh()},400);
 }
 function expand(el){
   el.hidden=false;el.classList.add('anim','gone');el.style.height='0px';el.offsetHeight;
   el.classList.remove('gone');el.style.height=el.scrollHeight+'px';
   setTimeout(function(){el.classList.remove('anim');el.style.height=''},400);
 }
-var toastT,lastN=null;
-function toast(n){
-  var t=document.getElementById('toast');lastN=n;
-  document.getElementById('tmsg').textContent='Cleared '+name(n);
-  t.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){t.hidden=true;lastN=null},5000);
+var toastT,undoFn=null;
+function toast(msg,fn){
+  var t=document.getElementById('toast');undoFn=fn||null;
+  document.getElementById('tmsg').textContent=msg;document.getElementById('undo').hidden=!fn;
+  t.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){t.hidden=true;undoFn=null},5000);
 }
-function clear(n){
-  n=String(n);if(cleared.indexOf(n)>=0)return;
-  cleared.push(n);save();els(n).forEach(collapse);toast(n);
+function clear(k){
+  if(cleared.indexOf(k)>=0||hearts.indexOf(k)>=0)return;
+  cleared.push(k);save();collapse(card(k));toast('Cleared '+name(k),function(){restore(k)});
 }
-function restore(n){
-  n=String(n);var i=cleared.indexOf(n);if(i<0)return;
-  cleared.splice(i,1);save();els(n).forEach(expand);setTimeout(refresh,0);refresh();
+function restore(k){
+  var i=cleared.indexOf(k);if(i<0)return;
+  cleared.splice(i,1);save();expand(card(k));refresh();
 }
+// ---- hearts: favorites float to the top (in hearted order); unheart returns a card to its original spot
+function place(k){
+  var c=card(k),fav=hearts.indexOf(k)>=0,b=c.querySelector('.hrt');
+  c.classList.toggle('fav',fav);b.setAttribute('aria-pressed',fav?'true':'false');
+  b.setAttribute('aria-label',(fav?'Unfavorite ':'Favorite ')+name(k));
+  if(fav){favs.appendChild(c)}else{
+    var o=+c.dataset.o,next=null;
+    [].slice.call(plist.children).some(function(x){if(+x.dataset.o>o){next=x;return true}});
+    plist.insertBefore(c,next);
+  }
+}
+function heart(k,on){
+  var i=hearts.indexOf(k);
+  if(on&&i<0){hearts.push(k);var ci=cleared.indexOf(k);if(ci>=0){cleared.splice(ci,1);save()}}
+  else if(!on&&i>=0){hearts.splice(i,1)}else return;
+  saveH();place(k);refresh();
+}
+cards.forEach(function(c){
+  var k=c.dataset.k;
+  c.querySelector('.hrt').addEventListener('click',function(ev){
+    ev.stopPropagation();disarm();var on=hearts.indexOf(k)<0;heart(k,on);
+    toast(on?'Added to Your favorites':'Removed from favorites',function(){heart(k,!on)});
+  });
+});
 // initial state (no animation)
-cleared.forEach(function(n){els(n).forEach(function(el){el.hidden=true})});refresh();
+hearts.forEach(place);
+cleared.forEach(function(k){card(k).hidden=true});refresh();
 document.getElementById('undo').addEventListener('click',function(){
-  if(lastN!==null)restore(lastN);document.getElementById('toast').hidden=true;lastN=null;
+  var f=undoFn;undoFn=null;document.getElementById('toast').hidden=true;if(f)f();
 });
 document.getElementById('showc').addEventListener('click',function(){cleared.slice().forEach(restore)});
 
 // ---- card ✕ : two-step
 var armed=null,armT;
-function disarm(){if(!armed)return;armed.querySelector('.cx-q').hidden=true;armed.querySelector('.cx-x').hidden=false;armed=null;clearTimeout(armT)}
+function disarm(){if(!armed)return;armed.querySelector('.cx-q').hidden=true;armed.querySelector('.cx-x').hidden=false;armed.parentNode.classList.remove('arm');armed=null;clearTimeout(armT)}
 document.querySelectorAll('.cx').forEach(function(cx){
   cx.querySelector('.cx-x').addEventListener('click',function(ev){
-    ev.stopPropagation();disarm();armed=cx;
+    ev.stopPropagation();disarm();armed=cx;cx.parentNode.classList.add('arm');
     cx.querySelector('.cx-x').hidden=true;cx.querySelector('.cx-q').hidden=false;cx.querySelector('.cx-no').focus({preventScroll:true});
     armT=setTimeout(disarm,4000);
   });
   cx.querySelector('.cx-no').addEventListener('click',function(ev){ev.stopPropagation();disarm()});
-  cx.querySelector('.cx-yes').addEventListener('click',function(ev){ev.stopPropagation();var n=cx.dataset.n;disarm();clear(n)});
+  cx.querySelector('.cx-yes').addEventListener('click',function(ev){ev.stopPropagation();var k=cx.dataset.k;disarm();clear(k)});
 });
 document.addEventListener('click',function(ev){if(armed&&!armed.contains(ev.target))disarm()},true);
 
@@ -712,6 +756,33 @@ def good_to_know_v2(idea: dict) -> str:
     return f'<details class="gtk"><summary>Good to know</summary><div class="dt">{"".join(rows)}</div></details>'
 
 
+HEART_SVG = ('<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" '
+             'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+             '<path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>')
+
+
+def slugify(name: str) -> str:
+    """Stable per-card id from the place name (e.g. 'Bigfoot Kids’ Book Festival' -> 'bigfoot-kids-book-festival')."""
+    import unicodedata
+    t = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode()
+    t = re.sub(r"['’`]", "", t.lower())
+    t = re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+    if len(t) > 60:
+        t = t[:61].rsplit("-", 1)[0]
+    return t.strip("-")
+
+
+def assign_slugs(ideas: list) -> None:
+    seen = {}
+    for i in ideas:
+        base = slugify(i.get("name") or "") or f"card-{i.get('num')}"
+        k, n = base, 2
+        while k in seen:
+            k = f"{base}-{n}"; n += 1
+        seen[k] = 1
+        i["_slug"] = k
+
+
 def card_v2(idea: dict) -> str:
     num = int(idea.get("num") or 0)
     name = idea.get("name") or ""
@@ -741,8 +812,9 @@ def card_v2(idea: dict) -> str:
     sugg_html = f'<p class="sugg">Good for: {e(sg_txt)}</p>' if sg_txt else ""
     why_html = f'<p class="why"><b>Details:</b> {e(idea["why"])}</p>' if idea.get("why") else ""
     rain = f'<div class="rain"><b>☔ Rain plan</b> · {e(idea["rain_backup"])}</div>' if idea.get("rain_backup") else ""
-    return f"""<article class="cd" id="idea-{num}" data-n="{num}">
-<div class="cx" data-n="{num}"><button type="button" class="cx-x" aria-label="Clear {e(name)}">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear {e(name)}">Clear</button><button type="button" class="cx-no" aria-label="Keep {e(name)}">Keep</button></span></div>
+    key = idea.get("_slug") or slugify(name) or f"card-{num}"
+    return f"""<article class="cd" id="idea-{num}" data-n="{num}" data-k="{e(key)}">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite {e(name)}">{HEART_SVG}</button><div class="cx" data-k="{e(key)}"><button type="button" class="cx-x" aria-label="Clear {e(name)}">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear {e(name)}">Clear</button><button type="button" class="cx-no" aria-label="Keep {e(name)}">Keep</button></span></div></div>
 <h3><span class="no">{num}</span><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(name)}</a></h3>
 <div class="town">{e(idea.get("town") or "")}</div>
 <p class="hook">{e(idea.get("hook") or "")}</p>
@@ -869,7 +941,8 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
     meta = data.get("meta") or {}
     title = meta.get("title") or "Weekend Adventures"
     subtitle = meta.get("subtitle") or ""
-    ideas = data.get("ideas") or []
+    ideas = [dict(i) for i in (data.get("ideas") or [])]
+    assign_slugs(ideas)
     nap = data.get("nap_conflicts")
     nap_html = ""
     if nap:
@@ -913,8 +986,10 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 <nav class="nav"><a href="{prefix}./">This weekend</a><a href="{prefix}archive.html">Archive</a></nav>
 </header>
 {weather_v2(data)}
+<h2 id="favh" hidden>Your favorites</h2>
+<div id="favs"></div>
 <h2 id="plans">Plans · <span id="left">{len(ideas)}</span></h2>
-{"".join(card_v2(i) for i in ideas)}
+<div id="plist">{"".join(card_v2(i) for i in ideas)}</div>
 <div class="rs"><p class="done" id="alldone" hidden>All cleared.</p><button type="button" id="showc" hidden>Show cleared (<span id="nc">0</span>)</button></div>
 {nap_html}
 {fb_html}
@@ -922,7 +997,7 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 <footer class="ft">{BRAND_V2} · <a href="{prefix}archive.html">Archive</a>{(" · " + e(weekend_date)) if weekend_date else ""}</footer>
 </div>
 {how_sheet_v2()}
-<div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="tmsg">Cleared</span><button type="button" id="undo" aria-label="Undo clear">Undo</button></div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="tmsg">Cleared</span><button type="button" id="undo" aria-label="Undo">Undo</button></div>
 <script>window.WEEKEND_DATE={json.dumps(weekend_date)};{JS_V2}</script>
 </body>
 </html>"""
