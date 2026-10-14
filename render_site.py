@@ -994,7 +994,7 @@ def render_weekend_html_v2(data: dict, *, prefix: str = "", weekend_date: str = 
 {nap_html}
 {fb_html}
 {sources_v2()}
-<footer class="ft">{BRAND_V2} · <a href="{prefix}archive.html">Archive</a>{(" · " + e(weekend_date)) if weekend_date else ""}</footer>
+<footer class="ft">{BRAND_V2} · <a href="{prefix}archive.html">Archive</a> · <a href="{prefix}contact.html">About &amp; Contact</a>{(" · " + e(weekend_date)) if weekend_date else ""}</footer>
 </div>
 {how_sheet_v2()}
 <div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="tmsg">Cleared</span><button type="button" id="undo" aria-label="Undo">Undo</button></div>
@@ -1073,7 +1073,7 @@ def render_archive_html_v2(entries: list[dict]) -> str:
 <nav class="nav"><a href="./">This weekend</a><a href="archive.html">Archive</a></nav>
 </header>
 <section class="panel"><ul class="lst">{items or "<li>No weekends yet.</li>"}</ul></section>
-<footer class="ft">{BRAND_V2}</footer>
+<footer class="ft">{BRAND_V2} · <a href="contact.html">About &amp; Contact</a></footer>
 </div>
 </body>
 </html>"""
