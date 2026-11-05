@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAF8F4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Good Days">
+<meta name="application-name" content="More Good Days">
+<meta name="description" content="More Good Days · Nov 7–8 · near Snoqualmie. Hand-picked each week: toddler-friendly, short drives, real food nearby.">
+<title>More Good Days · Nov 7–8</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<style>
+:root{--bg:#FAF8F4;--card:#FFF;--line:#ECE6DC;--ink:#23201C;--muted:#6E675E;--soft:#9A9288;--acc:#1B5E4A;--accbg:#EEF4F1;--heart:#D9776B}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.w{max-width:600px;margin:0 auto;padding:max(28px,env(safe-area-inset-top)) 20px 56px}
+.top{margin:0 0 22px;position:relative}
+.gear{position:absolute;top:-12px;right:-12px;width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;color:var(--soft);display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.gear svg{display:block}
+.gear:active{color:var(--muted)}
+.gear:focus-visible{outline:2px solid var(--line);outline-offset:-6px;border-radius:8px}
+.top .kick{padding-right:44px}
+.sheet{position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sheet[hidden]{display:none}
+.sheet-bg{position:absolute;inset:0;background:rgba(35,32,28,.35)}
+.sheet-card{position:relative;background:var(--bg);width:100%;max-width:600px;max-height:88vh;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:20px 20px 0 0;padding:20px 20px max(24px,env(safe-area-inset-bottom));box-shadow:0 -8px 30px rgba(0,0,0,.12);animation:up .22s ease}
+@keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
+.sheet-top{display:flex;justify-content:space-between;align-items:center;margin:0 0 4px}
+.sheet-top h2{margin:0;font:700 22px/1.2 Georgia,serif;letter-spacing:0;text-transform:none;color:var(--ink)}
+.sheet-x{width:34px;height:34px;border:0;background:var(--line);border-radius:999px;color:var(--muted);font-size:14px;cursor:pointer}
+.hx{font-size:15px;line-height:1.5;color:var(--muted);margin:6px 0 4px}
+.hk{padding:14px 0 0}
+.hk label,.hk .kl{display:block;font:600 13px -apple-system,Arial,sans-serif;color:var(--soft);margin:0 0 7px;letter-spacing:.02em}
+.seg{display:flex;background:var(--line);border-radius:12px;padding:3px;gap:3px}
+.seg button{flex:1;min-height:42px;border:0;background:none;border-radius:9px;font:600 15px -apple-system,Arial,sans-serif;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.seg button[aria-checked="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg button:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+.hk input{width:100%;box-sizing:border-box;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:10px 12px;font:16px -apple-system,Arial,sans-serif;color:var(--ink)}
+.hk input:focus{outline:2px solid var(--acc);outline-offset:-1px;border-color:transparent}
+.save{display:block;width:100%;min-height:48px;margin:18px 0 0;border:0;border-radius:12px;background:var(--acc);color:#fff;font:600 16px -apple-system,Arial,sans-serif;cursor:pointer}
+.save:active{opacity:.85}
+.hsaved{font-size:14px;color:var(--acc);margin:10px 0 0;min-height:20px;text-align:center}
+.gl2 a{color:var(--acc);font-weight:600}
+.hs-src{color:var(--acc);font-size:14px;font-weight:600}
+@media (min-width:700px){.sheet{align-items:center}.sheet-card{border-radius:20px}}
+.kick{font:600 12px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin:0 0 10px}
+h1{font:700 28px/1.15 Georgia,"Times New Roman",serif;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:14px;margin:0}
+.tag{color:var(--soft);font-size:13px;margin:4px 0 0}
+.nav{margin:12px 0 0;font-size:14px;display:flex;gap:16px}
+.nav a{color:var(--acc);font-weight:600}
+.intro{color:var(--muted);font-size:15px;margin:0 0 24px}
+h2{font:600 13px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin:32px 0 12px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 16px}
+/* weather */
+.wx2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;padding:14px 16px}
+.wx2 .d{font:600 15px/1.2 Georgia,serif;margin:0 0 8px}
+.wx2 .d span{font:400 13px -apple-system,Arial,sans-serif;color:var(--soft);margin-left:4px}
+.wx2 .s{display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line)}
+.wx2 .e{font-size:22px;line-height:1}
+.wx2 .l{font-size:12px;color:var(--soft)}
+.wx2 .c{font-size:14px;font-weight:600;line-height:1.3}
+.wx2 .n{font-size:13px;color:var(--muted)}
+.upd{font-size:12px;color:var(--soft);margin:8px 2px 0}
+/* plans count + restore */
+.rs{margin:2px 2px 0;text-align:center}
+.rs .done{font-size:13px;color:var(--soft);margin:0 0 6px}
+.rs button{background:none;border:0;padding:4px 0;font-size:13px;color:var(--soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cd{position:relative}
+.no{font:400 15px Georgia,serif;color:var(--soft);margin-right:8px}
+.cd h3{padding-right:76px}
+.ca{position:absolute;top:5px;right:5px;z-index:1;display:flex;align-items:center}
+.cx button{font:600 13px -apple-system,Arial,sans-serif;cursor:pointer;border-radius:999px}
+.cx-x{width:44px;height:44px;border:0;background:transparent;color:var(--soft);font-size:15px!important;line-height:44px;padding:0;-webkit-tap-highlight-color:transparent}
+.cx-x:active{color:var(--muted)}
+.hrt{width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;color:var(--soft);display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.hrt svg{display:block;transition:transform .15s ease}
+.hrt:active svg{transform:scale(.88)}
+.hrt[aria-pressed="true"]{color:var(--heart)}
+.hrt[aria-pressed="true"] path{fill:var(--heart);fill-opacity:.85}
+.hrt:focus-visible,.cx-x:focus-visible{outline:2px solid var(--line);outline-offset:-6px;border-radius:10px}
+.ca.arm .hrt,.cd.fav .cx{display:none}
+#favh{margin-top:28px}
+.cx-q{display:inline-flex;gap:6px;background:var(--card);padding-left:6px;margin:0 7px 0 0;box-shadow:-14px 0 12px var(--card)}
+.cx-q[hidden]{display:none}
+.cx-yes{border:0;background:#D93A3A;color:#fff;padding:6px 12px}
+.cx-no{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:5px 12px}
+.gone{opacity:0;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;border-width:0!important}
+.anim{overflow:hidden;transition:height .28s ease,opacity .2s ease,margin .28s ease,padding .28s ease}
+.toast{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translateX(-50%);background:#23201C;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 24px rgba(0,0,0,.18);z-index:9;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none}
+.toast button{background:transparent;border:0;color:#9FD9C4;font:600 14px -apple-system,Arial,sans-serif;padding:6px 10px;cursor:pointer}
+/* idea cards */
+.cd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 6px;margin:0 0 14px;scroll-margin-top:16px}
+.cd h3{font:700 20px/1.25 Georgia,serif;margin:0}
+.cd h3 a:active{color:var(--acc)}
+.town{font-size:13px;color:var(--soft);margin:3px 0 0}
+.hook{font-size:15px;margin:10px 0 0}
+.sugg{font-size:13px;font-style:italic;color:var(--soft);margin:6px 0 0}
+.why{font-size:14px;color:var(--muted);margin:12px 0 0}
+.why b{color:var(--ink);font-weight:600}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted);margin:12px 0 0}
+.meta span{overflow-wrap:anywhere}
+.rain{font-size:14px;color:var(--ink);background:var(--accbg);border-radius:10px;padding:10px 12px;margin:14px 0 0}
+.rain b{color:var(--acc);font-weight:600}
+details{border-top:1px solid var(--line);margin:14px -18px 0;padding:0 18px}
+details+details{margin-top:0}
+summary{list-style:none;cursor:pointer;padding:13px 0;font-size:14px;font-weight:600;color:var(--acc);display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"";width:7px;height:7px;border-right:2px solid var(--soft);border-bottom:2px solid var(--soft);transform:rotate(45deg);margin:-4px 4px 0 0;transition:transform .15s}
+details[open] summary:after{transform:rotate(-135deg);margin-top:4px}
+summary .q{font-weight:400;color:var(--soft);margin-left:auto;margin-right:12px;font-size:13px}
+.dt{font-size:14px;color:var(--muted);padding:0 0 14px}
+.dt p{margin:0 0 10px}
+.dt b{color:var(--ink);font-weight:600}
+.fa{font-size:13px;color:var(--soft);margin:0 0 6px}
+.fr{padding:9px 0;border-top:1px solid var(--line)}
+.fr:first-of-type{border-top:0}
+.fr .h{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.fr .h a{font-weight:600;color:var(--ink);font-size:15px;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.fr .r{font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.fr .k{font-size:13px;color:var(--muted);margin-top:2px}
+.fr .x{font-size:13px;color:var(--soft);margin-top:2px}
+.tl{font:600 11px/1 -apple-system,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin:14px 0 2px}
+.lst{margin:0;padding:0;list-style:none}
+.lst li{padding:12px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.lst li:first-child{border-top:0}
+details.src{margin:32px 0 0;padding:0 2px;border-top:1px solid var(--line)}
+details.src summary{color:var(--muted);font-weight:500;font-size:13px}
+.sg{padding:8px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.7}
+.sg:first-child{border-top:0}
+.st2{font:600 11px/1.4 -apple-system,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.sg a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.nw2{display:inline-block;font:600 10px/1 -apple-system,Arial,sans-serif;color:var(--acc);background:var(--accbg);border-radius:999px;padding:2px 6px;vertical-align:1px}
+.ft{margin:24px 0 0;text-align:center;font-size:12px;color:var(--soft)}
+.ft a{color:var(--acc)}
+@media (max-width:359px){.wx2{grid-template-columns:1fr}.w{padding-left:14px;padding-right:14px}}
+</style>
+</head>
+<body>
+<div class="w">
+<header class="top">
+<button type="button" class="gear" id="gear" aria-label="How we pick" aria-haspopup="dialog" aria-controls="how"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+<p class="kick">More Good Days</p>
+<h1>Weekend Adventures — Nov 7–8</h1>
+<p class="sub">Nov 7–8 · near Snoqualmie</p>
+<p class="tag">Hand-picked each week: toddler-friendly, short drives, real food nearby.</p>
+<nav class="nav"><a href=".././">This weekend</a><a href="../archive.html">Archive</a></nav>
+</header>
+<h2 id="weather">Weather</h2><section class="panel wx2" aria-label="Weekend weather"><div><div class="d">Saturday<span>Nov 7</span></div><div class="s"><div class="e" aria-hidden="true">☁️</div><div><div class="l">Morning 9–12</div><div class="c">Cloudy</div><div class="n">54–62°F · 19% rain</div></div></div><div class="s"><div class="e" aria-hidden="true">🌦️</div><div><div class="l">Afternoon 3–7</div><div class="c">Showers</div><div class="n">52–62°F · 47% rain</div></div></div></div><div><div class="d">Sunday<span>Nov 8</span></div><div class="s"><div class="e" aria-hidden="true">🌦️</div><div><div class="l">Morning 9–12</div><div class="c">Showers</div><div class="n">48–51°F · 82% rain</div></div></div><div class="s"><div class="e" aria-hidden="true">🌦️</div><div><div class="l">Afternoon 3–7</div><div class="c">Showers</div><div class="n">44–50°F · 46% rain</div></div></div></div></section><p class="upd">Forecast updated Wed Nov 4, 7:50 PM PT · Open-Meteo</p>
+<h2 id="favh" hidden>Your favorites</h2>
+<div id="favs"></div>
+<h2 id="plans">Plans · <span id="left">10</span></h2>
+<div id="plist"><article class="cd" id="idea-1" data-n="1" data-k="diwali-at-bellevue-square">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Diwali at Bellevue Square"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="diwali-at-bellevue-square"><button type="button" class="cx-x" aria-label="Clear Diwali at Bellevue Square">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Diwali at Bellevue Square">Clear</button><button type="button" class="cx-no" aria-label="Keep Diwali at Bellevue Square">Keep</button></span></div></div>
+<h3><span class="no">1</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Diwali%20at%20Bellevue%20Square%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Diwali at Bellevue Square</a></h3>
+<div class="town">Bellevue</div>
+<p class="hook">Free Festival of Lights celebration: Indian dance and music in Center Court, sand rangoli and sari displays, free henna, and a Diwali photo spot.</p>
+<div class="meta"><span>🚗 ~30 min</span><span>🕙 Sat 11–6 (shows 12–5)</span><span>Free</span></div>
+<p class="sugg">Good for: Afternoon · ~1–1.5 hrs</p>
+<p class="why"><b>Details:</b> Indoors, free and only on Saturday. Music and dancing hold a 2- and 4-year-old&#x27;s attention in short bursts, and you can walk away anytime. Go after nap for the last couple of hours of performances, then an early dinner nearby.</p>
+<div class="rain"><b>☔ Rain plan</b> · Indoors.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Hours note.</b> Live performances end at 5 PM; henna runs until 6.</p><p class="gl2"><a href="https://bellevuecollection.com/diwali/" target="_blank" rel="noopener noreferrer">Diwali at The Bellevue Collection ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">3 meals · 2 treats</span></summary><div class="dt"><div class="fa">Bellevue Square / Lincoln Square</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=12190%20NE%20District%20Way%2C%20Bellevue%2C%20WA%2098005" target="_blank" rel="noopener noreferrer">Bellevue Brewing (Spring District)</a></div><div class="k">Spring District brewpub with upscale pub fare and a 2,500 sq ft outdoor beer garden.</div><div class="x">Kid friendly: under-21s allowed in the restaurant and patio (not the bar). Opens 11:30; Sat to 10, Sun to 9. 4 hrs free garage parking.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Din%20Tai%20Fung%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Din Tai Fung (Lincoln Square)</a><span class="r">★ 4.4 · 4.7k</span></div><div class="k">Xiao long bao and Taiwanese-Chinese dumplings/noodles. — Consistent dumplings and efficient service.</div><div class="x">Share noodles/buns; reserve or expect a wait — still worth it for a museum morning.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cielo%20Cocina%20Mexicana%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Cielo Cocina Mexicana</a><span class="r">★ 4.4 · 894</span></div><div class="k">Made-in-house Mexican plates, chips/salsa, and a lively patio near downtown Bellevue. — Carne asada, generous portions, and staff who are warm with kids.</div><div class="x">Family sit-down with shareable plates.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Molly%20Moon%E2%80%99s%20Homemade%20Ice%20Cream%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Molly Moon’s Homemade Ice Cream (downtown Bellevue)</a><span class="r">★ 4.4 · 640</span></div><div class="k">Scratch-made scoops, seasonal flavors, and a pastry kitchen near Downtown Park / Inspiration Playground (steps from the museum orbit). — Chunky flavors, fresh cones, and friendly scoop staff.</div><div class="x">Opens noon; a treat walk near Downtown Park.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Yezi%20Coconut%20Dessert%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Yezi Coconut Dessert (Bellevue Square)</a><span class="r">★ 4.3 · 94</span></div><div class="k">Asian coconut desserts, jar puddings, and not-too-sweet tropical treats inside Bellevue Square. — Refreshing coconut flavors, cute presentation, and lighter sweets kids share.</div><div class="x">Walkable from Lincoln Square; good non-scoop dessert if littles want something different.</div></div></div></details>
+</article><article class="cd" id="idea-2" data-n="2" data-k="seattle-little-rangers-indoor-family-sports-carnival">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Seattle Little Rangers Indoor Family Sports Carnival"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="seattle-little-rangers-indoor-family-sports-carnival"><button type="button" class="cx-x" aria-label="Clear Seattle Little Rangers Indoor Family Sports Carnival">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Seattle Little Rangers Indoor Family Sports Carnival">Clear</button><button type="button" class="cx-no" aria-label="Keep Seattle Little Rangers Indoor Family Sports Carnival">Keep</button></span></div></div>
+<h3><span class="no">2</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Seattle%20Little%20Rangers%20Indoor%20Family%20Sports%20Carnival%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Seattle Little Rangers Indoor Family Sports Carnival</a></h3>
+<div class="town">Bellevue</div>
+<p class="hook">Indoor kids&#x27; carnival for ages 3–8: mini golf, basketball, archery and boxing games, obstacle challenges, face painting and a dance session.</p>
+<div class="meta"><span>🚗 ~30–35 min</span><span>🕙 Sun 10–4</span><span>$15 per child 3–8</span></div>
+<p class="sugg">Good for: Morning · ~1.5 hrs</p>
+<p class="why"><b>Details:</b> Sunday morning looks like the wettest stretch of the weekend, and this is an indoor gym full of games sized for preschoolers. Only the 4-year-old needs a ticket. A 10 AM arrival gets you home for nap.</p>
+<div class="rain"><b>☔ Rain plan</b> · Indoors.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Hours note.</b> Advance registration is encouraged. Food, drinks and treats are sold on site.</p><p class="gl2"><a href="https://www.parentmap.com/calendar/seattle-little-rangers-2nd-annual-indoor-family-sports-carnival/" target="_blank" rel="noopener noreferrer">Event listing (ParentMap) ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">3 meals · 2 treats</span></summary><div class="dt"><div class="fa">Downtown Bellevue (about 5 min)</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=12190%20NE%20District%20Way%2C%20Bellevue%2C%20WA%2098005" target="_blank" rel="noopener noreferrer">Bellevue Brewing (Spring District)</a></div><div class="k">Spring District brewpub with upscale pub fare and a 2,500 sq ft outdoor beer garden.</div><div class="x">Kid friendly: under-21s allowed in the restaurant and patio (not the bar). Opens 11:30; Sat to 10, Sun to 9. 4 hrs free garage parking.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Din%20Tai%20Fung%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Din Tai Fung (Lincoln Square)</a><span class="r">★ 4.4 · 4.7k</span></div><div class="k">Xiao long bao and Taiwanese-Chinese dumplings/noodles. — Consistent dumplings and efficient service.</div><div class="x">Share noodles/buns; reserve or expect a wait — still worth it for a museum morning.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cielo%20Cocina%20Mexicana%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Cielo Cocina Mexicana</a><span class="r">★ 4.4 · 894</span></div><div class="k">Made-in-house Mexican plates, chips/salsa, and a lively patio near downtown Bellevue. — Carne asada, generous portions, and staff who are warm with kids.</div><div class="x">Family sit-down with shareable plates.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Molly%20Moon%E2%80%99s%20Homemade%20Ice%20Cream%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Molly Moon’s Homemade Ice Cream (downtown Bellevue)</a><span class="r">★ 4.4 · 640</span></div><div class="k">Scratch-made scoops, seasonal flavors, and a pastry kitchen near Downtown Park / Inspiration Playground (steps from the museum orbit). — Chunky flavors, fresh cones, and friendly scoop staff.</div><div class="x">Opens noon; a treat walk near Downtown Park.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Yezi%20Coconut%20Dessert%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Yezi Coconut Dessert (Bellevue Square)</a><span class="r">★ 4.3 · 94</span></div><div class="k">Asian coconut desserts, jar puddings, and not-too-sweet tropical treats inside Bellevue Square. — Refreshing coconut flavors, cute presentation, and lighter sweets kids share.</div><div class="x">Walkable from Lincoln Square; good non-scoop dessert if littles want something different.</div></div></div></details>
+</article><article class="cd" id="idea-3" data-n="3" data-k="coho-at-the-issaquah-salmon-hatchery-apple-pie-picnic-story">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Coho at the Issaquah Salmon Hatchery + Apple Pie Picnic Story Stroll"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="coho-at-the-issaquah-salmon-hatchery-apple-pie-picnic-story"><button type="button" class="cx-x" aria-label="Clear Coho at the Issaquah Salmon Hatchery + Apple Pie Picnic Story Stroll">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Coho at the Issaquah Salmon Hatchery + Apple Pie Picnic Story Stroll">Clear</button><button type="button" class="cx-no" aria-label="Keep Coho at the Issaquah Salmon Hatchery + Apple Pie Picnic Story Stroll">Keep</button></span></div></div>
+<h3><span class="no">3</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Coho%20at%20the%20Issaquah%20Salmon%20Hatchery%20%2B%20Apple%20Pie%20Picnic%20Story%20Stroll%2C%20Issaquah%2C%20WA" target="_blank" rel="noopener noreferrer">Coho at the Issaquah Salmon Hatchery + Apple Pie Picnic Story Stroll</a></h3>
+<div class="town">Issaquah</div>
+<p class="hook">Watch coho salmon in Issaquah Creek at the free hatchery, then follow a picture-book walk through historic downtown that starts at the library a block away.</p>
+<div class="meta"><span>🚗 ~20 min</span><span>🕙 Dawn–dusk; stroll Sat</span><span>Free</span></div>
+<p class="sugg">Good for: Morning · ~1.5 hrs</p>
+<p class="why"><b>Details:</b> November is coho season, and Saturday morning is the driest window of the weekend. The hatchery viewing is short and close-up for little kids, and the story walk turns the stroll back into downtown into a book. Lunch on Front St before nap.</p>
+<div class="rain"><b>☔ Rain plan</b> · Mostly outdoors. Saturday morning looks cloudy but mostly dry (19% rain).</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Hours note.</b> The Story Stroll and book sale are Saturday only.</p><p class="gl2"><a href="https://kcls.bibliocommons.com/v2/events/6aa0a306442d35226f67899e" target="_blank" rel="noopener noreferrer">Apple Pie Picnic Story Stroll (KCLS) ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">3 meals · 1 treat</span></summary><div class="dt"><div class="fa">Downtown Issaquah (Front St)</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=185%20Front%20St%20N%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Levitate Gastropub</a></div><div class="k">Scratch-made modern American pub on Front St, open to all ages, with a kids&#x27; menu.</div><div class="x">Weekend brunch 10–2 with Nutella or PB&amp;J crêpes for kids. About a 3-minute walk from the hatchery.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=1875%20NW%20Poplar%20Way%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Formula Brewing</a></div><div class="k">Issaquah brewery with a taproom, beer garden and kitchen (pizza, wings, salads, pretzels).</div><div class="x">Kids welcome inside and out (supervised). Open 11:30 daily; Sat to 10, Sun to 9.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=30%20Front%20St%20S%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Flying Pie Pizzeria</a></div><div class="k">Locally owned pizzeria on Front St in downtown Issaquah.</div><div class="x">Easy shared pies after the creek.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=255%20NE%20Gilman%20Blvd%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Boehm’s Candies</a></div><div class="k">Issaquah chocolate and candy maker since 1942: hand-dipped chocolates, caramels and seasonal Halloween treats.</div><div class="x">A short drive up Gilman Blvd for a chocolate on the way home.</div></div></div></details>
+</article><article class="cd" id="idea-4" data-n="4" data-k="northwest-railway-museum-train-ride-saturdays-in-november">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Northwest Railway Museum train ride (Saturdays in November)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="northwest-railway-museum-train-ride-saturdays-in-november"><button type="button" class="cx-x" aria-label="Clear Northwest Railway Museum train ride (Saturdays in November)">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Northwest Railway Museum train ride (Saturdays in November)">Clear</button><button type="button" class="cx-no" aria-label="Keep Northwest Railway Museum train ride (Saturdays in November)">Keep</button></span></div></div>
+<h3><span class="no">4</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Northwest%20Railway%20Museum%20train%20ride%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Northwest Railway Museum train ride (Saturdays in November)</a></h3>
+<div class="town">Snoqualmie / North Bend</div>
+<p class="hook">The regular two-hour vintage train ride to the top of Snoqualmie Falls, with a 30-minute stop at the Train Shed Exhibit Hall.</p>
+<div class="meta"><span>🚗 ~10 min to Snoqualmie Depot</span><span>🕙 Sat trains from 10:30</span><span>Up to $28 per ticket</span></div>
+<p class="sugg">Good for: Morning · ~2 hrs</p>
+<p class="why"><b>Details:</b> The Halloween crowds are gone, so this is a calmer ride on the same route, five minutes from home. The 10:30 North Bend or 11:00 Snoqualmie train is back before nap; the 3:00 Snoqualmie train works after nap.</p>
+<div class="rain"><b>☔ Rain plan</b> · Runs rain or shine.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>What to bring.</b> No food, drinks or pets on the train.</p><p><b>Hours note.</b> Buy tickets ahead; each train holds about 45 riders and sales are final. Santa trains start Nov 28.</p><p class="gl2"><a href="https://trainmuseum.org/visit/ride-the-train/" target="_blank" rel="noopener noreferrer">Ride the Train (Northwest Railway Museum) ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">4 meals · 1 treat</span></summary><div class="dt"><div class="fa">Downtown Snoqualmie (SQ Depot) or downtown North Bend (NB Depot)</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Copperstone%20Family%20Spaghetti%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Copperstone Family Spaghetti (downtown Snoqualmie, near SQ Depot)</a><span class="r">★ 4.4 · 595</span></div><div class="k">Casual family Italian pasta/pizza. — Portions, kids’ options, and cozy booths.</div><div class="x">Short walk from the Snoqualmie Depot; booths and kids&#x27; options.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=8032%20Falls%20Ave%20SE%2C%20Snoqualmie%2C%20WA%2098065" target="_blank" rel="noopener noreferrer">Snoqualmie Falls Brewery</a></div><div class="k">Small independent brewery since 1997 in historic downtown Snoqualmie, with a full kitchen and a kids&#x27; menu.</div><div class="x">Kids&#x27; menu (grilled cheese, Uncrustables, mac &amp; cheese bites). Sit-down only, no play area. Sat noon–9, Sun noon–8.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=8086%20Railroad%20Ave%20SE%2C%20Snoqualmie%2C%20WA%2098065" target="_blank" rel="noopener noreferrer">Sigillo Cellars (Snoqualmie)</a></div><div class="k">Family-run winery tasting room in downtown Snoqualmie with a full food menu (salads, flatbreads, shareable plates) and non-alcoholic drinks.</div><div class="x">Kids of any age welcome (they count toward the party size and stay seated with you). No play area. Sat noon–10, Sun noon–5.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=14303%20436th%20Ave%20SE%2C%20North%20Bend%2C%20WA%2098045" target="_blank" rel="noopener noreferrer">South Fork (North Bend)</a></div><div class="k">Café, bar and beer garden off I-90 Exit 32 with a scratch kitchen, kids&#x27; menu, 20 PNW taps and espresso.</div><div class="x">Kids&#x27; play area, covered sandbox and open fields; heated covered tent if it rains. Open Sat–Sun 8 AM–9 PM, weekend brunch until 1. Walk-ins only.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Snoqualmie%20Ice%20Cream%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Snoqualmie Ice Cream (Historic Downtown SQ, near SQ Depot)</a><span class="r">★ 4.6 · 344</span></div><div class="k">Local scoop-shop flavors (German Chocolate Cake, Mukilteo Mudd, honey lavender) at 8102 Railroad Ave SE — rebuilt/reopened after the 2024 fire. — Rich creamy scoops, friendly service, and shaded outdoor tables.</div><div class="x">Opens around noon on weekends; an easy treat after the Snoqualmie return.</div></div></div></details>
+</article><article class="cd" id="idea-5" data-n="5" data-k="kidsquest-childrens-museum">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite KidsQuest Children&#x27;s Museum"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="kidsquest-childrens-museum"><button type="button" class="cx-x" aria-label="Clear KidsQuest Children&#x27;s Museum">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear KidsQuest Children&#x27;s Museum">Clear</button><button type="button" class="cx-no" aria-label="Keep KidsQuest Children&#x27;s Museum">Keep</button></span></div></div>
+<h3><span class="no">5</span><a href="https://www.google.com/maps/search/?api=1&amp;query=KidsQuest%20Children%27s%20Museum%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">KidsQuest Children&#x27;s Museum</a></h3>
+<div class="town">Bellevue</div>
+<p class="hook">Hands-on children&#x27;s museum with an atrium climber, the Bellevue Mercantile pretend store, a building area, the Story Tree and an art studio.</p>
+<div class="meta"><span>🚗 ~30 min</span><span>🕙 Sat 9:30–7, Sun 11:30–5</span><span>$16.75 per person age 1+</span></div>
+<p class="sugg">Good for: Either · ~2 hrs</p>
+<p class="why"><b>Details:</b> The best rainy-day fallback, and both kids can play at their own level. Saturday&#x27;s late close makes an after-nap visit easy. On Sunday it opens at 11:30, so pair it with an afternoon visit.</p>
+<div class="rain"><b>☔ Rain plan</b> · Indoors.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>What to bring.</b> Eating is only allowed at the museum&#x27;s snack spots.</p><p><b>Hours note.</b> Reserve a time slot online; reservations are non-refundable. The last entry slot gives you 1.5 hours before close.</p><p class="gl2"><a href="https://www.kidsquestmuseum.org/plan-your-visit/" target="_blank" rel="noopener noreferrer">KidsQuest tickets ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">3 meals · 2 treats</span></summary><div class="dt"><div class="fa">Downtown Bellevue</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=12190%20NE%20District%20Way%2C%20Bellevue%2C%20WA%2098005" target="_blank" rel="noopener noreferrer">Bellevue Brewing (Spring District)</a></div><div class="k">Spring District brewpub with upscale pub fare and a 2,500 sq ft outdoor beer garden.</div><div class="x">Kid friendly: under-21s allowed in the restaurant and patio (not the bar). Opens 11:30; Sat to 10, Sun to 9. 4 hrs free garage parking.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Din%20Tai%20Fung%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Din Tai Fung (Lincoln Square)</a><span class="r">★ 4.4 · 4.7k</span></div><div class="k">Xiao long bao and Taiwanese-Chinese dumplings/noodles. — Consistent dumplings and efficient service.</div><div class="x">Share noodles/buns; reserve or expect a wait — still worth it for a museum morning.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cielo%20Cocina%20Mexicana%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Cielo Cocina Mexicana</a><span class="r">★ 4.4 · 894</span></div><div class="k">Made-in-house Mexican plates, chips/salsa, and a lively patio near downtown Bellevue. — Carne asada, generous portions, and staff who are warm with kids.</div><div class="x">Family sit-down with shareable plates.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Molly%20Moon%E2%80%99s%20Homemade%20Ice%20Cream%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Molly Moon’s Homemade Ice Cream (downtown Bellevue)</a><span class="r">★ 4.4 · 640</span></div><div class="k">Scratch-made scoops, seasonal flavors, and a pastry kitchen near Downtown Park / Inspiration Playground (steps from the museum orbit). — Chunky flavors, fresh cones, and friendly scoop staff.</div><div class="x">Opens noon; a treat walk near Downtown Park.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Yezi%20Coconut%20Dessert%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Yezi Coconut Dessert (Bellevue Square)</a><span class="r">★ 4.3 · 94</span></div><div class="k">Asian coconut desserts, jar puddings, and not-too-sweet tropical treats inside Bellevue Square. — Refreshing coconut flavors, cute presentation, and lighter sweets kids share.</div><div class="x">Walkable from Lincoln Square; good non-scoop dessert if littles want something different.</div></div></div></details>
+</article><article class="cd" id="idea-6" data-n="6" data-k="cougar-mountain-zoo">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Cougar Mountain Zoo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="cougar-mountain-zoo"><button type="button" class="cx-x" aria-label="Clear Cougar Mountain Zoo">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Cougar Mountain Zoo">Clear</button><button type="button" class="cx-no" aria-label="Keep Cougar Mountain Zoo">Keep</button></span></div></div>
+<h3><span class="no">6</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Cougar%20Mountain%20Zoo%2C%20Issaquah%2C%20WA" target="_blank" rel="noopener noreferrer">Cougar Mountain Zoo</a></h3>
+<div class="town">Issaquah</div>
+<p class="hook">Small hillside zoo on Cougar Mountain with a short, walkable loop; its reindeer star in the holiday Reindeer Festival later this month.</p>
+<div class="meta"><span>🚗 ~25 min</span><span>🕙 9:30–5 (or dusk)</span><span>Adults $18, kids 3–12 $15, under 3 free</span></div>
+<p class="sugg">Good for: Morning · ~1.5 hrs</p>
+<p class="why"><b>Details:</b> A quiet weekend between Howl-O-Ween and the Reindeer Festival (starts Nov 28). The loop is short enough for the 2-year-old, and Saturday morning is the driest time to go.</p>
+<div class="rain"><b>☔ Rain plan</b> · Mostly outdoors; go Saturday morning, before the afternoon showers.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Hours note.</b> Buying admission ahead is recommended. Children 15 and under must be with an adult.</p><p class="gl2"><a href="https://www.cougarmountainzoo.org/visit-the-zoo/" target="_blank" rel="noopener noreferrer">Visit the zoo ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">3 meals · 1 treat</span></summary><div class="dt"><div class="fa">Downtown Issaquah (Front St / Gilman Blvd)</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=185%20Front%20St%20N%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Levitate Gastropub</a></div><div class="k">Scratch-made modern American pub on Front St, open to all ages, with a kids&#x27; menu.</div><div class="x">Weekend brunch 10–2 with Nutella or PB&amp;J crêpes for kids. About a 3-minute walk from the hatchery.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=1875%20NW%20Poplar%20Way%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Formula Brewing</a></div><div class="k">Issaquah brewery with a taproom, beer garden and kitchen (pizza, wings, salads, pretzels).</div><div class="x">Kids welcome inside and out (supervised). Open 11:30 daily; Sat to 10, Sun to 9.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=30%20Front%20St%20S%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Flying Pie Pizzeria</a></div><div class="k">Locally owned pizzeria on Front St in downtown Issaquah.</div><div class="x">Easy shared pies after the creek.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=255%20NE%20Gilman%20Blvd%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Boehm’s Candies</a></div><div class="k">Issaquah chocolate and candy maker since 1942: hand-dipped chocolates, caramels and seasonal Halloween treats.</div><div class="x">A short drive up Gilman Blvd for a chocolate on the way home.</div></div></div></details>
+</article><article class="cd" id="idea-7" data-n="7" data-k="meadowbrook-farm-preserve">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Meadowbrook Farm Preserve"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="meadowbrook-farm-preserve"><button type="button" class="cx-x" aria-label="Clear Meadowbrook Farm Preserve">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Meadowbrook Farm Preserve">Clear</button><button type="button" class="cx-no" aria-label="Keep Meadowbrook Farm Preserve">Keep</button></span></div></div>
+<h3><span class="no">7</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Meadowbrook%20Farm%20Preserve%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Meadowbrook Farm Preserve</a></h3>
+<div class="town">North Bend</div>
+<p class="hook">Wide, flat trails across open meadows at the foot of Mount Si, where elk often graze.</p>
+<div class="meta"><span>🚗 ~10–15 min</span><span>🕙 Dawn–dusk</span><span>Free</span></div>
+<p class="sugg">Good for: Morning · ~1 hr</p>
+<p class="why"><b>Details:</b> Close to home and easy for a 2-year-old. The paved, flat trail from the Interpretive Center toward Centennial Fields is 1.5 miles round trip, and you can turn around anytime. Elk are most often seen early or near dusk; watch from at least 100 feet.</p>
+<div class="rain"><b>☔ Rain plan</b> · Open fields with little cover; best Saturday morning.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Parking &amp; passes.</b> Free parking at the Interpretive Center, plus pullouts along SR 202 and Boalch Ave.</p><p><b>What to bring.</b> Boots for the grassy Meadow Loop, which gets muddy in winter.</p><p class="gl2"><a href="https://www.meadowbrookfarmpreserve.org/directions" target="_blank" rel="noopener noreferrer">Meadowbrook visitor info ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">4 meals · 2 treats</span></summary><div class="dt"><div class="fa">Downtown North Bend + South Fork at Exit 32</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=14303%20436th%20Ave%20SE%2C%20North%20Bend%2C%20WA%2098045" target="_blank" rel="noopener noreferrer">South Fork (North Bend)</a></div><div class="k">Café, bar and beer garden off I-90 Exit 32 with a scratch kitchen, kids&#x27; menu, 20 PNW taps and espresso.</div><div class="x">Kids&#x27; play area, covered sandbox and open fields; heated covered tent if it rains. Open Sat–Sun 8 AM–9 PM, weekend brunch until 1. Walk-ins only.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Twede%E2%80%99s%20Cafe%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Twede’s Cafe</a><span class="r">★ 4.4 · 3.1k</span></div><div class="k">The Twin Peaks “Double R” diner for cherry pie, coffee, and huge breakfasts. — Massive portions, friendly staff, and the pie/coffee combo.</div><div class="x">Booths + all-day breakfast make a messy post-falls rewind easy; pie doubles as the dessert backup.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cascadia%20Pizza%20Co.%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Cascadia Pizza Co.</a><span class="r">★ 4.9 · 460</span></div><div class="k">Handmade thin-crust pies from a downtown trailer. — Blistered crust, fresh toppings, and ~8-minute cook times.</div><div class="x">Pickup + eat in the car or at a nearby table — fastest hot food after Exit 38.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rio%20Bravo%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Rio Bravo</a><span class="r">★ 4.6 · 1.6k</span></div><div class="k">Casual Mexican tacos/enchiladas with patio seating. — Salsa, portions, and family vibe after I-90 adventures.</div><div class="x">Marked good-for-kids; patio helps shake off wet boots.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Scott%E2%80%99s%20Dairy%20Freeze%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Scott’s Dairy Freeze</a><span class="r">★ 4.3 · 1.4k</span></div><div class="k">Classic soft-serve cones, shakes/malts, burgers, and fries on E North Bend Way. — Thick shakes, onion rings, and old-school soft-serve after I-90 adventures.</div><div class="x">Soft-serve is the bribe that gets muddy boots back in the car.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Friends%20%26%20Co%20Ice%20Cream%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Friends &amp; Co Ice Cream</a><span class="r">★ 4.7 · 100</span></div><div class="k">Creamy local scoops, seasonal flavors (lavender honey, mountain huckleberry), and a bright downtown shop. — Unique flavors, friendly staff, and indoor seating.</div><div class="x">Indoor scoops if Scott&#x27;s line is long or it&#x27;s raining; Sat opens noon.</div></div></div></details>
+</article><article class="cd" id="idea-8" data-n="8" data-k="snoqualmie-falls-upper-viewpoints">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Snoqualmie Falls upper viewpoints"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="snoqualmie-falls-upper-viewpoints"><button type="button" class="cx-x" aria-label="Clear Snoqualmie Falls upper viewpoints">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Snoqualmie Falls upper viewpoints">Clear</button><button type="button" class="cx-no" aria-label="Keep Snoqualmie Falls upper viewpoints">Keep</button></span></div></div>
+<h3><span class="no">8</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Snoqualmie%20Falls%20upper%20viewpoints%2C%20Snoqualmie%2C%20WA" target="_blank" rel="noopener noreferrer">Snoqualmie Falls upper viewpoints</a></h3>
+<div class="town">Snoqualmie</div>
+<p class="hook">The 270-foot falls from the upper park&#x27;s observation decks, a short stroll from the lot, with big spray after rain.</p>
+<div class="meta"><span>🚗 ~10 min</span><span>🕙 Sunrise–sunset</span><span>Free</span></div>
+<p class="sugg">Good for: Either · 30–45 min</p>
+<p class="why"><b>Details:</b> Sunday&#x27;s rain should make the falls loud and full. It&#x27;s a quick outing between showers: flat paved paths to the overlook and a fast exit if moods turn.</p>
+<div class="rain"><b>☔ Rain plan</b> · Short and close to the car; bring rain jackets.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Parking &amp; passes.</b> Free lot across the street, or the paid lot next to the falls ($7 per hour). Keep valuables out of sight.</p><p class="gl2"><a href="https://www.snoqualmiefalls.com/visit" target="_blank" rel="noopener noreferrer">Snoqualmie Falls visitor info ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">4 meals · 1 treat</span></summary><div class="dt"><div class="fa">Downtown Snoqualmie (Railroad Ave)</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Copperstone%20Family%20Spaghetti%2C%20Snoqualmie%2C%20WA" target="_blank" rel="noopener noreferrer">Copperstone Family Spaghetti (downtown Snoqualmie, near SQ Depot)</a><span class="r">★ 4.4 · 595</span></div><div class="k">Casual family Italian pasta/pizza. — Portions, kids’ options, and cozy booths.</div><div class="x">Short walk from the Snoqualmie Depot; booths and kids&#x27; options.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=8032%20Falls%20Ave%20SE%2C%20Snoqualmie%2C%20WA%2098065" target="_blank" rel="noopener noreferrer">Snoqualmie Falls Brewery</a></div><div class="k">Small independent brewery since 1997 in historic downtown Snoqualmie, with a full kitchen and a kids&#x27; menu.</div><div class="x">Kids&#x27; menu (grilled cheese, Uncrustables, mac &amp; cheese bites). Sit-down only, no play area. Sat noon–9, Sun noon–8.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=8086%20Railroad%20Ave%20SE%2C%20Snoqualmie%2C%20WA%2098065" target="_blank" rel="noopener noreferrer">Sigillo Cellars (Snoqualmie)</a></div><div class="k">Family-run winery tasting room in downtown Snoqualmie with a full food menu (salads, flatbreads, shareable plates) and non-alcoholic drinks.</div><div class="x">Kids of any age welcome (they count toward the party size and stay seated with you). No play area. Sat noon–10, Sun noon–5.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=14303%20436th%20Ave%20SE%2C%20North%20Bend%2C%20WA%2098045" target="_blank" rel="noopener noreferrer">South Fork (North Bend)</a></div><div class="k">Café, bar and beer garden off I-90 Exit 32 with a scratch kitchen, kids&#x27; menu, 20 PNW taps and espresso.</div><div class="x">Kids&#x27; play area, covered sandbox and open fields; heated covered tent if it rains. Open Sat–Sun 8 AM–9 PM, weekend brunch until 1. Walk-ins only.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Snoqualmie%20Ice%20Cream%2C%20Snoqualmie%2C%20WA" target="_blank" rel="noopener noreferrer">Snoqualmie Ice Cream (Historic Downtown SQ, near SQ Depot)</a><span class="r">★ 4.6 · 344</span></div><div class="k">Local scoop-shop flavors (German Chocolate Cake, Mukilteo Mudd, honey lavender) at 8102 Railroad Ave SE — rebuilt/reopened after the 2024 fire. — Rich creamy scoops, friendly service, and shaded outdoor tables.</div><div class="x">Opens around noon on weekends; an easy treat after the Snoqualmie return.</div></div></div></details>
+</article><article class="cd" id="idea-9" data-n="9" data-k="olallie-state-park-weeks-falls">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Olallie State Park: Weeks Falls"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="olallie-state-park-weeks-falls"><button type="button" class="cx-x" aria-label="Clear Olallie State Park: Weeks Falls">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Olallie State Park: Weeks Falls">Clear</button><button type="button" class="cx-no" aria-label="Keep Olallie State Park: Weeks Falls">Keep</button></span></div></div>
+<h3><span class="no">9</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Olallie%20State%20Park%3A%20Weeks%20Falls%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Olallie State Park: Weeks Falls</a></h3>
+<div class="town">North Bend / Exit 38</div>
+<p class="hook">Short forest walk to a 30-foot waterfall with riverside picnic tables.</p>
+<div class="meta"><span>🚗 ~20–25 min</span><span>🕙 6:30–dusk</span><span>Discover Pass</span></div>
+<p class="sugg">Good for: Morning · ~1–1.5 hrs</p>
+<p class="why"><b>Details:</b> WTA lists the falls walk at about 1–2 miles round trip with modest gain from the South Fork picnic area; go at toddler pace and turn around whenever legs quit. After this week&#x27;s rain the falls should be running high. Keep littles back from the cold river.</p>
+<div class="rain"><b>☔ Rain plan</b> · Forest trail, so light showers are fine with rain jackets; if it&#x27;s pouring, swap to KidsQuest or the sports carnival.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Parking &amp; passes.</b> Discover Pass required ($10/day or $45/year).</p><p class="gl2"><a href="https://parks.wa.gov/find-parks/state-parks/olallie-state-park" target="_blank" rel="noopener noreferrer">Olallie State Park ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">4 meals · 2 treats</span></summary><div class="dt"><div class="fa">North Bend / Exit 38 corridor</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=14303%20436th%20Ave%20SE%2C%20North%20Bend%2C%20WA%2098045" target="_blank" rel="noopener noreferrer">South Fork (North Bend)</a></div><div class="k">Café, bar and beer garden off I-90 Exit 32 with a scratch kitchen, kids&#x27; menu, 20 PNW taps and espresso.</div><div class="x">Kids&#x27; play area, covered sandbox and open fields; heated covered tent if it rains. Open Sat–Sun 8 AM–9 PM, weekend brunch until 1. Walk-ins only.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Twede%E2%80%99s%20Cafe%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Twede’s Cafe</a><span class="r">★ 4.4 · 3.1k</span></div><div class="k">The Twin Peaks “Double R” diner for cherry pie, coffee, and huge breakfasts. — Massive portions, friendly staff, and the pie/coffee combo.</div><div class="x">Booths + all-day breakfast make a messy post-falls rewind easy; pie doubles as the dessert backup.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cascadia%20Pizza%20Co.%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Cascadia Pizza Co.</a><span class="r">★ 4.9 · 460</span></div><div class="k">Handmade thin-crust pies from a downtown trailer. — Blistered crust, fresh toppings, and ~8-minute cook times.</div><div class="x">Pickup + eat in the car or at a nearby table — fastest hot food after Exit 38.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rio%20Bravo%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Rio Bravo</a><span class="r">★ 4.6 · 1.6k</span></div><div class="k">Casual Mexican tacos/enchiladas with patio seating. — Salsa, portions, and family vibe after I-90 adventures.</div><div class="x">Marked good-for-kids; patio helps shake off wet boots.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Scott%E2%80%99s%20Dairy%20Freeze%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Scott’s Dairy Freeze</a><span class="r">★ 4.3 · 1.4k</span></div><div class="k">Classic soft-serve cones, shakes/malts, burgers, and fries on E North Bend Way. — Thick shakes, onion rings, and old-school soft-serve after I-90 adventures.</div><div class="x">Soft-serve is the bribe that gets muddy boots back in the car.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=Friends%20%26%20Co%20Ice%20Cream%2C%20North%20Bend%2C%20WA" target="_blank" rel="noopener noreferrer">Friends &amp; Co Ice Cream</a><span class="r">★ 4.7 · 100</span></div><div class="k">Creamy local scoops, seasonal flavors (lavender honey, mountain huckleberry), and a bright downtown shop. — Unique flavors, friendly staff, and indoor seating.</div><div class="x">Indoor scoops if Scott&#x27;s line is long or it&#x27;s raining; Sat opens noon.</div></div></div></details>
+</article><article class="cd" id="idea-10" data-n="10" data-k="imagination-builders-at-lakeshore-learning">
+<div class="ca"><button type="button" class="hrt" aria-pressed="false" aria-label="Favorite Imagination Builders at Lakeshore Learning"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path fill="none" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button><div class="cx" data-k="imagination-builders-at-lakeshore-learning"><button type="button" class="cx-x" aria-label="Clear Imagination Builders at Lakeshore Learning">✕</button><span class="cx-q" hidden><button type="button" class="cx-yes" aria-label="Confirm clear Imagination Builders at Lakeshore Learning">Clear</button><button type="button" class="cx-no" aria-label="Keep Imagination Builders at Lakeshore Learning">Keep</button></span></div></div>
+<h3><span class="no">10</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Imagination%20Builders%20at%20Lakeshore%20Learning%2C%20Bellevue%2C%20WA" target="_blank" rel="noopener noreferrer">Imagination Builders at Lakeshore Learning</a></h3>
+<div class="town">Bellevue (Factoria)</div>
+<p class="hook">Free walk-in building event: kids design 2-D and 3-D creations with peel-and-stick foam cubes and take them home.</p>
+<div class="meta"><span>🚗 ~25 min</span><span>🕙 Sat 11–3</span><span>Free</span></div>
+<p class="sugg">Good for: Morning · ~30–45 min</p>
+<p class="why"><b>Details:</b> A short, free indoor stop for the 4-year-old (it&#x27;s listed for ages 3+; the 2-year-old can play with the store&#x27;s demo toys). Easy to pair with the zoo or the hatchery on the way home.</p>
+<div class="rain"><b>☔ Rain plan</b> · Indoors.</div>
+<details class="gtk"><summary>Good to know</summary><div class="dt"><p><b>Hours note.</b> Walk-in, no reservation. Kids must be with an adult; parents check in on arrival.</p><p class="gl2"><a href="https://www.seattleschild.com/events/free-kids-event-imagination-builders/" target="_blank" rel="noopener noreferrer">Event listing (Seattle&#x27;s Child) ↗</a></p></div></details>
+<details><summary>Eat nearby<span class="q">3 meals · 1 treat</span></summary><div class="dt"><div class="fa">Factoria / downtown Issaquah</div><div class=tl>Meals</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=185%20Front%20St%20N%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Levitate Gastropub</a></div><div class="k">Scratch-made modern American pub on Front St, open to all ages, with a kids&#x27; menu.</div><div class="x">Weekend brunch 10–2 with Nutella or PB&amp;J crêpes for kids. About a 3-minute walk from the hatchery.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=1875%20NW%20Poplar%20Way%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Formula Brewing</a></div><div class="k">Issaquah brewery with a taproom, beer garden and kitchen (pizza, wings, salads, pretzels).</div><div class="x">Kids welcome inside and out (supervised). Open 11:30 daily; Sat to 10, Sun to 9.</div></div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=30%20Front%20St%20S%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Flying Pie Pizzeria</a></div><div class="k">Locally owned pizzeria on Front St in downtown Issaquah.</div><div class="x">Easy shared pies after the creek.</div></div><div class=tl>Treats</div><div class="fr"><div class="h"><a href="https://www.google.com/maps/search/?api=1&amp;query=255%20NE%20Gilman%20Blvd%2C%20Issaquah%2C%20WA%2098027" target="_blank" rel="noopener noreferrer">Boehm’s Candies</a></div><div class="k">Issaquah chocolate and candy maker since 1942: hand-dipped chocolates, caramels and seasonal Halloween treats.</div><div class="x">A short drive up Gilman Blvd for a chocolate on the way home.</div></div></div></details>
+</article></div>
+<div class="rs"><p class="done" id="alldone" hidden>All cleared.</p><button type="button" id="showc" hidden>Show cleared (<span id="nc">0</span>)</button></div>
+<h2>Nap conflicts</h2><section class="panel"><ul class="lst"><li>Train: the 12:30 North Bend and 1:00 Snoqualmie departures run through nap; take the 10:30/11:00 or the 3:00 Snoqualmie train.</li><li>Diwali performances run noon–5; arrive after nap for the last couple of hours.</li></ul></section>
+<h2>Also worth a look</h2><section class="panel"><div class="dt" style="padding:12px 0"><ul class=lst><li>Snoqualmie Point Park Stargazing with the Seattle Astronomical Society (Sat Nov 7, from 6 PM; free; cancellation posted by 4 PM if cloudy, and Saturday evening looks showery)</li><li>The Nutcracker with Ensemble Ballet Theatre, Covington Library (Sat Nov 7, 1–1:45; free; registration required; overlaps nap)</li><li>Veterans Day Food Drive Train Ride, Northwest Railway Museum (Wed Nov 11, 11–4; a food or cash donation earns a ride)</li><li>Coming up: Snoqualmie Holiday Open House and No Boat Holiday Maker&#x27;s Market (Sat Nov 14); Santa trains from Nov 28; Cougar Mountain Zoo Reindeer Festival from Nov 28</li></ul></div></section>
+<details class="src" id="sources"><summary>Where these come from<span class="q">46 sources · 3 new</span></summary><div class="dt"><div class="sg"><div class="st2">Family events</div><div><a href="https://seattle.kidsoutandabout.com/" target="_blank" rel="noopener noreferrer">Kids Out and About Seattle</a> <span class="nw2">New</span> · <a href="https://www.seattleastro.org/" target="_blank" rel="noopener noreferrer">Seattle Astronomical Society public star parties</a> <span class="nw2">New</span> · <a href="https://bellevuecollection.com/" target="_blank" rel="noopener noreferrer">The Bellevue Collection events</a> <span class="nw2">New</span> · <a href="https://www.bellevuedowntown.com/" target="_blank" rel="noopener noreferrer">Bellevue Downtown Association events</a> · <a href="https://www.bigfootkidsbookfestival.com/" target="_blank" rel="noopener noreferrer">Bigfoot Kids&#x27; Book Festival</a> · <a href="https://www.churchontheridge.org/halloween/" target="_blank" rel="noopener noreferrer">Church on the Ridge Happiest Halloween</a> · <a href="https://downtownissaquah.com/events/" target="_blank" rel="noopener noreferrer">Downtown Issaquah Association events</a> · <a href="https://www.eastsidecalendar.com/" target="_blank" rel="noopener noreferrer">Eastside Family Calendar</a> · <a href="https://the-eastside.macaronikid.com/" target="_blank" rel="noopener noreferrer">Macaroni KID Eastside (Redmond–Kirkland–Bothell–Woodinville)</a> · <a href="https://snoqualmievalley.macaronikid.com/" target="_blank" rel="noopener noreferrer">Macaroni KID Snoqualmie Valley–Issaquah–Sammamish</a> · <a href="https://tix.northbendtheatre.com/" target="_blank" rel="noopener noreferrer">North Bend Theatre</a> · <a href="https://www.parentmap.com/calendar/" target="_blank" rel="noopener noreferrer">ParentMap calendar</a> · <a href="https://www.seattleschild.com/" target="_blank" rel="noopener noreferrer">Seattle&#x27;s Child</a> · <a href="https://www.valleyrecord.com/" target="_blank" rel="noopener noreferrer">Snoqualmie Valley Record community calendar</a> · <a href="https://www.visitissaquahwa.com/events/" target="_blank" rel="noopener noreferrer">Visit Issaquah events</a></div></div><div class="sg"><div class="st2">City/parks calendar</div><div><a href="https://bellevuewa.gov/city-government/departments/parks/activity-guide" target="_blank" rel="noopener noreferrer">Bellevue Parks activity guide</a> · <a href="https://www.issaquahwa.gov/calendar.aspx" target="_blank" rel="noopener noreferrer">City of Issaquah calendar</a> · <a href="https://www.northbendwa.gov/Calendar.aspx" target="_blank" rel="noopener noreferrer">City of North Bend calendar</a> · <a href="https://www.redmond.gov/calendar.aspx" target="_blank" rel="noopener noreferrer">City of Redmond calendar</a> · <a href="https://www.sammamish.us/news/events/" target="_blank" rel="noopener noreferrer">City of Sammamish community events</a> · <a href="https://www.snoqualmiewa.gov/Calendar.aspx" target="_blank" rel="noopener noreferrer">City of Snoqualmie calendar</a> · <a href="https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks" target="_blank" rel="noopener noreferrer">King County Parks</a> · <a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Find-a-Park/Juanita-Bay-Park" target="_blank" rel="noopener noreferrer">Kirkland Parks (Juanita Bay Park)</a> · <a href="https://bellevuewa.gov/city-government/departments/parks/nature-and-environment/visitor-centers-environmental-programs/mercer-slough-environmental-education-center" target="_blank" rel="noopener noreferrer">Mercer Slough Environmental Education Center</a> · <a href="https://www.siviewpark.org/" target="_blank" rel="noopener noreferrer">Si View Metro Parks (Si View Community Center)</a></div></div><div class="sg"><div class="st2">Farm</div><div><a href="https://21acres.org/events/" target="_blank" rel="noopener noreferrer">21 Acres</a> · <a href="https://events.carnationfarms.org/events/" target="_blank" rel="noopener noreferrer">Carnation Farms events</a> · <a href="https://fallcityfarms.com/" target="_blank" rel="noopener noreferrer">Fall City Farms</a> · <a href="https://www.jubileefarm.org/" target="_blank" rel="noopener noreferrer">Jubilee Farm</a> · <a href="https://www.oxbow.org/" target="_blank" rel="noopener noreferrer">Oxbow Farm &amp; Conservation Center</a> · <a href="https://remlingerfarms.com/" target="_blank" rel="noopener noreferrer">Remlinger Farms</a> · <a href="https://redbarnfarm.com/" target="_blank" rel="noopener noreferrer">The Red Barn Farm</a></div></div><div class="sg"><div class="st2">Library</div><div><a href="https://kcls.org/events/" target="_blank" rel="noopener noreferrer">KCLS events</a> · <a href="https://kcls.org/locations/snoqualmie/" target="_blank" rel="noopener noreferrer">KCLS Snoqualmie Library</a></div></div><div class="sg"><div class="st2">Museum</div><div><a href="https://www.cougarmountainzoo.org/events-at-the-zoo/" target="_blank" rel="noopener noreferrer">Cougar Mountain Zoo events</a> · <a href="https://www.issaquahfish.org/" target="_blank" rel="noopener noreferrer">Friends of the Issaquah Salmon Hatchery (FISH)</a> · <a href="https://www.kidsquestmuseum.org/" target="_blank" rel="noopener noreferrer">KidsQuest Children&#x27;s Museum</a> · <a href="https://trainmuseum.org/" target="_blank" rel="noopener noreferrer">Northwest Railway Museum</a> · <a href="https://snoqualmievalleymuseum.org/" target="_blank" rel="noopener noreferrer">Snoqualmie Valley Historical Museum</a></div></div><div class="sg"><div class="st2">Events platform</div><div><a href="https://www.eventbrite.com/d/wa--snoqualmie/kids--events/" target="_blank" rel="noopener noreferrer">Eventbrite (Snoqualmie kids events)</a> · <a href="https://luma.com/seattle" target="_blank" rel="noopener noreferrer">Luma (Seattle)</a></div></div><div class="sg"><div class="st2">Trail info</div><div><a href="https://www.evergreenmtb.org/" target="_blank" rel="noopener noreferrer">Evergreen Mountain Bike Alliance events</a> · <a href="https://www.fs.usda.gov/r06/mbs" target="_blank" rel="noopener noreferrer">Mt. Baker-Snoqualmie National Forest</a> · <a href="https://parks.wa.gov/find-parks/state-parks/olallie-state-park" target="_blank" rel="noopener noreferrer">Washington State Parks: Olallie</a> · <a href="https://www.wta.org/" target="_blank" rel="noopener noreferrer">Washington Trails Association (WTA)</a></div></div><div class="sg"><div class="st2">Food reviews</div><div><a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Google Maps</a></div></div></div></details>
+<footer class="ft">More Good Days · <a href="../archive.html">Archive</a> · 2026-11-07</footer>
+</div>
+<div id="how" class="sheet" role="dialog" aria-modal="true" aria-labelledby="how-h" data-sms="+16282909234" hidden><div class="sheet-bg" data-close="1"></div><div class="sheet-card"><div class="sheet-top"><h2 id="how-h">How we pick</h2><button type="button" class="sheet-x" data-close="1" aria-label="Close How we pick">✕</button></div><p class="hx">Every pick works for a 4- and a 2-year-old and is timed around the 1–3 PM nap. Real food is always close by, from family restaurants to breweries with food trucks and room to play. Verified local events come first, then tried-and-true favorites.</p><a href="#sources" class="hs-src" id="how-src">Where these come from →</a><div class="hk"><div class="kl" id="k-drive">Drive</div><div class="seg" role="radiogroup" aria-labelledby="k-drive" data-k="drive"><button type="button" role="radio" data-v="Close" aria-checked="true" tabindex="0">Close</button><button type="button" role="radio" data-v="Medium" aria-checked="false" tabindex="-1">Medium</button><button type="button" role="radio" data-v="Farther" aria-checked="false" tabindex="-1">Farther</button></div></div><div class="hk"><div class="kl" id="k-vibe">Vibe</div><div class="seg" role="radiogroup" aria-labelledby="k-vibe" data-k="vibe"><button type="button" role="radio" data-v="Calm" aria-checked="false" tabindex="-1">Calm</button><button type="button" role="radio" data-v="Mix" aria-checked="true" tabindex="0">Mix</button><button type="button" role="radio" data-v="Adventurous" aria-checked="false" tabindex="-1">Adventurous</button></div></div><div class="hk"><div class="kl" id="k-lean">Indoor / outdoor</div><div class="seg" role="radiogroup" aria-labelledby="k-lean" data-k="lean"><button type="button" role="radio" data-v="Indoor" aria-checked="false" tabindex="-1">Indoor</button><button type="button" role="radio" data-v="Mix" aria-checked="true" tabindex="0">Mix</button><button type="button" role="radio" data-v="Outdoor" aria-checked="false" tabindex="-1">Outdoor</button></div></div><div class="hk"><label for="how-also">Anything else?</label><input id="how-also" type="text" maxlength="140" placeholder="e.g. more train stuff" autocomplete="off" enterkeyhint="done"></div><button type="button" class="save" id="how-save">Save</button><p class="hsaved" id="how-saved" role="status" aria-live="polite"></p></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="tmsg">Cleared</span><button type="button" id="undo" aria-label="Undo">Undo</button></div>
+<script>window.WEEKEND_DATE="2026-11-07";
+(function(){
+var WD=(window.WEEKEND_DATE||location.pathname),KEY='weekend-cleared:'+WD,HKEY='weekend-hearts:'+WD;
+function load(k){try{var v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v.map(String):[]}catch(e){return []}}
+function put(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var cards=[].slice.call(document.querySelectorAll('article.cd'));
+cards.forEach(function(c,i){c.dataset.o=i});
+function card(k){for(var i=0;i<cards.length;i++)if(cards[i].dataset.k===k)return cards[i];return null}
+function name(k){var c=card(k),a=c&&c.querySelector('h3 a');return a?a.textContent:''}
+// clear-state: stable slug ids (migrate old card-number entries)
+var cleared=load(KEY).map(function(x){if(card(x))return x;if(/^\d+$/.test(x)){var c=document.getElementById('idea-'+x);return c?c.dataset.k:null}return null}).filter(Boolean);
+var hearts=load(HKEY).filter(function(k){return card(k)});
+cleared=cleared.filter(function(k,i){return cleared.indexOf(k)===i&&hearts.indexOf(k)<0});  // a favorite is never cleared
+function save(){put(KEY,cleared)}function saveH(){put(HKEY,hearts)}
+save();
+var favs=document.getElementById('favs'),plist=document.getElementById('plist');
+function refresh(){
+  var vis=function(c){return !c.hidden};
+  var rest=[].slice.call(plist.children).filter(vis).length,nf=favs.children.length;
+  var left=document.getElementById('left');if(left)left.textContent=rest;
+  document.getElementById('favh').hidden=!nf;
+  document.getElementById('plans').hidden=nf>0&&rest===0&&!cleared.length;
+  document.getElementById('alldone').hidden=(rest+nf)>0;
+  var b=document.getElementById('showc');document.getElementById('nc').textContent=cleared.length;b.hidden=!cleared.length;
+}
+function collapse(el){
+  el.style.height=el.offsetHeight+'px';el.classList.add('anim');el.offsetHeight;
+  el.classList.add('gone');el.style.height='0px';
+  setTimeout(function(){el.hidden=true;el.classList.remove('anim','gone');el.style.height='';refresh()},400);
+}
+function expand(el){
+  el.hidden=false;el.classList.add('anim','gone');el.style.height='0px';el.offsetHeight;
+  el.classList.remove('gone');el.style.height=el.scrollHeight+'px';
+  setTimeout(function(){el.classList.remove('anim');el.style.height=''},400);
+}
+var toastT,undoFn=null;
+function toast(msg,fn){
+  var t=document.getElementById('toast');undoFn=fn||null;
+  document.getElementById('tmsg').textContent=msg;document.getElementById('undo').hidden=!fn;
+  t.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){t.hidden=true;undoFn=null},5000);
+}
+function clear(k){
+  if(cleared.indexOf(k)>=0||hearts.indexOf(k)>=0)return;
+  cleared.push(k);save();collapse(card(k));toast('Cleared '+name(k),function(){restore(k)});
+}
+function restore(k){
+  var i=cleared.indexOf(k);if(i<0)return;
+  cleared.splice(i,1);save();expand(card(k));refresh();
+}
+// ---- hearts: favorites float to the top (in hearted order); unheart returns a card to its original spot
+function place(k){
+  var c=card(k),fav=hearts.indexOf(k)>=0,b=c.querySelector('.hrt');
+  c.classList.toggle('fav',fav);b.setAttribute('aria-pressed',fav?'true':'false');
+  b.setAttribute('aria-label',(fav?'Unfavorite ':'Favorite ')+name(k));
+  if(fav){favs.appendChild(c)}else{
+    var o=+c.dataset.o,next=null;
+    [].slice.call(plist.children).some(function(x){if(+x.dataset.o>o){next=x;return true}});
+    plist.insertBefore(c,next);
+  }
+}
+function heart(k,on){
+  var i=hearts.indexOf(k);
+  if(on&&i<0){hearts.push(k);var ci=cleared.indexOf(k);if(ci>=0){cleared.splice(ci,1);save()}}
+  else if(!on&&i>=0){hearts.splice(i,1)}else return;
+  saveH();place(k);refresh();
+}
+cards.forEach(function(c){
+  var k=c.dataset.k;
+  c.querySelector('.hrt').addEventListener('click',function(ev){
+    ev.stopPropagation();disarm();var on=hearts.indexOf(k)<0;heart(k,on);
+    toast(on?'Added to Your favorites':'Removed from favorites',function(){heart(k,!on)});
+  });
+});
+// initial state (no animation)
+hearts.forEach(place);
+cleared.forEach(function(k){card(k).hidden=true});refresh();
+document.getElementById('undo').addEventListener('click',function(){
+  var f=undoFn;undoFn=null;document.getElementById('toast').hidden=true;if(f)f();
+});
+document.getElementById('showc').addEventListener('click',function(){cleared.slice().forEach(restore)});
+
+// ---- card ✕ : two-step
+var armed=null,armT;
+function disarm(){if(!armed)return;armed.querySelector('.cx-q').hidden=true;armed.querySelector('.cx-x').hidden=false;armed.parentNode.classList.remove('arm');armed=null;clearTimeout(armT)}
+document.querySelectorAll('.cx').forEach(function(cx){
+  cx.querySelector('.cx-x').addEventListener('click',function(ev){
+    ev.stopPropagation();disarm();armed=cx;cx.parentNode.classList.add('arm');
+    cx.querySelector('.cx-x').hidden=true;cx.querySelector('.cx-q').hidden=false;cx.querySelector('.cx-no').focus({preventScroll:true});
+    armT=setTimeout(disarm,4000);
+  });
+  cx.querySelector('.cx-no').addEventListener('click',function(ev){ev.stopPropagation();disarm()});
+  cx.querySelector('.cx-yes').addEventListener('click',function(ev){ev.stopPropagation();var k=cx.dataset.k;disarm();clear(k)});
+});
+document.addEventListener('click',function(ev){if(armed&&!armed.contains(ev.target))disarm()},true);
+
+// ---- How we pick sheet (gear): 3 knobs + free text, saved on this phone, Save opens a prefilled text
+var how=document.getElementById('how'),gear=document.getElementById('gear'),PK='mgd-prefs';
+if(how&&gear){
+  var prefs={};try{prefs=JSON.parse(localStorage.getItem(PK)||'{}')||{}}catch(e){}
+  var segs=how.querySelectorAll('.seg'),also=document.getElementById('how-also'),msg=document.getElementById('how-saved');
+  var pick=function(seg,btn){seg.querySelectorAll('button').forEach(function(b){var on=b===btn;b.setAttribute('aria-checked',on?'true':'false');b.tabIndex=on?0:-1})};
+  segs.forEach(function(seg){
+    var bs=[].slice.call(seg.querySelectorAll('button')),cur=bs.filter(function(b){return b.dataset.v===prefs[seg.dataset.k]})[0]||bs.filter(function(b){return b.getAttribute('aria-checked')==='true'})[0]||bs[0];
+    pick(seg,cur);
+    bs.forEach(function(b,i){
+      b.addEventListener('click',function(){pick(seg,b)});
+      b.addEventListener('keydown',function(ev){var d=ev.key==='ArrowRight'||ev.key==='ArrowDown'?1:ev.key==='ArrowLeft'||ev.key==='ArrowUp'?-1:0;if(!d)return;ev.preventDefault();var n=bs[(i+d+bs.length)%bs.length];pick(seg,n);n.focus()});
+    });
+  });
+  if(prefs.also)also.value=prefs.also;
+  var val=function(k){var b=how.querySelector('.seg[data-k="'+k+'"] [aria-checked="true"]');return b?b.dataset.v:''};
+  document.getElementById('how-save').addEventListener('click',function(){
+    var p={drive:val('drive'),vibe:val('vibe'),lean:val('lean'),also:also.value.trim().slice(0,140),saved:new Date().toISOString()};
+    try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){}
+    var t='Good Days settings: Drive='+p.drive+', Vibe='+p.vibe+', Lean='+p.lean+(p.also?', Also: '+p.also:'');
+    var url='sms:'+how.dataset.sms+'?&body='+encodeURIComponent(t);
+    msg.textContent='Saved ✓ Opening Messages to send it to us.';
+    (window.mgdOpenSms||function(u){location.href=u})(url);
+  });
+  var openHow=function(){msg.textContent='';how.hidden=false;document.body.style.overflow='hidden';how.querySelector('.sheet-x').focus({preventScroll:true})};
+  var closeHow=function(){how.hidden=true;document.body.style.overflow='';if(location.hash==='#how')history.replaceState(null,'',location.pathname+location.search);gear.focus({preventScroll:true})};
+  gear.addEventListener('click',openHow);
+  how.querySelectorAll('[data-close]').forEach(function(x){x.addEventListener('click',closeHow)});
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!how.hidden)closeHow()});
+  document.getElementById('how-src').addEventListener('click',function(ev){
+    ev.preventDefault();closeHow();var d=document.getElementById('sources');
+    if(d){d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+  if(location.hash==='#how')openHow();
+}
+
+})();
+</script>
+</body>
+</html>
