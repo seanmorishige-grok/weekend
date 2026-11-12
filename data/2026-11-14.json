@@ -1,0 +1,810 @@
+{
+  "meta": {
+    "title": "Weekend Adventures — Nov 14–15",
+    "subtitle": "From Crest View · ages 4 & 2",
+    "greeting": "Hi —",
+    "intro": "Ten family-friendly picks for Sat–Sun November 14–15, 2026 near Snoqualmie, for a 4-year-old and a 2-year-old. Drive times are from 6715 Crest View Ave SE.",
+    "deep_pass_note": "Research run Wed Nov 11: showers on Saturday and rain most of Sunday, so the list leans indoor. Saturday-only picks are the Snoqualmie Holiday Open House, Tots & Trees in Issaquah, the Nutcracker at Crossroads and the train ride. Sunday-only is Archaeology Family Day at the Burke.",
+    "footer": "Weekly digests land Wednesday evenings.",
+    "signoff": "Reply if you want a pure indoor Sunday plan."
+  },
+  "weather": [
+    {
+      "day": "Saturday",
+      "short": "Sat",
+      "emoji": "🌦️",
+      "high": "54°F",
+      "summary": "Showers morning (39% rain), showers afternoon (51% rain)"
+    },
+    {
+      "day": "Sunday",
+      "short": "Sun",
+      "emoji": "🌧️",
+      "high": "49°F",
+      "summary": "Rainy morning (96% rain), showers afternoon (92% rain)"
+    }
+  ],
+  "ideas": [
+    {
+      "name": "Snoqualmie Holiday Open House",
+      "town": "Snoqualmie (Historic Downtown + Ridge)",
+      "hook": "Citywide holiday shopping day: shops and restaurants offer samples, specials and giveaways. Books and Bottles has a Letters to Santa writing station, and No Boat Brewing hosts a Holiday Maker's Market from noon to 5.",
+      "tags": [
+        "seasonal",
+        "free",
+        "local"
+      ],
+      "drive": "~5–10 min (Ridge ~5, Historic Downtown ~10)",
+      "time_block": "Sat 11 AM–6 PM",
+      "cost": "Free to walk around",
+      "outing_length": "~1.5 hrs",
+      "hours_detail": "Sat Nov 14 only, 11 AM–6 PM, in the Historic Downtown District, the Ridge District and nearby. No Boat Brewing's Holiday Maker's Market is noon–5 (35214 SE Center St). Wm Grassie's Ridge tasting room sells hot mulled wine 1–6.",
+      "hours_short": "Sat 11–6",
+      "why": "A local event close to home. Specials kids will like include Chickadee Bakeshop holiday samples, a new peppermint milkshake at Snoqualmie Ice Cream and the Letters to Santa station at Books and Bottles. Do the Ridge before nap, or Historic Downtown and No Boat's market after nap with an early dinner from the Marigold Pizza truck.",
+      "rain_backup": "Mostly indoors in shops; short walks between them.",
+      "food_area": "Snoqualmie Ridge (Center Blvd) and Historic Downtown (Railroad Ave)",
+      "suggested": {
+        "part": "Either",
+        "duration": "~1.5 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Saturday only. Specials vary by shop; the city's events page lists them.",
+        "link": "https://www.snoqualmiewa.gov/731/Events",
+        "link_label": "Holiday Open House (City of Snoqualmie)"
+      },
+      "restaurants": [
+        {
+          "name": "No Boat Brewing (Snoqualmie Ridge)",
+          "known_for": "Ridge brewery with a beer garden; Marigold Pizza truck Sat 12–8, La Riviera Maya truck Sun 12–8.",
+          "praise": "",
+          "kid_note": "Hosting the Holiday Maker's Market Sat 12–5. Outside food welcome. Open Sat 12–10, Sun 12–9. The site doesn't state a kids policy; call 425-292-0702 to check.",
+          "is_treat": false
+        },
+        {
+          "name": "Frankie’s Pizza",
+          "rating": "4.4",
+          "reviews": "154",
+          "known_for": "Custom thin-crust pies on Center Blvd steps from the library orbit.",
+          "praise": "Crust/toppings when the kitchen is on.",
+          "kid_note": "On Center Blvd on the Ridge, a short walk from the Spook-tacular start. Sat 11–9, Sun 11–8:30.",
+          "is_treat": false
+        },
+        {
+          "name": "Snoqualmie Falls Brewery",
+          "known_for": "Small independent brewery since 1997 in historic downtown Snoqualmie, with a full kitchen and a kids' menu.",
+          "praise": "",
+          "kid_note": "Kids' menu (grilled cheese, Uncrustables, mac & cheese bites). Sit-down only, no play area. Sat noon–9, Sun noon–8.",
+          "is_treat": false,
+          "address": "8032 Falls Ave SE, Snoqualmie, WA 98065"
+        },
+        {
+          "name": "South Fork (North Bend)",
+          "known_for": "Café, bar and beer garden off I-90 Exit 32 with a scratch kitchen, kids' menu, 20 PNW taps and espresso.",
+          "praise": "",
+          "kid_note": "Kids' play area, covered sandbox and open fields; heated covered tent if it rains. Open Sat–Sun 8 AM–9 PM, weekend brunch until 1. Walk-ins only.",
+          "is_treat": false,
+          "address": "14303 436th Ave SE, North Bend, WA 98045"
+        },
+        {
+          "name": "Snoqualmie Ice Cream (Historic Downtown SQ)",
+          "rating": "4.6",
+          "reviews": "344",
+          "known_for": "Local scoop-shop flavors at 8102 Railroad Ave SE (~10–12 min from the Ridge library).",
+          "praise": "Creamy scoops, friendly service, and outdoor tables.",
+          "kid_note": "Open House special: new peppermint milkshake in a take-home pint glass.",
+          "is_treat": true
+        },
+        {
+          "name": "Chickadee Bakeshop",
+          "known_for": "Bakery taking part in the Open House.",
+          "praise": "",
+          "kid_note": "Retro bites and holiday samples during the Open House.",
+          "is_treat": true
+        }
+      ],
+      "num": 1
+    },
+    {
+      "name": "Tots & Trees planting at Pickering Barn",
+      "town": "Issaquah",
+      "hook": "Drop-in tree and shrub planting for families with kids 6 and under, run by Trout Unlimited and Green Issaquah.",
+      "tags": [
+        "seasonal",
+        "free",
+        "outdoor"
+      ],
+      "drive": "~20 min via I-90 W (Exit 15)",
+      "time_block": "Sat 10 AM–12 PM",
+      "cost": "Free",
+      "outing_length": "~1 hr",
+      "hours_detail": "Sat Nov 14 only, 10 AM–noon, Pickering Barn, 1730 10th Ave NW, Issaquah. Drop-in. The Fall Farm Fresh Market runs the same morning 9–2 at the Historic Shell Station, 232 Front St N.",
+      "hours_short": "Sat 10–12",
+      "why": "Built for this age: small kids plant and mulch with their parents, then you're done in about an hour. Pair it with the downtown Issaquah farm market and lunch before nap.",
+      "rain_backup": "Outdoors and likely muddy. If it's pouring, KidsQuest in Bellevue is 15 minutes away.",
+      "food_area": "Downtown Issaquah (Front St) and Gilman Blvd",
+      "suggested": {
+        "part": "Morning",
+        "duration": "~1 hr"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Drop-in; no registration listed. Next dates in the series are Mar 13 and Apr 15.",
+        "link": "https://www.visitissaquahwa.com/event/tots-and-trees/",
+        "link_label": "Tots and Trees (Visit Issaquah)"
+      },
+      "restaurants": [
+        {
+          "name": "Formula Brewing",
+          "known_for": "Issaquah brewery with a taproom, beer garden and kitchen (pizza, wings, salads, pretzels).",
+          "praise": "",
+          "kid_note": "Kids welcome inside and out (supervised). Open 11:30 daily; Sat to 10, Sun to 9.",
+          "is_treat": false,
+          "address": "1875 NW Poplar Way, Issaquah, WA 98027"
+        },
+        {
+          "name": "Levitate Gastropub",
+          "known_for": "Scratch-made modern American pub on Front St, open to all ages, with a kids' menu.",
+          "praise": "",
+          "kid_note": "Weekend brunch 10–2 with Nutella or PB&J crêpes for kids. About a 3-minute walk from the hatchery.",
+          "is_treat": false,
+          "address": "185 Front St N, Issaquah, WA 98027"
+        },
+        {
+          "name": "Flying Pie Pizzeria",
+          "known_for": "Locally owned pizzeria on Front St in downtown Issaquah.",
+          "praise": "",
+          "kid_note": "Easy shared pies after the creek.",
+          "is_treat": false,
+          "address": "30 Front St S, Issaquah, WA 98027"
+        },
+        {
+          "name": "Boehm’s Candies",
+          "known_for": "Issaquah chocolate and candy maker since 1942: hand-dipped chocolates, caramels and seasonal Halloween treats.",
+          "praise": "",
+          "kid_note": "A short drive up Gilman Blvd for a chocolate on the way home.",
+          "is_treat": true,
+          "address": "255 NE Gilman Blvd, Issaquah, WA 98027"
+        }
+      ],
+      "num": 2
+    },
+    {
+      "name": "Bel Arts Ballet: The Nutcracker Suite at Crossroads",
+      "town": "Bellevue (Crossroads)",
+      "hook": "Free short Nutcracker performance by student dancers on the Crossroads Bellevue Market Stage.",
+      "tags": [
+        "seasonal",
+        "free",
+        "rain-ok"
+      ],
+      "drive": "~30 min via I-90 W / I-405 N / NE 8th St",
+      "time_block": "Sat 5–5:30 PM",
+      "cost": "Free",
+      "outing_length": "~1 hr with dinner",
+      "hours_detail": "Sat Nov 14 only, 5 PM, Crossroads Bellevue Market Stage, 15600 NE 8th St. About 30 minutes.",
+      "hours_short": "Sat 5 PM",
+      "why": "A 30-minute show is about the right length for a 2- and 4-year-old, it's indoors, and it's after nap. Eat at the Crossroads food hall right next to the stage.",
+      "rain_backup": "Indoors.",
+      "food_area": "Crossroads Bellevue Public Market",
+      "suggested": {
+        "part": "Afternoon",
+        "duration": "~1 hr"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "One show only, Saturday at 5.",
+        "link": "https://belartsballet.org/communityshows/",
+        "link_label": "Bel Arts Ballet free shows"
+      },
+      "restaurants": [
+        {
+          "name": "Crossroads Public Market food stalls",
+          "known_for": "Food hall next to the stage: pizza (Papazzi), tacos (La Potranca), burgers (Crossroads Grill), ramen, Colombian and more.",
+          "praise": "",
+          "kid_note": "Everyone can pick something different; shared seating.",
+          "is_treat": false
+        },
+        {
+          "name": "Bellevue Brewing (Spring District)",
+          "known_for": "Spring District brewpub with upscale pub fare and a 2,500 sq ft outdoor beer garden.",
+          "praise": "",
+          "kid_note": "Kid friendly: under-21s allowed in the restaurant and patio (not the bar). Opens 11:30; Sat to 10, Sun to 9. 4 hrs free garage parking.",
+          "is_treat": false,
+          "address": "12190 NE District Way, Bellevue, WA 98005"
+        },
+        {
+          "name": "Papazzi Pizzeria (Crossroads)",
+          "known_for": "Pizza by the slice in the food hall.",
+          "praise": "",
+          "kid_note": "Fast and easy before or after the show.",
+          "is_treat": false
+        },
+        {
+          "name": "New York Cupcakes (Crossroads)",
+          "known_for": "Cupcakes in the food hall.",
+          "praise": "",
+          "kid_note": "Small treat after the show.",
+          "is_treat": true
+        },
+        {
+          "name": "Cold Stone Creamery (Crossroads)",
+          "known_for": "Ice cream in the food hall.",
+          "praise": "",
+          "kid_note": "Short walk from the stage.",
+          "is_treat": true
+        }
+      ],
+      "num": 3
+    },
+    {
+      "name": "Archaeology Family Day at the Burke Museum",
+      "town": "Seattle (U District)",
+      "hook": "Museum-wide family day: sort artifacts, identify animal bones, watch a stone-tool-making demonstration and talk with Burke archaeologists.",
+      "tags": [
+        "seasonal",
+        "rain-ok"
+      ],
+      "drive": "~40 min via I-90 W / I-5 N (or SR 520)",
+      "time_block": "Sun 10 AM–5 PM",
+      "cost": "Included with admission: adults $24, ages 4–14 $16, 3 and under free",
+      "outing_length": "~2 hrs",
+      "hours_detail": "Sun Nov 15 only, 10 AM–5 PM. Burke Museum, 4303 Memorial Way NE, Seattle. Last admission 4:30.",
+      "hours_short": "Sun 10–5",
+      "why": "Sunday looks like the wettest part of the weekend, and this is indoors with hands-on tables. The 2-year-old is free. Go at 10 and have lunch at the café before driving home for nap.",
+      "rain_backup": "Indoors.",
+      "food_area": "Burke Museum café / University Village",
+      "suggested": {
+        "part": "Morning",
+        "duration": "~2 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Sunday only. Last admission 4:30 PM.",
+        "link": "https://www.burkemuseum.org/calendar/archaeology-family-day",
+        "link_label": "Archaeology Family Day (Burke Museum)"
+      },
+      "restaurants": [
+        {
+          "name": "Off the Rez Café (at the Burke)",
+          "known_for": "Fry bread and Native-inspired dishes inside the museum.",
+          "praise": "",
+          "kid_note": "Open 10–5; eat-in or to-go. Easiest lunch without leaving.",
+          "is_treat": false
+        },
+        {
+          "name": "Din Tai Fung (University Village)",
+          "known_for": "Dumplings and noodles.",
+          "praise": "",
+          "kid_note": "Share noodles and buns; expect a wait on weekends.",
+          "is_treat": false
+        },
+        {
+          "name": "Molly Moon’s Homemade Ice Cream (University Village)",
+          "known_for": "Scratch-made scoops.",
+          "praise": "",
+          "kid_note": "Treat stop on the way back to the freeway.",
+          "is_treat": true
+        }
+      ],
+      "num": 4
+    },
+    {
+      "name": "Bellevue Downtown Ice Rink opening weekend + Inspiration Playground",
+      "town": "Bellevue (Downtown Park)",
+      "hook": "The covered seasonal ice rink opens for the season Nov 13, right next to Inspiration Playground in Downtown Park.",
+      "tags": [
+        "seasonal"
+      ],
+      "drive": "~30 min via I-90 W / I-405 N",
+      "time_block": "Sat 10 AM–11 PM, Sun 10 AM–10 PM",
+      "cost": "$22 per skater with skate rental (Fri–Sun); playground free",
+      "outing_length": "~1.5 hrs",
+      "hours_detail": "Opening weekend: Sat Nov 14 10 AM–11 PM, Sun Nov 15 10 AM–10 PM. Bellevue Downtown Park, near NE 1st St and 100th Ave NE. On Sunday 11 AM–1 PM WARM 106.9 has a photo backdrop at the rink.",
+      "hours_short": "Sat 10–11, Sun 10–10",
+      "why": "The rink is covered, so a short skate works even in showers. The 4-year-old can try it with a parent and the 2-year-old can watch or play at Inspiration Playground next door. Go after nap and eat downtown.",
+      "rain_backup": "The rink is covered; the playground is not.",
+      "food_area": "Downtown Bellevue",
+      "suggested": {
+        "part": "Afternoon",
+        "duration": "~1.5 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Buy tickets ahead; walk-up admission is limited. Tickets can't be refunded, only rescheduled.",
+        "link": "https://www.bellevueicerink.com/admission",
+        "link_label": "Ice rink tickets"
+      },
+      "restaurants": [
+        {
+          "name": "Bellevue Brewing (Spring District)",
+          "known_for": "Spring District brewpub with upscale pub fare and a 2,500 sq ft outdoor beer garden.",
+          "praise": "",
+          "kid_note": "Kid friendly: under-21s allowed in the restaurant and patio (not the bar). Opens 11:30; Sat to 10, Sun to 9. 4 hrs free garage parking.",
+          "is_treat": false,
+          "address": "12190 NE District Way, Bellevue, WA 98005"
+        },
+        {
+          "name": "Din Tai Fung (Lincoln Square)",
+          "rating": "4.4",
+          "reviews": "4,673",
+          "known_for": "Xiao long bao and Taiwanese-Chinese dumplings/noodles.",
+          "praise": "Consistent dumplings and efficient service.",
+          "kid_note": "Share noodles/buns; reserve or expect a wait — still worth it for a museum morning.",
+          "is_treat": false
+        },
+        {
+          "name": "Cielo Cocina Mexicana",
+          "rating": "4.4",
+          "reviews": "894",
+          "known_for": "Made-in-house Mexican plates, chips/salsa, and a lively patio near downtown Bellevue.",
+          "praise": "Carne asada, generous portions, and staff who are warm with kids.",
+          "kid_note": "Family sit-down with shareable plates.",
+          "is_treat": false
+        },
+        {
+          "name": "Molly Moon’s Homemade Ice Cream (downtown Bellevue)",
+          "rating": "4.4",
+          "reviews": "640",
+          "known_for": "Scratch-made scoops, seasonal flavors, and a pastry kitchen near Downtown Park / Inspiration Playground (steps from the museum orbit).",
+          "praise": "Chunky flavors, fresh cones, and friendly scoop staff.",
+          "kid_note": "Opens noon; a treat walk near Downtown Park.",
+          "is_treat": true
+        },
+        {
+          "name": "Yezi Coconut Dessert (Bellevue Square)",
+          "rating": "4.3",
+          "reviews": "94",
+          "known_for": "Asian coconut desserts, jar puddings, and not-too-sweet tropical treats inside Bellevue Square.",
+          "praise": "Refreshing coconut flavors, cute presentation, and lighter sweets kids share.",
+          "kid_note": "Walkable from Lincoln Square; good non-scoop dessert if littles want something different.",
+          "is_treat": true
+        }
+      ],
+      "num": 5
+    },
+    {
+      "name": "Northwest Railway Museum train ride (Saturdays in November)",
+      "town": "Snoqualmie / North Bend",
+      "hook": "Two-hour vintage train ride to the top of Snoqualmie Falls with a 30-minute stop at the Train Shed Exhibit Hall. Two Saturdays left before the Santa trains.",
+      "tags": [
+        "rain-ok"
+      ],
+      "drive": "~10 min to Snoqualmie Depot; ~15–20 min to North Bend Depot",
+      "time_block": "Sat only, North Bend 10:30 / 12:30 / 2:30, Snoqualmie 11 / 1 / 3",
+      "cost": "Up to $28 per ticket; everyone 2 and up needs one",
+      "outing_length": "~2 hrs",
+      "hours_detail": "Sat Nov 14 (also Nov 21). Departs North Bend Depot 10:30, 12:30, 2:30; Snoqualmie Depot 11:00, 1:00, 3:00. Ticket includes the Train Shed Exhibit Hall.",
+      "hours_short": "Sat trains from 10:30",
+      "why": "Close to home and runs rain or shine. The 10:30 North Bend or 11:00 Snoqualmie train is back before nap; the 3:00 Snoqualmie train works after nap.",
+      "rain_backup": "Runs rain or shine.",
+      "food_area": "Downtown Snoqualmie (SQ Depot) or downtown North Bend (NB Depot)",
+      "suggested": {
+        "part": "Morning",
+        "duration": "~2 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "No food or drinks on board except capped water; no pets.",
+        "hours_note": "Buy tickets ahead. Santa trains (North Pole Limited) start Nov 28.",
+        "link": "https://trainmuseum.org/visit/ride-the-train/",
+        "link_label": "Ride the Train (Northwest Railway Museum)"
+      },
+      "restaurants": [
+        {
+          "name": "Copperstone Family Spaghetti (downtown Snoqualmie, near SQ Depot)",
+          "rating": "4.4",
+          "reviews": "595",
+          "known_for": "Casual family Italian pasta/pizza.",
+          "praise": "Portions, kids’ options, and cozy booths.",
+          "kid_note": "Short walk from the Snoqualmie Depot; booths and kids' options.",
+          "is_treat": false
+        },
+        {
+          "name": "Snoqualmie Falls Brewery",
+          "known_for": "Small independent brewery since 1997 in historic downtown Snoqualmie, with a full kitchen and a kids' menu.",
+          "praise": "",
+          "kid_note": "Kids' menu (grilled cheese, Uncrustables, mac & cheese bites). Sit-down only, no play area. Sat noon–9, Sun noon–8.",
+          "is_treat": false,
+          "address": "8032 Falls Ave SE, Snoqualmie, WA 98065"
+        },
+        {
+          "name": "Sigillo Cellars (Snoqualmie)",
+          "known_for": "Family-run winery tasting room in downtown Snoqualmie with a full food menu (salads, flatbreads, shareable plates) and non-alcoholic drinks.",
+          "praise": "",
+          "kid_note": "Kids of any age welcome (they count toward the party size and stay seated with you). No play area. Sat noon–10, Sun noon–5.",
+          "is_treat": false,
+          "address": "8086 Railroad Ave SE, Snoqualmie, WA 98065"
+        },
+        {
+          "name": "South Fork (North Bend)",
+          "known_for": "Café, bar and beer garden off I-90 Exit 32 with a scratch kitchen, kids' menu, 20 PNW taps and espresso.",
+          "praise": "",
+          "kid_note": "Kids' play area, covered sandbox and open fields; heated covered tent if it rains. Open Sat–Sun 8 AM–9 PM, weekend brunch until 1. Walk-ins only.",
+          "is_treat": false,
+          "address": "14303 436th Ave SE, North Bend, WA 98045"
+        },
+        {
+          "name": "Snoqualmie Ice Cream (Historic Downtown SQ, near SQ Depot)",
+          "rating": "4.6",
+          "reviews": "344",
+          "known_for": "Local scoop-shop flavors (German Chocolate Cake, Mukilteo Mudd, honey lavender) at 8102 Railroad Ave SE — rebuilt/reopened after the 2024 fire.",
+          "praise": "Rich creamy scoops, friendly service, and shaded outdoor tables.",
+          "kid_note": "Opens around noon on weekends; an easy treat after the Snoqualmie return.",
+          "is_treat": true
+        }
+      ],
+      "num": 6
+    },
+    {
+      "name": "Swansons Nursery holiday model train",
+      "town": "Seattle (Crown Hill)",
+      "hook": "Swansons' handmade holiday model train is back, this year with a fairy-tale theme (Shrek, Rapunzel, Tiana and more), plus holiday decor around the nursery.",
+      "tags": [
+        "seasonal",
+        "free",
+        "rain-ok"
+      ],
+      "drive": "~45–50 min via I-90 W / I-5 N",
+      "time_block": "Daily 9 AM–6 PM",
+      "cost": "Free",
+      "outing_length": "~1 hr",
+      "hours_detail": "Train runs Nov 7, 2026–Jan 3, 2027. Nursery open 9–6 daily; café serves breakfast and lunch 9–4. 9701 15th Ave NW, Seattle.",
+      "hours_short": "9–6",
+      "why": "Free and mostly under cover, and train-themed for the 2- and 4-year-old. It's the longest drive on the list, so go Saturday morning and have lunch at the nursery café.",
+      "rain_backup": "The train display is under cover.",
+      "food_area": "Swansons café / Ballard",
+      "suggested": {
+        "part": "Morning",
+        "duration": "~1 hr"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "Pick up the free activity booklet at the train.",
+        "hours_note": "",
+        "link": "https://www.swansonsnursery.com/holiday-model-train",
+        "link_label": "Swansons holiday model train"
+      },
+      "restaurants": [
+        {
+          "name": "Swansons café (on site)",
+          "known_for": "Breakfast and lunch at the nursery.",
+          "praise": "",
+          "kid_note": "Serves 9–4; easiest lunch before the drive home.",
+          "is_treat": false
+        },
+        {
+          "name": "Stoup Brewing (Ballard)",
+          "known_for": "Brewery with a beer garden, fire pits and a daily food truck.",
+          "praise": "",
+          "kid_note": "Family-friendly in the main taproom and beer garden, per their site. Check their site for that day's truck.",
+          "is_treat": false
+        },
+        {
+          "name": "Molly Moon’s Homemade Ice Cream (Ballard)",
+          "known_for": "Scratch-made scoops.",
+          "praise": "",
+          "kid_note": "Treat before the drive home.",
+          "is_treat": true
+        }
+      ],
+      "num": 7
+    },
+    {
+      "name": "KidsQuest Children's Museum",
+      "town": "Bellevue",
+      "hook": "Hands-on children's museum with an atrium climber, pretend store, building area and art studio. Play with Paint Sat 10–12 and Weekend Playshops (building) Sat and Sun 2–4.",
+      "tags": [
+        "rain-ok"
+      ],
+      "drive": "~30 min via I-90 W / I-405 N",
+      "time_block": "Sat 9:30–5, Sun 11:30–5",
+      "cost": "$16.75 per person age 1+ (dynamic pricing); under 1 and members free",
+      "outing_length": "~2 hrs",
+      "hours_detail": "Museum calendar: Sat Nov 14 9:30 AM–5 PM, Sun Nov 15 11:30 AM–5 PM. 1116 108th Ave NE, Bellevue.",
+      "hours_short": "Sat 9:30–5, Sun 11:30–5",
+      "why": "The best rainy-day fallback this weekend, and both kids can play at their own level. Saturday morning lines up with Play with Paint; Sunday opens at 11:30, so an after-nap visit works better.",
+      "rain_backup": "Indoors.",
+      "food_area": "Downtown Bellevue",
+      "suggested": {
+        "part": "Either",
+        "duration": "~2 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "Eating is only allowed at the museum's snack spots.",
+        "hours_note": "Reserve a time slot online; reservations are non-refundable. The Nov 14 calendar shows a 5 PM close, while the general hours page lists Saturdays to 7.",
+        "link": "https://www.kidsquestmuseum.org/plan-your-visit/",
+        "link_label": "KidsQuest tickets"
+      },
+      "restaurants": [
+        {
+          "name": "Bellevue Brewing (Spring District)",
+          "known_for": "Spring District brewpub with upscale pub fare and a 2,500 sq ft outdoor beer garden.",
+          "praise": "",
+          "kid_note": "Kid friendly: under-21s allowed in the restaurant and patio (not the bar). Opens 11:30; Sat to 10, Sun to 9. 4 hrs free garage parking.",
+          "is_treat": false,
+          "address": "12190 NE District Way, Bellevue, WA 98005"
+        },
+        {
+          "name": "Din Tai Fung (Lincoln Square)",
+          "rating": "4.4",
+          "reviews": "4,673",
+          "known_for": "Xiao long bao and Taiwanese-Chinese dumplings/noodles.",
+          "praise": "Consistent dumplings and efficient service.",
+          "kid_note": "Share noodles/buns; reserve or expect a wait — still worth it for a museum morning.",
+          "is_treat": false
+        },
+        {
+          "name": "Cielo Cocina Mexicana",
+          "rating": "4.4",
+          "reviews": "894",
+          "known_for": "Made-in-house Mexican plates, chips/salsa, and a lively patio near downtown Bellevue.",
+          "praise": "Carne asada, generous portions, and staff who are warm with kids.",
+          "kid_note": "Family sit-down with shareable plates.",
+          "is_treat": false
+        },
+        {
+          "name": "Molly Moon’s Homemade Ice Cream (downtown Bellevue)",
+          "rating": "4.4",
+          "reviews": "640",
+          "known_for": "Scratch-made scoops, seasonal flavors, and a pastry kitchen near Downtown Park / Inspiration Playground (steps from the museum orbit).",
+          "praise": "Chunky flavors, fresh cones, and friendly scoop staff.",
+          "kid_note": "Opens noon; a treat walk near Downtown Park.",
+          "is_treat": true
+        },
+        {
+          "name": "Yezi Coconut Dessert (Bellevue Square)",
+          "rating": "4.3",
+          "reviews": "94",
+          "known_for": "Asian coconut desserts, jar puddings, and not-too-sweet tropical treats inside Bellevue Square.",
+          "praise": "Refreshing coconut flavors, cute presentation, and lighter sweets kids share.",
+          "kid_note": "Walkable from Lincoln Square; good non-scoop dessert if littles want something different.",
+          "is_treat": true
+        }
+      ],
+      "num": 8
+    },
+    {
+      "name": "Cougar Mountain Zoo",
+      "town": "Issaquah",
+      "hook": "Small hillside zoo on Cougar Mountain with a short, walkable loop. Last regular weekend before the Reindeer Festival starts Nov 28.",
+      "tags": [
+        "outdoor"
+      ],
+      "drive": "~25 min via I-90 W (Exit 13)",
+      "time_block": "Wed–Sun 9:30–5 (or dusk)",
+      "cost": "Adults $18, kids 3–12 $15, under 3 free",
+      "outing_length": "~1.5 hrs",
+      "hours_detail": "Open Wed–Sun 9:30 AM–5 PM, or dusk in winter. 19525 SE 54th St, Issaquah. Reindeer Festival runs Nov 28–Dec 23.",
+      "hours_short": "9:30–5 (or dusk)",
+      "why": "A quiet weekend before the holiday crowds. The loop is short enough for the 2-year-old. Saturday morning has the lowest rain chance of the weekend.",
+      "rain_backup": "Mostly outdoors; go Saturday morning if you go.",
+      "food_area": "Downtown Issaquah (Front St / Gilman Blvd)",
+      "suggested": {
+        "part": "Morning",
+        "duration": "~1.5 hrs"
+      },
+      "good_to_know": {
+        "parking": "",
+        "bring": "",
+        "hours_note": "Buying admission ahead is recommended. Children 15 and under must be with an adult.",
+        "link": "https://www.cougarmountainzoo.org/visit-the-zoo/",
+        "link_label": "Visit the zoo"
+      },
+      "restaurants": [
+        {
+          "name": "Levitate Gastropub",
+          "known_for": "Scratch-made modern American pub on Front St, open to all ages, with a kids' menu.",
+          "praise": "",
+          "kid_note": "Weekend brunch 10–2 with Nutella or PB&J crêpes for kids. About a 3-minute walk from the hatchery.",
+          "is_treat": false,
+          "address": "185 Front St N, Issaquah, WA 98027"
+        },
+        {
+          "name": "Formula Brewing",
+          "known_for": "Issaquah brewery with a taproom, beer garden and kitchen (pizza, wings, salads, pretzels).",
+          "praise": "",
+          "kid_note": "Kids welcome inside and out (supervised). Open 11:30 daily; Sat to 10, Sun to 9.",
+          "is_treat": false,
+          "address": "1875 NW Poplar Way, Issaquah, WA 98027"
+        },
+        {
+          "name": "Flying Pie Pizzeria",
+          "known_for": "Locally owned pizzeria on Front St in downtown Issaquah.",
+          "praise": "",
+          "kid_note": "Easy shared pies after the creek.",
+          "is_treat": false,
+          "address": "30 Front St S, Issaquah, WA 98027"
+        },
+        {
+          "name": "Boehm’s Candies",
+          "known_for": "Issaquah chocolate and candy maker since 1942: hand-dipped chocolates, caramels and seasonal Halloween treats.",
+          "praise": "",
+          "kid_note": "A short drive up Gilman Blvd for a chocolate on the way home.",
+          "is_treat": true,
+          "address": "255 NE Gilman Blvd, Issaquah, WA 98027"
+        }
+      ],
+      "num": 9
+    },
+    {
+      "name": "Rattlesnake Lake loop",
+      "town": "North Bend (Cedar Falls Rd)",
+      "hook": "Easy paved and packed-gravel trail along the lake below Rattlesnake Ledge, with mountain views.",
+      "tags": [
+        "free",
+        "outdoor"
+      ],
+      "drive": "~20 min via I-90 E (Exit 32)",
+      "time_block": "Dawn to dusk",
+      "cost": "Free; parking free",
+      "outing_length": "~1 hr",
+      "hours_detail": "Open dawn to dusk year-round. 3/4-mile very easy trail from the lake to the Cedar River Watershed Education Center. Skip the Ledge trail with little kids.",
+      "hours_short": "Dawn–dusk",
+      "why": "A short, flat walk with big views, 20 minutes from home. Good for a Saturday morning between showers, then lunch at South Fork in North Bend.",
+      "rain_backup": "Outdoors with no cover. On a wet morning, swap for the train or KidsQuest.",
+      "food_area": "North Bend / Exit 31–32",
+      "suggested": {
+        "part": "Morning",
+        "duration": "~1 hr"
+      },
+      "good_to_know": {
+        "parking": "Parking is free but fills on weekends.",
+        "bring": "No drinking water at the lake.",
+        "hours_note": "",
+        "link": "https://seattle.gov/utilities/protecting-our-environment/our-water-sources/cedar-river-watershed/recreation-areas-and-trails",
+        "link_label": "Rattlesnake Lake (Seattle Public Utilities)"
+      },
+      "restaurants": [
+        {
+          "name": "South Fork (North Bend)",
+          "known_for": "Café, bar and beer garden off I-90 Exit 32 with a scratch kitchen, kids' menu, 20 PNW taps and espresso.",
+          "praise": "",
+          "kid_note": "Kids' play area, covered sandbox and open fields; heated covered tent if it rains. Open Sat–Sun 8 AM–9 PM, weekend brunch until 1. Walk-ins only.",
+          "is_treat": false,
+          "address": "14303 436th Ave SE, North Bend, WA 98045"
+        },
+        {
+          "name": "Twede’s Cafe",
+          "rating": "4.4",
+          "reviews": "3,085",
+          "known_for": "The Twin Peaks “Double R” diner for cherry pie, coffee, and huge breakfasts.",
+          "praise": "Massive portions, friendly staff, and the pie/coffee combo.",
+          "kid_note": "Booths + all-day breakfast make a messy post-falls rewind easy; pie doubles as the dessert backup.",
+          "is_treat": false
+        },
+        {
+          "name": "Cascadia Pizza Co.",
+          "rating": "4.9",
+          "reviews": "460",
+          "known_for": "Handmade thin-crust pies from a downtown trailer.",
+          "praise": "Blistered crust, fresh toppings, and ~8-minute cook times.",
+          "kid_note": "Pickup + eat in the car or at a nearby table — fastest hot food after Exit 38.",
+          "is_treat": false
+        },
+        {
+          "name": "Scott’s Dairy Freeze",
+          "rating": "4.3",
+          "reviews": "1,416",
+          "known_for": "Classic soft-serve cones, shakes/malts, burgers, and fries on E North Bend Way.",
+          "praise": "Thick shakes, onion rings, and old-school soft-serve after I-90 adventures.",
+          "kid_note": "Soft-serve is the bribe that gets muddy boots back in the car.",
+          "is_treat": true
+        },
+        {
+          "name": "Friends & Co Ice Cream",
+          "rating": "4.7",
+          "reviews": "100",
+          "known_for": "Creamy local scoops, seasonal flavors (lavender honey, mountain huckleberry), and a bright downtown shop.",
+          "praise": "Unique flavors, friendly staff, and indoor seating.",
+          "kid_note": "Indoor scoops if Scott's line is long or it's raining; Sat opens noon.",
+          "is_treat": true
+        }
+      ],
+      "num": 10
+    }
+  ],
+  "nap_conflicts": [
+    "Train: the 12:30 North Bend and 1:00 Snoqualmie departures run through nap; take the 10:30/11:00 or the 3:00 Snoqualmie train.",
+    "KidsQuest Weekend Playshops (2–4) and the Holiday Open House's 11–6 window overlap nap; go after 3."
+  ],
+  "filler_bank": [
+    "Free holiday mini photo sessions at Snoqualmie Point Park (Sun Nov 15, 2–5 PM; hosted by a local realtor; spots limited, cider and snacks; Sunday looks rainy)",
+    "Seattle Japanese Garden Family Saturday (Sat Nov 14, 10–2; free for kids 12 and under)",
+    "Bellevue Youth Theatre 'Horizon Line' (Sat Nov 14 at 6 PM sensory-friendly, Sun at 2; $15; recommended for elementary and up)",
+    "Kirkland Turkey Trot Lil' Gobbler Run (Sun Nov 15, 9:05 AM, Juanita Beach Park; registration)",
+    "Coming up: Santa trains and Cougar Mountain Zoo Reindeer Festival from Nov 28; Snowflake Lane from Nov 27; Garden d'Lights from Nov 28; Snoqualmie Winter Market Dec 5"
+  ],
+  "weather_blocks": {
+    "location": "Snoqualmie, WA 98065",
+    "lat": 47.53,
+    "lon": -121.87,
+    "timezone": "America/Los_Angeles",
+    "source": "Open-Meteo",
+    "weekend": "2026-11-14",
+    "updated": "2026-11-11T20:00-08:00",
+    "updated_label": "Wed Nov 11, 8 PM PT",
+    "windows": {
+      "morning": "9 AM–12 PM",
+      "afternoon": "3–7 PM"
+    },
+    "days": [
+      {
+        "date": "2026-11-14",
+        "day": "Saturday",
+        "short": "Sat",
+        "blocks": [
+          {
+            "key": "morning",
+            "label": "Morning",
+            "window": "9 AM–12 PM",
+            "emoji": "🌦️",
+            "condition": "Showers",
+            "temp_low": 49,
+            "temp_high": 54,
+            "temp_range": "49–54°F",
+            "temp_avg": 51.3,
+            "rain_pct": 39,
+            "precip_in": 0.0,
+            "wind_max_mph": 5
+          },
+          {
+            "key": "afternoon",
+            "label": "Afternoon",
+            "window": "3–7 PM",
+            "emoji": "🌦️",
+            "condition": "Showers",
+            "temp_low": 48,
+            "temp_high": 51,
+            "temp_range": "48–51°F",
+            "temp_avg": 49.2,
+            "rain_pct": 51,
+            "precip_in": 0.06,
+            "wind_max_mph": 5
+          }
+        ]
+      },
+      {
+        "date": "2026-11-15",
+        "day": "Sunday",
+        "short": "Sun",
+        "blocks": [
+          {
+            "key": "morning",
+            "label": "Morning",
+            "window": "9 AM–12 PM",
+            "emoji": "🌧️",
+            "condition": "Rainy",
+            "temp_low": 48,
+            "temp_high": 49,
+            "temp_range": "48–49°F",
+            "temp_avg": 48.0,
+            "rain_pct": 96,
+            "precip_in": 0.24,
+            "wind_max_mph": 3
+          },
+          {
+            "key": "afternoon",
+            "label": "Afternoon",
+            "window": "3–7 PM",
+            "emoji": "🌦️",
+            "condition": "Showers",
+            "temp_low": 45,
+            "temp_high": 48,
+            "temp_range": "45–48°F",
+            "temp_avg": 46.8,
+            "rain_pct": 92,
+            "precip_in": 0.03,
+            "wind_max_mph": 4
+          }
+        ]
+      }
+    ]
+  }
+}
